@@ -8,6 +8,7 @@ import {
 } from './components';
 
 import {PlatformsService, InboxItemsService} from './services';
+//import {InboxItemsService} from './services';
 import {InboxItemListingModule} from './listing/listing.module';
 import {InboxItemDetailModule} from './detail/detail.module';
 import {PlatformsEffects, InboxItemListingEffects} from '../inbox-items/store/effects';

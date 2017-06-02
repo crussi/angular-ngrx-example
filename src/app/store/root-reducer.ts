@@ -5,11 +5,13 @@ import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 
 import {platformsReducer, videoGameListingReducer} from '../video-games/store/reducers';
+import {inboxItemListingReducer} from '../inbox-items/store/reducers';
 
 const reducers = {
   platforms: platformsReducer,
   router: routerReducer,
-  videoGameListing: videoGameListingReducer
+  videoGameListing: videoGameListingReducer,
+  inboxItemListing: inboxItemListingReducer
 };
 
 const localStorageState = {

@@ -5,4 +5,5 @@ export function createDefaultInboxItemFilters(): IInboxItemFilters {
     platform: null,
     favorites: false
   };
+ 
 }

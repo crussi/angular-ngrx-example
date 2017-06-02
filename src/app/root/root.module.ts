@@ -8,6 +8,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStoreModule} from '@ngrx/router-store';
 
 import {VideoGamesModule} from '../video-games/video-games.module';
+import {InboxItemsModule} from '../inbox-items/inbox-items.module';
 
 import {rootRoutes} from './root.routes';
 import {rootReducer} from '../store/root-reducer';
@@ -15,6 +16,7 @@ import {rootReducer} from '../store/root-reducer';
 import {RootComponent} from './components';
 
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
+import {InboxItemListingStore} from '../inbox-items/store/stores';
 import {ApiService} from './services';
 
 @NgModule({
@@ -26,7 +28,8 @@ import {ApiService} from './services';
     StoreModule.provideStore(rootReducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    VideoGamesModule
+    VideoGamesModule,
+    InboxItemsModule
   ],
   declarations: [
     RootComponent
@@ -34,7 +37,8 @@ import {ApiService} from './services';
   providers: [
     ApiService,
     PlatformsStore,
-    VideoGameListingStore
+    VideoGameListingStore,
+    InboxItemListingStore
   ],
   bootstrap: [RootComponent]
 })
