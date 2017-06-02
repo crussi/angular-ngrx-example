@@ -1,4 +1,4 @@
 export interface IInboxItemFilters {
-  platform: string;
+  user: string;
   favorites: boolean;
 }

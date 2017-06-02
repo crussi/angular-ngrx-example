@@ -40,12 +40,12 @@ export function inboxItemListingReducer(
         ...state,
         searchQuery: action.payload.query
       };
-    case InboxItemListingStore.FILTER_PLATFORM:
+    case InboxItemListingStore.FILTER_USER:
       return {
         ...state,
         filters: {
           ...state.filters,
-          platform: action.payload.platform
+          user: action.payload.user
         }
       };
     case InboxItemListingStore.TOGGLE_FAVORITE_FILTER:

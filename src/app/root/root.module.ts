@@ -16,7 +16,7 @@ import {rootReducer} from '../store/root-reducer';
 import {RootComponent} from './components';
 
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
-import {InboxItemListingStore} from '../inbox-items/store/stores';
+import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
 import {ApiService} from './services';
 
 @NgModule({
@@ -37,6 +37,7 @@ import {ApiService} from './services';
   providers: [
     ApiService,
     PlatformsStore,
+    UsersStore,
     VideoGameListingStore,
     InboxItemListingStore
   ],

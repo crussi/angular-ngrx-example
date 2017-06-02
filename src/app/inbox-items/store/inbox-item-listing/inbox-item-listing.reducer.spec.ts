@@ -86,15 +86,15 @@ describe('inboxItemListingReducer(inboxItemListing, searchAction)', () => {
   });
 });
 
-describe('inboxItemListingReducer(inboxItemListing, filterPlatformAction)', () => {
+describe('inboxItemListingReducer(inboxItemListing, filterUserAction)', () => {
   const inboxItemListing = createDefaultInboxItemListing();
-  const filterPlatformAction = createAction(InboxItemListingStore.FILTER_PLATFORM, {
-    platform: 'Nintendo Switch'
+  const filterUserAction = createAction(InboxItemListingStore.FILTER_USER, {
+    user: 'Nintendo Switch'
   });
 
   it('set the search query', () => {
-    const newInboxItemListing = inboxItemListingReducer(inboxItemListing, filterPlatformAction);
-    expect(newInboxItemListing.filters.platform).toEqual('Nintendo Switch');
+    const newInboxItemListing = inboxItemListingReducer(inboxItemListing, filterUserAction);
+    expect(newInboxItemListing.filters.user).toEqual('Nintendo Switch');
   });
 });
 

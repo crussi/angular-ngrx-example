@@ -1,11 +1,9 @@
 <app-loading-container [loadable]="inboxItemListingStore.getInboxItemListing() | async">
   <header>
     <app-inbox-item-search (queryChanged)="search($event)"></app-inbox-item-search>
-    <!--<app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
-                            [platforms]="(platformsStore.getPlatforms() | async).list"
-                            (platformFilterChanged)="filterPlatform($event)"
-                            (favoritesFilterChanged)="filterFavorites()">-->
     <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
+                            [users]="(usersStore.getUsers() | async).list"
+                            (userFilterChanged)="filterUser($event)"
                             (favoritesFilterChanged)="filterFavorites()">
     </app-inbox-item-filters>
   </header>

@@ -2,7 +2,7 @@ import { createDefaultInboxItemFilters, IInboxItemFilters } from '../inbox-item-
 import { IInboxItem } from './inbox-item.interface';
 import {
   inboxItemMatchesFavoritesFilter,
-  inboxItemMatchesPlatformFilter,
+  inboxItemMatchesUserFilter,
   inboxItemMatchesSearchQuery
 } from './inbox-item.functions';
 
@@ -14,7 +14,7 @@ describe('with Super Mario Odyssey', () => {
       id: '1',
       title: 'Super Mario Odyssey',
       description: 'description',
-      platform: 'Nintendo Switch',
+      user: 'Nintendo Switch',
       youtubeUrl: 'youtube.com',
       favorite: false,
     };
@@ -48,45 +48,45 @@ describe('with Super Mario Odyssey', () => {
     });
   });
 
-  describe('inboxItemMatchesPlatformFilter(superMarioOdyssey, nintendoSwitch)', () => {
+  describe('inboxItemMatchesUserFilter(superMarioOdyssey, nintendoSwitch)', () => {
     it('returns true', () => {
       const nintendoSwitch: IInboxItemFilters = {
         ...createDefaultInboxItemFilters(),
-        platform: 'Nintendo Switch',
+        user: 'Nintendo Switch',
       };
 
-      const isMatched = inboxItemMatchesPlatformFilter(superMarioOdyssey, nintendoSwitch);
+      const isMatched = inboxItemMatchesUserFilter(superMarioOdyssey, nintendoSwitch);
       expect(isMatched).toEqual(true);
     });
   });
 
-  describe('inboxItemMatchesPlatformFilter(superMarioOdyssey, nintendoSwitch)', () => {
+  describe('inboxItemMatchesUserFilter(superMarioOdyssey, nintendoSwitch)', () => {
     it('returns true', () => {
       const nintendoSwitch: IInboxItemFilters = {
         ...createDefaultInboxItemFilters(),
-        platform: 'Nintendo Switch',
+        user: 'Nintendo Switch',
       };
 
-      const isMatched = inboxItemMatchesPlatformFilter(superMarioOdyssey, nintendoSwitch);
+      const isMatched = inboxItemMatchesUserFilter(superMarioOdyssey, nintendoSwitch);
       expect(isMatched).toEqual(true);
     });
   });
 
-  describe('inboxItemMatchesPlatformFilter(superMarioOdyssey, pc)', () => {
+  describe('inboxItemMatchesUserFilter(superMarioOdyssey, pc)', () => {
     it('returns false', () => {
       const pc: IInboxItemFilters = {
         ...createDefaultInboxItemFilters(),
-        platform: 'PC',
+        user: 'PC',
       };
 
-      const isMatched = inboxItemMatchesPlatformFilter(superMarioOdyssey, pc);
+      const isMatched = inboxItemMatchesUserFilter(superMarioOdyssey, pc);
       expect(isMatched).toEqual(false);
     });
   });
 
-  describe('inboxItemMatchesPlatformFilter(superMarioOdyssey, falsy)', () => {
+  describe('inboxItemMatchesUserFilter(superMarioOdyssey, falsy)', () => {
     it('returns true', () => {
-      const isMatched = inboxItemMatchesPlatformFilter(superMarioOdyssey, null);
+      const isMatched = inboxItemMatchesUserFilter(superMarioOdyssey, null);
       expect(isMatched).toEqual(true);
     });
   });
@@ -160,14 +160,14 @@ describe('when the game is falsy', () => {
     });
   });
 
-  describe('inboxItemMatchesPlatformFilter(falsy, "Nintendo Switch")', () => {
+  describe('inboxItemMatchesUserFilter(falsy, "Nintendo Switch")', () => {
     const nintendoSwitch: IInboxItemFilters = {
       ...createDefaultInboxItemFilters(),
-      platform: 'Nintendo Switch'
+      user: 'Nintendo Switch'
     };
 
     it('returns false', () => {
-      const isMatched = inboxItemMatchesPlatformFilter(null, nintendoSwitch);
+      const isMatched = inboxItemMatchesUserFilter(null, nintendoSwitch);
       expect(isMatched).toEqual(false);
     });
   });

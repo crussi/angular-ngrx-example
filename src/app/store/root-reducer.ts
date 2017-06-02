@@ -5,10 +5,11 @@ import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 
 import {platformsReducer, videoGameListingReducer} from '../video-games/store/reducers';
-import {inboxItemListingReducer} from '../inbox-items/store/reducers';
+import {usersReducer, inboxItemListingReducer} from '../inbox-items/store/reducers';
 
 const reducers = {
   platforms: platformsReducer,
+  users: usersReducer,
   router: routerReducer,
   videoGameListing: videoGameListingReducer,
   inboxItemListing: inboxItemListingReducer

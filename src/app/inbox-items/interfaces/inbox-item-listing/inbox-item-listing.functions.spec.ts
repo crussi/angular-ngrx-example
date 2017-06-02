@@ -46,7 +46,7 @@ describe('when there is a list of 3 unsorted video games', () => {
   });
 });
 
-describe('when there is a list of games from different platforms', () => {
+describe('when there is a list of games from different users', () => {
   const inboxItemListing: IInboxItemListing = {
     ...createDefaultInboxItemListing(),
     inboxItems: [
@@ -55,18 +55,18 @@ describe('when there is a list of games from different platforms', () => {
     ],
     filters: {
       ...createDefaultInboxItemFilters(),
-      platform: 'PC'
+      user: 'PC'
     }
   };
 
-  it('should return a list that matches the specified platform only', () => {
+  it('should return a list that matches the specified user only', () => {
     const inboxItems = getInboxItems(inboxItemListing);
     expect(inboxItems.length).toEqual(1);
     expect(inboxItems[0].id).toEqual('2');
   });
 });
 
-describe('when there is a list of games from different platforms', () => {
+describe('when there is a list of games from different users', () => {
   const inboxItemListing: IInboxItemListing = {
     ...createDefaultInboxItemListing(),
     inboxItems: [
@@ -75,11 +75,11 @@ describe('when there is a list of games from different platforms', () => {
     ],
     filters: {
       ...createDefaultInboxItemFilters(),
-      platform: 'PC'
+      user: 'PC'
     }
   };
 
-  it('should return a list that matches the specified platform only', () => {
+  it('should return a list that matches the specified user only', () => {
     const inboxItems = getInboxItems(inboxItemListing);
     expect(inboxItems.length).toEqual(1);
     expect(inboxItems[0].id).toEqual('2');

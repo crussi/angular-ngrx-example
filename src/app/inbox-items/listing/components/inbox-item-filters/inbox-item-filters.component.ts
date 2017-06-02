@@ -13,10 +13,10 @@ export class InboxItemFiltersComponent {
   public filters: IInboxItemFilters;
 
   @Input()
-  public platforms: Array<string>;
+  public users: Array<string>;
 
   @Output()
-  public platformFilterChanged = new EventEmitter<string>();
+  public userFilterChanged = new EventEmitter<string>();
 
   @Output()
   public favoritesFilterChanged = new EventEmitter<boolean>();

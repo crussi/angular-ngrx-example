@@ -7,11 +7,11 @@ import {
   InboxItemsContainerComponent
 } from './components';
 
-import {PlatformsService, InboxItemsService} from './services';
+import {UsersService, InboxItemsService} from './services';
 //import {InboxItemsService} from './services';
 import {InboxItemListingModule} from './listing/listing.module';
 import {InboxItemDetailModule} from './detail/detail.module';
-import {PlatformsEffects, InboxItemListingEffects} from '../inbox-items/store/effects';
+import {UsersEffects, InboxItemListingEffects} from '../inbox-items/store/effects';
 
 @NgModule({
   imports: [
@@ -19,14 +19,14 @@ import {PlatformsEffects, InboxItemListingEffects} from '../inbox-items/store/ef
     RouterModule,
     InboxItemListingModule,
     InboxItemDetailModule,
-    EffectsModule.run(PlatformsEffects),
+    EffectsModule.run(UsersEffects),
     EffectsModule.run(InboxItemListingEffects),
   ],
   declarations: [
     InboxItemsContainerComponent
   ],
   providers: [
-    PlatformsService,
+    UsersService,
     InboxItemsService
   ]
 })

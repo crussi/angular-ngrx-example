@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {PlatformsStore} from '../../store/platforms/platforms.store';
+import {UsersStore} from '../../store/users/users.store';
 import {InboxItemListingStore} from '../../store/inbox-item-listing/inbox-item-listing.store';
 
 @Component({
@@ -11,10 +11,10 @@ import {InboxItemListingStore} from '../../store/inbox-item-listing/inbox-item-l
 export class InboxItemsContainerComponent {
 
   constructor(
-    private platformsStore: PlatformsStore,
+    private usersStore: UsersStore,
     private inboxItemListingStore: InboxItemListingStore
   ) {
-    this.platformsStore.retrieve();
+    this.usersStore.retrieve();
     this.inboxItemListingStore.retrieve();
   }
 

@@ -20,7 +20,7 @@ export class InboxItemListingStore {
   public static RETRIEVE_SUCCESS = 'INBOX_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR = 'INBOX_ITEM_LISTING_RETRIEVE_ERROR';
   public static SEARCH = 'INBOX_ITEM_LISTING_SEARCH';
-  public static FILTER_PLATFORM = 'INBOX_ITEM_LISTING_FILTER_PLATFORM';
+  public static FILTER_USER = 'INBOX_ITEM_LISTING_FILTER_USER';
   public static TOGGLE_FAVORITE_FILTER = 'INBOX_ITEM_LISTING_FILTER_FAVORITES';
   public static TOGGLE_FAVORITE = 'INBOX_ITEM_TOGGLE_FAVORITE';
 
@@ -53,8 +53,8 @@ export class InboxItemListingStore {
     this.store.dispatch(createAction(InboxItemListingStore.SEARCH, {query}));
   }
 
-  public filterPlatform(platform: string) {
-    this.store.dispatch(createAction(InboxItemListingStore.FILTER_PLATFORM, {platform}));
+  public filterUser(user: string) {
+    this.store.dispatch(createAction(InboxItemListingStore.FILTER_USER, {user}));
   }
 
   public toggleFavoriteFilter() {

@@ -4,13 +4,13 @@ import { IInboxItemFilters } from '../inbox-item-listing';
 export function createInboxItem(
   id: string,
   title: string,
-  platform?: string,
+  user?: string,
   description?: string,
   youtubeUrl?: string,
   imageUrl?: string,
   favorite = false,
 ) {
-  return {id, title, platform, description, youtubeUrl, imageUrl, favorite};
+  return {id, title, user, description, youtubeUrl, imageUrl, favorite};
 }
 
 function textMatchesSearchQuery(text: string, searchQuery: string) {
@@ -30,13 +30,13 @@ export function inboxItemMatchesSearchQuery(inboxItem: IInboxItem, searchQuery: 
     true;
 }
 
-export function inboxItemMatchesPlatformFilter(inboxItem: IInboxItem, filters: IInboxItemFilters) {
+export function inboxItemMatchesUserFilter(inboxItem: IInboxItem, filters: IInboxItemFilters) {
   if (!Boolean(inboxItem)) {
     return false;
   }
 
-  return Boolean(filters) && Boolean(filters.platform) ?
-    inboxItem.platform === filters.platform :
+  return Boolean(filters) && Boolean(filters.user) ?
+    inboxItem.user === filters.user :
     true;
 }
 

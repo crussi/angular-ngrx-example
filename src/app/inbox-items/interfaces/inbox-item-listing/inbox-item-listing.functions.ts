@@ -2,7 +2,7 @@ import { IInboxItemListing } from './inbox-item-listing.interface';
 import { createDefaultInboxItemFilters } from './inbox-item-filters.functions';
 import {
   inboxItemMatchesFavoritesFilter,
-  inboxItemMatchesPlatformFilter,
+  inboxItemMatchesUserFilter,
   inboxItemMatchesSearchQuery
 } from '../inbox-item';
 
@@ -19,7 +19,7 @@ export function createDefaultInboxItemListing(): IInboxItemListing {
 function getFilteredInboxItems(inboxItemListing: IInboxItemListing) {
   return inboxItemListing.inboxItems
     .filter(inboxItem => inboxItemMatchesSearchQuery(inboxItem, inboxItemListing.searchQuery))
-    .filter(inboxItem => inboxItemMatchesPlatformFilter(inboxItem, inboxItemListing.filters))
+    .filter(inboxItem => inboxItemMatchesUserFilter(inboxItem, inboxItemListing.filters))
     .filter(inboxItem => inboxItemMatchesFavoritesFilter(inboxItem, inboxItemListing.filters));
 }
 
