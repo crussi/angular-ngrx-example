@@ -9,6 +9,8 @@ import {RouterStoreModule} from '@ngrx/router-store';
 
 import {VideoGamesModule} from '../video-games/video-games.module';
 import {InboxItemsModule} from '../inbox-items/inbox-items.module';
+import {WizardBeginModule} from '../wizard-begin/wizard-begin.module';
+import {SharedModule} from '../shared/shared.module';
 
 import {rootRoutes} from './root.routes';
 import {rootReducer} from '../store/root-reducer';
@@ -29,7 +31,10 @@ import {ApiService} from './services';
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     VideoGamesModule,
-    InboxItemsModule
+    InboxItemsModule,
+    WizardBeginModule,
+    SharedModule
+
   ],
   declarations: [
     RootComponent
