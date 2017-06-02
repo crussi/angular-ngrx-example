@@ -1,0 +1,13 @@
+<app-loading-container [loadable]="inboxItemListingStore.getInboxItemListing() | async">
+  <header>
+    <app-inbox-item-search (queryChanged)="search($event)"></app-inbox-item-search>
+    <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
+                            [platforms]="(platformsStore.getPlatforms() | async).list"
+                            (platformFilterChanged)="filterPlatform($event)"
+                            (favoritesFilterChanged)="filterFavorites()">
+    </app-inbox-item-filters>
+  </header>
+
+  <app-inbox-item-listing [inboxItems]="inboxItemListingStore.getInboxItems() | async">
+  </app-inbox-item-listing>
+</app-loading-container>
