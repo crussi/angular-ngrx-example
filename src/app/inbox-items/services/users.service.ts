@@ -11,7 +11,8 @@ export class UsersService {
   }
 
   public getAll(): Observable<Array<string>> {
-    return this.apiService.get('/5895c55a290000a31a3f4356');
+    //return this.apiService.get('/5895c55a290000a31a3f4356');
+    return this.apiService.get('/5931d80a0f000080085bfbb0');
   }
 
 }

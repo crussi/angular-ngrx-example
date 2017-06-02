@@ -4,7 +4,7 @@
     <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
                             [users]="(usersStore.getUsers() | async).list"
                             (userFilterChanged)="filterUser($event)"
-                            (favoritesFilterChanged)="filterFavorites()">
+                            >
     </app-inbox-item-filters>
   </header>
 
