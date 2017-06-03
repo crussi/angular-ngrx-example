@@ -1,1 +1,1 @@
-//export * from './wizard-begin/wizard-begin.store';
+export * from './steps-begin/steps-begin.store';
