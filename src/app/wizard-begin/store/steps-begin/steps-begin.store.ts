@@ -12,17 +12,26 @@ export class StepsBeginStore {
   public static RETRIEVE = 'STEPS_BEGIN_RETRIEVE';
   public static RETRIEVE_SUCCESS = 'STEPS_BEGIN_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR = 'STEPS_BEGIN_RETRIEVE_ERROR';
+  public static STATECHANGED = 'STEPS_BEGIN_STATECHANGED';
 
   constructor(private store: Store<IAppState>) {
 
   }
 
+  // public getInboxItem(id: string): Observable<IInboxItem> {
+  //   return this.getInboxItemListing()
+  //     .map(inboxItemListing => getInboxItem(inboxItemListing, id));
+  // }
   public getSteps(): Observable<ISteps> {
     return this.store.select(appState => appState.stepsBegin);
   }
 
   public retrieve() {
     this.store.dispatch(createAction(StepsBeginStore.RETRIEVE));
+  }
+
+  public stateChanged() {
+    this.store.dispatch(createAction(StepsBeginStore.STATECHANGED));
   }
 
 }

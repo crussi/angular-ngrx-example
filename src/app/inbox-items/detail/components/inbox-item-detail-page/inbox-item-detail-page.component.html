@@ -1,2 +1,6 @@
-<app-inbox-item-detail [inboxItem]="inboxItem$ | async">
-</app-inbox-item-detail>
+<!--<app-inbox-item-detail [inboxItem]="inboxItem$ | async">
+</app-inbox-item-detail>-->
+<div class="ad-banner">
+    <h3 *ngIf="displayDesc">{{Description}}</h3>
+    <ng-template wizard-host></ng-template>                
+</div>

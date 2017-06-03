@@ -13,7 +13,7 @@ export class StepsBeginEffects {
   private retrieve$ = this.actions$
     .ofType(StepsBeginStore.RETRIEVE)
     .mergeMap(() => this.stepsBeginService.getAll()
-      .map(step => createAction(StepsBeginStore.RETRIEVE_SUCCESS, { step }))
+      .map(steps => createAction(StepsBeginStore.RETRIEVE_SUCCESS, { steps }))
       .catch(error => Observable.of(createAction(StepsBeginStore.RETRIEVE_ERROR, { error })))
     );
 

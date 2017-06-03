@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {ApiService} from '../../root/services/api/api.service';
-import {StepState, StepEnum} from '../../shared/barrel';
+import {Step, StepState, StepEnum, StepSettings, StepOptions} from '../../shared/barrel';
+import {YesNo} from '../components/yesno/yesno.component';
+
 @Injectable()
 export class StepsBeginService {
 
@@ -10,8 +12,31 @@ export class StepsBeginService {
 
   }
 
-  public getAll(): Observable<Array<string>> {
-    return this.apiService.get('/593307ae1300000006fa0b59');
+  public getAll(): Observable<Array<Step>> {
+    //actual
+    //return this.apiService.get('/593307ae1300000006fa0b59');
+    return Observable.of(
+        [
+        new Step(YesNo,
+        new StepSettings(
+        StepEnum.IsActionable,
+        "",
+        "Is this actionable?",
+        "",
+        new StepOptions(
+        StepEnum.IsProject, 
+        StepEnum.NonActionable,
+        undefined, 
+        undefined, 
+        undefined, 
+        undefined)
+        )
+        )
+        ]        
+    )
+    //strings
+    //console.log('inside StepsBeginService getAll()');
+    //return this.apiService.get('/59332e19130000510afa0b66');
   }
 
   getStepStates() {
