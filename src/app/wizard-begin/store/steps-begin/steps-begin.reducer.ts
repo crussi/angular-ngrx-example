@@ -30,7 +30,7 @@ export function stepsBeginReducer(state: ISteps, action: Action): ISteps {
         loadingError: action.payload.error
       };
     case StepsBeginStore.STATECHANGED:
-    console.log('steps-begin.reducer StepsBeginStore.STATECHANGED');
+    console.log('steps-begin.reducer StepsBeginStore.STATECHANGED',action.payload);
       return state;
     default:
       return state;

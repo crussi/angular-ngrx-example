@@ -9,6 +9,7 @@ import {StepsBeginService} from './services';
 //import {VideoGameListingModule} from './listing/listing.module';
 //import {VideoGameDetailModule} from './detail/detail.module';
 import {StepsBeginEffects} from './store/effects';
+import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import {StepsBeginEffects} from './store/effects';
   ],
   declarations: [
     //VideoGamesContainerComponent
-  ],
+  WizardBeginner],
   providers: [
     StepsBeginService
   ]

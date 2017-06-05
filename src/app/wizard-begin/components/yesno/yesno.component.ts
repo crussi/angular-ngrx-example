@@ -24,8 +24,7 @@ import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
 export class YesNo extends BaseComponent implements OnInit   {
 
 
-  constructor(private store: StepsBeginStore,
-) { 
+  constructor(private store: StepsBeginStore) { 
     super();
   }
 
@@ -40,7 +39,7 @@ export class YesNo extends BaseComponent implements OnInit   {
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     //super.StateChanged(nextStep, val);
     //this.store.dispatch(new action.StateChangeAction(stateChange));
-    this.store.stateChanged();
+    this.store.stateChanged(stateChange);
     super.EmitStateChanged(stateChange);
   }
 

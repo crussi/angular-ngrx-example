@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {ISteps} from '../../interfaces/steps-begin/steps-begin.interface';
 import {IAppState} from '../../../interfaces/app-state.interface';
 import {createAction} from '../../../store/create-action';
+import {WizStateChange} from '../../../shared/barrel';
 
 @Injectable()
 export class StepsBeginStore {
@@ -30,8 +31,8 @@ export class StepsBeginStore {
     this.store.dispatch(createAction(StepsBeginStore.RETRIEVE));
   }
 
-  public stateChanged() {
-    this.store.dispatch(createAction(StepsBeginStore.STATECHANGED));
+  public stateChanged(stateChanged:WizStateChange) {
+    this.store.dispatch(createAction(StepsBeginStore.STATECHANGED,stateChanged));
   }
 
 }
