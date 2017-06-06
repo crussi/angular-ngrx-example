@@ -1,5 +1,7 @@
 import { createDefaultInboxItemFilters, IInboxItemFilters } from '../inbox-item-listing';
-import { IInboxItem } from './inbox-item.interface';
+//import { IInboxItem } from './inbox-item.interface';
+import { IInboxItem } from '../../../shared/barrel';
+
 import {
   inboxItemMatchesFavoritesFilter,
   inboxItemMatchesUserFilter,

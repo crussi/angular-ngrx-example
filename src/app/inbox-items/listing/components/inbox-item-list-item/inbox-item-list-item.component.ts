@@ -1,6 +1,7 @@
 import {Input, Component} from '@angular/core';
 
-import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+import { IInboxItem } from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 
 @Component({

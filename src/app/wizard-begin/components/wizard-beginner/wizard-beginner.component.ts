@@ -2,7 +2,7 @@ import { Component, Input, AfterViewInit, AfterContentInit, ViewChild, Component
 import {Observable} from 'rxjs/Observable';
 import { WizardDirective } from '../../directives/wizard.directive';
 import { StepEnum } from '../../../shared/barrel';
-import { Step, StepTransition, WizState, StepState, WizStateChange, InboxItemProcessed, InboxItem } from '../../../shared/barrel';
+import { Step, StepTransition, WizState, StepState, WizStateChange, InboxItemProcessed, IInboxItem } from '../../../shared/barrel';
 import { BaseComponent } from '../base/base.component';
 import { StepsBeginService } from '../../services/steps-begin.service';
 import { Store } from '@ngrx/store';
@@ -40,7 +40,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   displayDesc = true;
 
   get Description() {
-    return this.inboxItem ? this.inboxItem.Description : '';
+    return this.inboxItem ? this.inboxItem.description : '';
   }  
 
   constructor(

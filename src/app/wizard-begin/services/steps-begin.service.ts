@@ -267,7 +267,7 @@ export class StepsBeginService {
               stepStates.push(new StepState(StepEnum[item],undefined));
           }
       } 
-      return stepStates;   
+      return Observable.of(stepStates);   
   }  
 
 }

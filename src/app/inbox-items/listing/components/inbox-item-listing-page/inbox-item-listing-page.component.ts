@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 
 import {IUsers} from '../../../interfaces/users/users.interface';
-import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+import { IInboxItem } from '../../../../shared/barrel';
 import {UsersStore} from '../../../store/users/users.store';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import {IInboxItemFilters} from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';

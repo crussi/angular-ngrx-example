@@ -34,5 +34,7 @@ export class StepsBeginStore {
   public stateChanged(stateChanged:WizStateChange) {
     this.store.dispatch(createAction(StepsBeginStore.STATECHANGED,stateChanged));
   }
-
+  public getState() {
+    return {};
+  }
 }

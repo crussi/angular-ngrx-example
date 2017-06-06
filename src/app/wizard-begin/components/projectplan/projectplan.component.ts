@@ -32,6 +32,7 @@ export class ProjectPlan extends BaseComponent implements OnInit   {
     super.ngOnInit();
     //Need to redo this ...
     //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);
+    //this.store.getState().subscribe(stepState => this.state$ = stepState);
   }
 
   Next(nextStep:StepEnum) {

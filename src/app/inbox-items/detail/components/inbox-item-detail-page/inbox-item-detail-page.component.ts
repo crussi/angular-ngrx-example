@@ -3,7 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
+import {IInboxItem} from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 
 @Component({

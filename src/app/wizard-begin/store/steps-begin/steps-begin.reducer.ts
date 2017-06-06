@@ -1,9 +1,6 @@
 import {Action} from '@ngrx/store';
-
-import {
-  createDefaultSteps,
-  ISteps
-} from '../../interfaces/steps-begin/steps-begin.interface';
+import {StepEnum, StepState} from '../../../shared/barrel';
+import {createDefaultSteps, ISteps} from '../../interfaces/steps-begin/steps-begin.interface';
 import {StepsBeginStore} from './steps-begin.store';
 
 export function stepsBeginReducer(state: ISteps, action: Action): ISteps {
@@ -29,9 +26,23 @@ export function stepsBeginReducer(state: ISteps, action: Action): ISteps {
         isLoading: false,
         loadingError: action.payload.error
       };
-    case StepsBeginStore.STATECHANGED:
-    console.log('steps-begin.reducer StepsBeginStore.STATECHANGED',action.payload);
-      return state;
+    // case StepsBeginStore.STATECHANGED:
+    //     console.log('steps-begin.reducer StepsBeginStore.STATECHANGED',action.payload);
+    //     const s = action.payload;
+    //     let name = StepEnum[s.Step];
+    //     let idx = state.stepStates.findIndex(function (el) { return el.Step == name });
+    //     //console.log('idx',idx);
+    //     //console.log('wizard.STATECHANGE payload',s);
+    //     //console.log('wizard STATECHANGE prev state',state);
+    //     let obj = Object.assign({}, state, {
+    //       loaded: true,
+    //       selectedStep: s.Transition.to,
+    //       stepStates: state.stepStates.slice(0, idx).concat(new StepState(name, s.Value))
+    //         .concat(state.stepStates.slice(idx + 1))
+    //     }
+    //     );  
+    //     console.log('reducer STATECHANGED ',obj);
+    //   return state;
     default:
       return state;
   }
