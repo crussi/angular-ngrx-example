@@ -12,7 +12,7 @@ import {StepsBeginService} from './services';
 import {StepsBeginEffects} from './store/effects';
 import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.component';
 //import { YesNo } from './components/yesno/yesno.component';
-import { Delegate, Done, NewProject, NextAction, NonActionable, ProjectPlan, 
+import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProjectPlan, 
          RefineAction, Schedule, YesNo} from './components';
 import {WizardDirective} from './directives/wizard.directive';
 
@@ -29,6 +29,7 @@ import {WizardDirective} from './directives/wizard.directive';
   declarations: [
     //VideoGamesContainerComponent
     WizardBeginner,
+    ApproveChange, 
     Delegate, 
     Done, 
     NewProject, 
@@ -45,6 +46,7 @@ import {WizardDirective} from './directives/wizard.directive';
   ],
   exports: [
     WizardBeginner,
+    ApproveChange, 
     Delegate, 
     Done, 
     NewProject, 
@@ -56,6 +58,7 @@ import {WizardDirective} from './directives/wizard.directive';
     YesNo
   ],
   entryComponents: [
+    ApproveChange, 
     Delegate, 
     Done, 
     NewProject, 

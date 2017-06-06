@@ -29,7 +29,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   public steps: Array<Step>;
   public stepStates$: Observable<StepState>;
 
-  @Input() inboxItem: InboxItem;
+  @Input() inboxItem: IInboxItem;
   @Output() onInboxItemProcessed: EventEmitter<InboxItemProcessed> = new EventEmitter();
   //@Output() onHideDescription: EventEmitter<boolean> = new EventEmitter();
   currentAddIndex: number = -1;
@@ -131,9 +131,11 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
       console.log('steps empty');
       return;
     }
+  
     for (let i = 0; i < this.steps.length; i++) {
+        console.log('this.steps[i].Name',this.steps[i].Name);
         if (this.steps[i].Name == stepTransition.to) {
-          console.log('found match:')
+          console.log('found match:',this.steps[i].Name);
           let step: Step = this.steps[i];
           switch (step.Name) {
             case StepEnum.ApproveChange:
@@ -148,6 +150,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
           viewContainerRef.clear();
 
           let componentRef = viewContainerRef.createComponent(componentFactory);
+          console.log('about to assign Settings',step.Settings);
           (<BaseComponent>componentRef.instance).Settings = step.Settings;
           //(<BaseComponent>componentRef.instance).State = this.State.getState(stepTransition.to);            
           (<BaseComponent>componentRef.instance).stateChanged.subscribe(event => this.stateChanged(event));

@@ -1,3 +1,4 @@
+export * from './components/approvechange/approvechange.component';
 export * from './components/base/base.component';
 export * from './components/delegate/delegate.component';
 export * from './components/done/done.component';
