@@ -18,7 +18,7 @@ import {
   imports: [
     CommonModule,
     RouterModule,
-    LoadingModule
+    LoadingModule,
   ],
   declarations: [
     CardComponent,

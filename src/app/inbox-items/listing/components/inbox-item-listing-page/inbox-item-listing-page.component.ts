@@ -6,7 +6,6 @@ import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import {UsersStore} from '../../../store/users/users.store';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import {IInboxItemFilters} from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
-
 @Component({
   selector: 'app-inbox-item-listing-page',
   templateUrl: './inbox-item-listing-page.component.html',

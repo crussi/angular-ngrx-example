@@ -19,12 +19,15 @@ import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.com
     //VideoGameDetailModule,
     EffectsModule.run(StepsBeginEffects),
   ],
+
   declarations: [
     //VideoGamesContainerComponent
-  WizardBeginner],
+    WizardBeginner
+  ],
   providers: [
     StepsBeginService
-  ]
+  ],
+  exports: [WizardBeginner]
 })
 export class WizardBeginModule {
 
