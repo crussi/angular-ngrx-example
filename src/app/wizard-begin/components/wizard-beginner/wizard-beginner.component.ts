@@ -46,14 +46,19 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   constructor(
     private _componentFactoryResolver: ComponentFactoryResolver,
     private stepService: StepsBeginService,
-    private store: StepsBeginStore) { }
+    private store: StepsBeginStore) { 
+
+    console.log('constructor start');
+    this.store.getSteps().subscribe(s => {
+      this.steps = s.list;
+      console.log('ngOnInit wizard-beginner steps',this.steps);
+    });
+      
+    }
 
   ngOnInit(){
     //this.steps$ = this.store.getSteps();
-    this.store.getSteps().subscribe(s => {
-      this.steps = s.list;
-      console.log('wizard-beginner steps',this.steps);
-    });
+    console.log('ngOnInit start');
 
   }
   ngAfterViewInit() {
@@ -61,6 +66,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   ngAfterContentInit() {
     //console.log('called from ngAfterContentInit');
     //this.initialize();
+    console.log('ngAfterContentInit start');
   }
 
   ngOnDestroy() {
@@ -68,6 +74,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges start');
     if (changes.inboxItem) {
       console.log('wizard.component ngOnChanges',changes.inboxItem);
       //console.log('called from ngOnChanges');
