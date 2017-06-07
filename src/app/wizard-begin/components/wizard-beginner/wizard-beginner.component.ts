@@ -2,7 +2,7 @@ import { Component, Input, AfterViewInit, AfterContentInit, ViewChild, Component
 import {Observable} from 'rxjs/Observable';
 import { WizardDirective } from '../../directives/wizard.directive';
 import { StepEnum } from '../../../shared/barrel';
-import { Step, StepTransition, WizState, StepState, WizStateChange, InboxItemProcessed, IInboxItem } from '../../../shared/barrel';
+import { Step, StepTransition, WizState, StepState, WizStateChange, InboxItemProcessed, InboxItemNext, IInboxItem } from '../../../shared/barrel';
 import { BaseComponent } from '../base/base.component';
 import { StepsBeginService } from '../../services/steps-begin.service';
 import { Store } from '@ngrx/store';
@@ -31,6 +31,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
 
   @Input() inboxItem: IInboxItem;
   @Output() onInboxItemProcessed: EventEmitter<InboxItemProcessed> = new EventEmitter();
+  @Output() onInboxItemNext: EventEmitter<InboxItemNext> = new EventEmitter();
   //@Output() onHideDescription: EventEmitter<boolean> = new EventEmitter();
   currentAddIndex: number = -1;
   //State: WizState;
@@ -108,10 +109,11 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         console.log('Done hide description');
         //this.onHideDescription.emit(true);
         this.displayDesc = false;
+        this.onInboxItemProcessed.emit(new InboxItemProcessed());
         break;
       case StepEnum.Next:
-        console.log('wizard is done, process next inbox item');
-        this.onInboxItemProcessed.emit(new InboxItemProcessed());
+        //console.log('wizard is done, process next inbox item');
+        this.onInboxItemNext.emit(new InboxItemNext());
         break;
       case StepEnum.Exit:
         console.log('exit wizard');        

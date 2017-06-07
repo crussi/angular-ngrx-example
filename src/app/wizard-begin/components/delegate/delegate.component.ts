@@ -26,26 +26,24 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 })
 export class Delegate extends BaseComponent implements OnInit   {
 
-  state$: any;
   constructor(private store: StepsStateStore) { 
     super();
   }
+  Delegate: string;
 
   ngOnInit() {
     super.ngOnInit();
-    //Need to redo this ...    
-    //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);
+    this.store.getState(this.Name).subscribe(stepState => {
+      this.Delegate = stepState.State ? stepState.State.Delegate : '';
+    })
   }
 
   DelegateTo(delegate:string){
-    this.state$.Delegate = delegate;
+    this.Delegate = delegate;
   }
 
   Next(nextStep:StepEnum) {
-    //this.store.dispatch(new test.WizardTestAction());
-    //super.StateChanged(nextStep, {Delegate:"Donald Duck"});
-    //let val = {Delegate:"Donald Duck"};
-    let val = {Delegate:this.state$.Delegate};
+    let val = {Delegate:this.Delegate};
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);

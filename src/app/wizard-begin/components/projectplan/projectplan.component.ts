@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BaseComponent } from '../base/base.component';
-import { StepEnum, WizStateChange, StepTransition } from '../../../shared/barrel';
+import { StepEnum, WizStateChange, StepTransition, StepState } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
 import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 import { IStepsState } from '../../interfaces/steps-begin/steps-begin.interface';
@@ -13,8 +13,8 @@ import { IStepsState } from '../../interfaces/steps-begin/steps-begin.interface'
     <div>
       <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
-      <input type="text" placeholder="Outcome" [(ngModel)]="state$.Outcome" >
-      <input type="text" placeholder="Project title" [(ngModel)]="state$.Title" >
+      <input type="text" placeholder="Outcome" [(ngModel)]="Outcome" >
+      <input type="text" placeholder="Project title" [(ngModel)]="Title" >
 
       <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
       <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
@@ -24,22 +24,25 @@ import { IStepsState } from '../../interfaces/steps-begin/steps-begin.interface'
 })
 export class ProjectPlan extends BaseComponent implements OnInit   {
 
-  state$: Observable<IStepsState>;
   constructor(private store: StepsStateStore) { 
     super();
   }
 
+  Outcome:string;
+  Title:string;
+
   ngOnInit() {
     super.ngOnInit();
-    //Need to redo this ...
-    //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);
-    //this.store.getState().subscribe(stepState => this.state$ = stepState);
-    this.state$ = this.store.getState(this.Name);
+    this.store.getState(this.Name).subscribe(stepState => {
+      this.Outcome = stepState.State ? stepState.State.Outcome : '';
+      this.Title = stepState.State ? stepState.State.Title : '';
+    });
   }
 
   Next(nextStep:StepEnum) {
-    //let val = this.state$;
-    let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, this.state$,new StepTransition(this.Settings.Name,nextStep));
+    let val = { "Outcome" : this.Outcome, "Title": this.Title};
+
+    let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);
   }

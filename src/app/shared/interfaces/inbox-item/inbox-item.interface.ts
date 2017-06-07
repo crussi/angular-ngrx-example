@@ -7,5 +7,6 @@ export interface IInboxItem {
   readonly youtubeUrl?: string;
   readonly imageUrl?: string;
   readonly favorite?: boolean;
+  readonly processed?: boolean;
 
 }

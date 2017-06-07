@@ -11,7 +11,7 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
     <div>
       <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
-      <input placeholder="Next action" [(ngModel)]="state$.NextAction"/>
+      <input placeholder="Next action" [(ngModel)]="NextAction"/>
 
       <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
       <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
@@ -24,17 +24,19 @@ export class NextAction extends BaseComponent implements OnInit   {
   constructor(private store: StepsStateStore) { 
     super();
   }
-  state$: any;
+  //state$: any;
+  NextAction: string;
 
   ngOnInit() {
     super.ngOnInit();
-    //Need to redo this ...
-    //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);   
+    this.store.getState(this.Name).subscribe(stepState => {
+      this.NextAction = stepState.State ? stepState.State.NextAction : '';
+    })
   }
 
   Next(nextStep:StepEnum) {
-    //let val = this.state$;
-    let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, this.state$,new StepTransition(this.Settings.Name,nextStep));
+    let val = {"NextAction":this.NextAction};
+    let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);
   }

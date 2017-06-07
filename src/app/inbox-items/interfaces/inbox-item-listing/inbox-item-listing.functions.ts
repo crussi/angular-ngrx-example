@@ -36,3 +36,9 @@ export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {
     inboxItemListing.inboxItems.find(inboxItem => inboxItem.id === id) :
     null;
 }
+
+export function getNextInboxItem(inboxItemListing: IInboxItemListing) {
+  return Boolean(inboxItemListing) ?
+    inboxItemListing.inboxItems.find(inboxItem => !inboxItem.processed ) :
+    null;
+}

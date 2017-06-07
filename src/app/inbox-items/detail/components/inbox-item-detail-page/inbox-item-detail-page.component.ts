@@ -28,4 +28,15 @@ export class InboxItemDetailPageComponent implements OnInit {
       .switchMap((params: any) => this.inboxItemListingStore.getInboxItem(params.inboxItemId));
   }
 
+  public onInboxItemProcessed() {
+    console.log('onInboxItemProcessed()');
+  }
+
+  public onInboxItemNext() {
+    console.log('onInboxItemNext()');
+    // this.inboxItem$ = this.route.params
+    //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());
+    this.inboxItem$ = this.inboxItemListingStore.getNextInboxItem();
+  }  
+
 }

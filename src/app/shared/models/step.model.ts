@@ -2,14 +2,6 @@ import { Type } from '@angular/core';
 import { StepEnum, NonActionableTypeEnum } from './step.enum';
 import { InboxItem } from './inbox.model';
 
-// export class InboxItem {
-//     constructor(public Description: string, public DateCreated: Date, public CreatedBy: string){}
-// }
-
-// export class InboxItemProcessed {    
-//     constructor(public State:WizState) {}
-// }
-
 export class Step {
     //Name: StepEnum;
     get Name() : StepEnum {

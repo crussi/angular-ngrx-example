@@ -8,6 +8,7 @@ import { createAction } from '../../../store/create-action';
 import {
   getInboxItems,
   getInboxItem,
+  getNextInboxItem,
   IInboxItem,
   IInboxItemFilters,
   IInboxItemListing,
@@ -43,6 +44,12 @@ export class InboxItemListingStore {
   public getInboxItem(id: string): Observable<IInboxItem> {
     return this.getInboxItemListing()
       .map(inboxItemListing => getInboxItem(inboxItemListing, id));
+  }
+
+  //New
+  public getNextInboxItem(): Observable<IInboxItem> {
+    return this.getInboxItemListing()
+      .map(inboxItemListing => getNextInboxItem(inboxItemListing));
   }
 
   public retrieve() {

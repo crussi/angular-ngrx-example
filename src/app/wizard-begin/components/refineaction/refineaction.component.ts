@@ -12,7 +12,7 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
       <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
       <p>Refine action controls go here ....</p>
-      <input type="text" placeholder="Enter a refine action" [(ngModel)]="state$.RefineAction" >
+      <input type="text" placeholder="Enter a refine action" [(ngModel)]="RefineAction" >
 
       <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
       <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
@@ -25,17 +25,17 @@ export class RefineAction extends BaseComponent implements OnInit   {
   constructor(private store: StepsStateStore) { 
     super();
   }
-  state$: any;
+  RefineAction: string;
 
   ngOnInit() {
     super.ngOnInit();
-    //Need to redo this ...
-    //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);    
+    this.store.getState(this.Name).subscribe(stepState => {
+      this.RefineAction = stepState.State ? stepState.State.RefineAction : '';
+    })
   }
 
   Next(nextStep:StepEnum) {
-    //super.StateChanged(nextStep, {'refineaction':'Refine action goes here'});
-    let val = this.state$;
+    let val = { "RefineAction": this.RefineAction };
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);

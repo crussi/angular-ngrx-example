@@ -12,7 +12,7 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
       <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
       <p>Schedule controls go here ....</p>
-      <input type="text" placeholder="Enter a date" [(ngModel)]="state$.EventDate" >
+      <input type="text" placeholder="Enter a date" [(ngModel)]="EventDate" >
       <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
       <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
     </div>
@@ -20,7 +20,7 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
   styleUrls: ['./schedule.component.css']
 })
 export class Schedule extends BaseComponent implements OnInit   {
-  state$: any;
+  EventDate: string;
 
   constructor(private store: StepsStateStore) { 
     super();
@@ -28,12 +28,14 @@ export class Schedule extends BaseComponent implements OnInit   {
 
   ngOnInit() {
     super.ngOnInit();
-    //Need to redo this ...
-    //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);
+    this.store.getState(this.Name).subscribe(stepState => {
+      this.EventDate = stepState.State ? stepState.State.EventDate : '';
+    });
+
   }
 
   Next(nextStep:StepEnum) {
-    let val = this.state$;
+    let val = { "EventDate": this.EventDate };
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);

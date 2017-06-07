@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { ISteps, IStepsState } from '../../interfaces/steps-begin/steps-begin.interface';
 import { IAppState } from '../../../interfaces/app-state.interface';
 import { createAction } from '../../../store/create-action';
-import { WizStateChange, StepEnum } from '../../../shared/barrel';
+import { WizStateChange, StepEnum, StepState } from '../../../shared/barrel';
 
 @Injectable()
 export class StepsStateStore {
@@ -32,18 +32,19 @@ export class StepsStateStore {
     }
 
     public stateChanged(stateChanged: WizStateChange) {
+        console.log('StepsStateStore.STATECHANGED stateChanged:',stateChanged);
         this.store.dispatch(createAction(StepsStateStore.STATECHANGED, stateChanged));
     }
-    
+
     // public getVideoGame(id: string): Observable<IVideoGame> {
     //     return this.getVideoGameListing()
     //         .map(videoGameListing => getVideoGame(videoGameListing, id));
     // }
 
-    public getState(step:StepEnum): Observable<IStepsState> {
-        console.log('steps-state.store getState step:',step);
-        this.getStepsState().map(stepsState => {console.log('inside getState',stepsState[step]);});
-        return this.getStepsState()
-            .map(stepsState => stepsState[step]);
-    }    
+    public getState(step: StepEnum): Observable<StepState> {
+        let obj = this.getStepsState()
+            .map(stepsState => stepsState.list[step]);      
+        console.log('steps-state.store getState obj:', obj);   
+        return obj;
+    }
 }
