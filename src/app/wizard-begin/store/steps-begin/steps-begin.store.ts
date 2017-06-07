@@ -31,10 +31,10 @@ export class StepsBeginStore {
     this.store.dispatch(createAction(StepsBeginStore.RETRIEVE));
   }
 
-  public stateChanged(stateChanged:WizStateChange) {
-    this.store.dispatch(createAction(StepsBeginStore.STATECHANGED,stateChanged));
-  }
-  public getState() {
-    return {};
-  }
+  // public stateChanged(stateChanged:WizStateChange) {
+  //   this.store.dispatch(createAction(StepsBeginStore.STATECHANGED,stateChanged));
+  // }
+  // public getState() {
+  //   return {};
+  // }
 }

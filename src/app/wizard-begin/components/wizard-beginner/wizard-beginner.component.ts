@@ -51,14 +51,14 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     console.log('constructor start');
     this.store.getSteps().subscribe(s => {
       this.steps = s.list;
-      console.log('ngOnInit wizard-beginner steps',this.steps);
+      //console.log('ngOnInit wizard-beginner steps',this.steps);
     });
       
     }
 
   ngOnInit(){
     //this.steps$ = this.store.getSteps();
-    console.log('ngOnInit start');
+    //console.log('ngOnInit start');
 
   }
   ngAfterViewInit() {
@@ -66,7 +66,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   ngAfterContentInit() {
     //console.log('called from ngAfterContentInit');
     //this.initialize();
-    console.log('ngAfterContentInit start');
+    //console.log('ngAfterContentInit start');
   }
 
   ngOnDestroy() {
@@ -74,7 +74,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges start');
+    //console.log('ngOnChanges start');
     if (changes.inboxItem) {
       console.log('wizard.component ngOnChanges',changes.inboxItem);
       //console.log('called from ngOnChanges');
@@ -86,10 +86,10 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     // if (!this.steps) {
     //   this.steps = this.stepService.getSteps();
     // }
-    console.log('initialize step states');
-    let stepStates: Array<StepState> = this.stepService.getStepStates();
+    //console.log('initialize step states');
+    //let stepStates: Array<StepState> = this.stepService.getStepStates();
     //this.store.dispatch(new action.LoadAction(stepStates));
-    console.log('load IsActionable');
+    //console.log('load IsActionable');
     this.loadComponent(new StepTransition(StepEnum.Start,StepEnum.IsActionable));
   }
 
@@ -124,18 +124,18 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
 
   private loadComponent(stepTransition:StepTransition) {
     //console.log('loadComponent ' + stepTransition.to + ' ads.length: ' + this.ads.length);
-    console.log('stepTransition.to: ',stepTransition);
+    //console.log('stepTransition.to: ',stepTransition);
     
     //Find step component to load and load it
     if (!this.steps || !this.steps.length) {
-      console.log('steps empty');
+      //console.log('steps empty');
       return;
     }
   
     for (let i = 0; i < this.steps.length; i++) {
-        console.log('this.steps[i].Name',this.steps[i].Name);
+        //console.log('this.steps[i].Name',this.steps[i].Name);
         if (this.steps[i].Name == stepTransition.to) {
-          console.log('found match:',this.steps[i].Name);
+          //console.log('found match:',this.steps[i].Name);
           let step: Step = this.steps[i];
           switch (step.Name) {
             case StepEnum.ApproveChange:
@@ -150,7 +150,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
           viewContainerRef.clear();
 
           let componentRef = viewContainerRef.createComponent(componentFactory);
-          console.log('about to assign Settings',step.Settings);
+          //console.log('about to assign Settings',step.Settings);
           (<BaseComponent>componentRef.instance).Settings = step.Settings;
           //(<BaseComponent>componentRef.instance).State = this.State.getState(stepTransition.to);            
           (<BaseComponent>componentRef.instance).stateChanged.subscribe(event => this.stateChanged(event));

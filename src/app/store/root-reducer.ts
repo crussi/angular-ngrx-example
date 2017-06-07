@@ -6,11 +6,12 @@ import {localStorageSync} from 'ngrx-store-localstorage';
 
 import {platformsReducer, videoGameListingReducer} from '../video-games/store/reducers';
 import {usersReducer, inboxItemListingReducer} from '../inbox-items/store/reducers';
-import {stepsBeginReducer} from '../wizard-begin/store/reducers';
+import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
 
 const reducers = {
   platforms: platformsReducer,
   stepsBegin: stepsBeginReducer,
+  stepsState: stepsStateReducer,
   users: usersReducer,
   router: routerReducer,
   videoGameListing: videoGameListingReducer,

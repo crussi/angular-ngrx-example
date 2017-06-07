@@ -5,7 +5,7 @@ import {StepsBeginStore} from './steps-begin.store';
 
 export function stepsBeginReducer(state: ISteps, action: Action): ISteps {
   state = state || createDefaultSteps();
-  console.log('steps-begin.reducer action.type',action.type);
+  //console.log('steps-begin.reducer action.type',action.type);
   switch (action.type) {
     case StepsBeginStore.RETRIEVE:
       return {
@@ -14,7 +14,7 @@ export function stepsBeginReducer(state: ISteps, action: Action): ISteps {
         loadingError: null
       };
     case StepsBeginStore.RETRIEVE_SUCCESS:
-  console.log('steps-begin.reducer found match StepsBeginStore.RETRIEVE_SUCCESS');
+  //console.log('steps-begin.reducer found match StepsBeginStore.RETRIEVE_SUCCESS');
       return {
         ...state,
         isLoading: false,

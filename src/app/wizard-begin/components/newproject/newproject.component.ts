@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { BaseComponent } from '../base/base.component';
 import { StepEnum, WizStateChange, StepTransition, StepState } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
-import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
+import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 
 @Component({
   selector: 'newproject',
@@ -23,7 +23,7 @@ export class NewProject extends BaseComponent implements OnInit   {
 
   state$: Observable<StepState>;
 
-  constructor(private store: StepsBeginStore) { 
+  constructor(private store: StepsStateStore) { 
     super();
     //this.state$ = store.select(fromRoot.getSelectedStep);
     //console.log('--> newproject:',this.state$);
@@ -31,13 +31,13 @@ export class NewProject extends BaseComponent implements OnInit   {
 
   ngOnInit() {
     super.ngOnInit();
-    console.log('newproject ngOnInit');
+    //console.log('newproject ngOnInit');
   }
   ngAfterViewInit() {
-    console.log('newproject ngAfterViewInit');
+    //console.log('newproject ngAfterViewInit');
   }
   ngAfterContentInit() {
-    console.log('newproject ngAfterContentInit');
+    //console.log('newproject ngAfterContentInit');
   }  
 
   Next(nextStep:StepEnum) {

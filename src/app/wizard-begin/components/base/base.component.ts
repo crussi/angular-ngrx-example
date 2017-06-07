@@ -20,7 +20,9 @@ export class BaseComponent implements OnInit  {
   @Output() stateChanged: EventEmitter<WizStateChange> = new EventEmitter();
 
   //constructor() { }
-
+  get Name(): StepEnum {
+    return this.Settings.Name;
+  }
   get Question(): string {
     return this.Settings.Question;
   }

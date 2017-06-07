@@ -1,9 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { BaseComponent } from '../base/base.component';
-import { StepEnum, WizStateChange, StepTransition, StepState } from '../../../shared/barrel';
+import { StepEnum, WizStateChange, StepTransition } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
-import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
+import { StepsStateStore } from '../../store/steps-state/steps-state.store';
+import { IStepsState } from '../../interfaces/steps-begin/steps-begin.interface';
 
 @Component({
   selector: 'projectplan',
@@ -23,8 +24,8 @@ import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
 })
 export class ProjectPlan extends BaseComponent implements OnInit   {
 
-  state$: any;
-  constructor(private store: StepsBeginStore) { 
+  state$: Observable<IStepsState>;
+  constructor(private store: StepsStateStore) { 
     super();
   }
 
@@ -33,6 +34,7 @@ export class ProjectPlan extends BaseComponent implements OnInit   {
     //Need to redo this ...
     //this.store.select(fromRoot.getSelectedStep).subscribe(stepState => this.state$ = stepState);
     //this.store.getState().subscribe(stepState => this.state$ = stepState);
+    this.state$ = this.store.getState(this.Name);
   }
 
   Next(nextStep:StepEnum) {

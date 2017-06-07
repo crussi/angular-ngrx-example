@@ -7,9 +7,10 @@ import {EffectsModule} from '@ngrx/effects';
 //import {VideoGamesContainerComponent} from './components';
 
 import {StepsBeginService} from './services';
+import {StepsStateStore} from './store/steps-state/steps-state.store';
 //import {VideoGameListingModule} from './listing/listing.module';
 //import {VideoGameDetailModule} from './detail/detail.module';
-import {StepsBeginEffects} from './store/effects';
+import { StepsBeginEffects, StepsStateEffects} from './store/effects';
 import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.component';
 //import { YesNo } from './components/yesno/yesno.component';
 import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProjectPlan, 
@@ -24,6 +25,7 @@ import {WizardDirective} from './directives/wizard.directive';
     //VideoGameListingModule,
     //VideoGameDetailModule,
     EffectsModule.run(StepsBeginEffects),
+    EffectsModule.run(StepsStateEffects),
   ],
 
   declarations: [
@@ -42,7 +44,8 @@ import {WizardDirective} from './directives/wizard.directive';
     WizardDirective
   ],
   providers: [
-    StepsBeginService
+    StepsBeginService,
+    StepsStateStore
   ],
   exports: [
     WizardBeginner,

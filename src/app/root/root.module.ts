@@ -19,7 +19,7 @@ import {RootComponent} from './components';
 
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
 import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
-import {StepsBeginStore} from '../wizard-begin/store/stores';
+import {StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import {ApiService} from './services';
 
 @NgModule({
@@ -46,7 +46,8 @@ import {ApiService} from './services';
     UsersStore,
     VideoGameListingStore,
     InboxItemListingStore,
-    StepsBeginStore
+    StepsBeginStore,
+    StepsStateStore
   ],
   bootstrap: [RootComponent]
 })

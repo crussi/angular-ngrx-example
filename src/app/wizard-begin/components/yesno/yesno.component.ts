@@ -5,7 +5,7 @@ import { WizStateChange, StepTransition } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
 //import * as fromRoot from '../../../state-management/reducers';
 //import * as action from '../../../state-management/actions/wizard';
-import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
+import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 
 @Component({
   selector: 'yesno',
@@ -24,7 +24,7 @@ import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
 export class YesNo extends BaseComponent implements OnInit   {
 
 
-  constructor(private store: StepsBeginStore) { 
+  constructor(private store: StepsStateStore) { 
     super();
   }
 

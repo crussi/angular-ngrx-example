@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { StepEnum, WizStateChange, StepTransition } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
-import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
+import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 
 @Component({
   selector: 'delegate',
@@ -27,7 +27,7 @@ import {StepsBeginStore} from '../../store/steps-begin/steps-begin.store';
 export class Delegate extends BaseComponent implements OnInit   {
 
   state$: any;
-  constructor(private store: StepsBeginStore) { 
+  constructor(private store: StepsStateStore) { 
     super();
   }
 
