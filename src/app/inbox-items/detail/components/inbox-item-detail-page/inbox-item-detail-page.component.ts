@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 //import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
-import {IInboxItem} from '../../../../shared/barrel';
+import { IInboxItem, InboxItemProcessed, InboxItemNext} from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 
 @Component({
@@ -28,11 +28,12 @@ export class InboxItemDetailPageComponent implements OnInit {
       .switchMap((params: any) => this.inboxItemListingStore.getInboxItem(params.inboxItemId));
   }
 
-  public onInboxItemProcessed() {
-    console.log('onInboxItemProcessed()');
+  public onInboxItemProcessed(event:InboxItemProcessed) {
+    console.log('onInboxItemProcessed()',event);
+    this.inboxItemListingStore.setUpdateProcessed(event.id);
   }
 
-  public onInboxItemNext() {
+  public onInboxItemNext(event: InboxItemNext) {
     console.log('onInboxItemNext()');
     // this.inboxItem$ = this.route.params
     //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());

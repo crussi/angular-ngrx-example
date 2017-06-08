@@ -9,6 +9,7 @@ import {
   getInboxItems,
   getInboxItem,
   getNextInboxItem,
+  setUpdateProcessed,
   IInboxItem,
   IInboxItemFilters,
   IInboxItemListing,
@@ -24,6 +25,7 @@ export class InboxItemListingStore {
   public static FILTER_USER = 'INBOX_ITEM_LISTING_FILTER_USER';
   public static TOGGLE_FAVORITE_FILTER = 'INBOX_ITEM_LISTING_FILTER_FAVORITES';
   public static TOGGLE_FAVORITE = 'INBOX_ITEM_TOGGLE_FAVORITE';
+  public static UPDATE_PROCESSED = 'INBOX_ITEM_LISTING_UPDATE_PROCESSED';
 
   constructor(private store: Store<IAppState>) {}
 
@@ -50,6 +52,12 @@ export class InboxItemListingStore {
   public getNextInboxItem(): Observable<IInboxItem> {
     return this.getInboxItemListing()
       .map(inboxItemListing => getNextInboxItem(inboxItemListing));
+  }
+
+  //New
+  public setUpdateProcessed(id:string) {
+    console.log('store setUpdateProcessed id:',id);
+    this.store.dispatch(createAction(InboxItemListingStore.UPDATE_PROCESSED, {id}));
   }
 
   public retrieve() {

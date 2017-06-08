@@ -1,5 +1,5 @@
 <!--<app-inbox-item-detail [inboxItem]="inboxItem$ | async">
 </app-inbox-item-detail>-->
 <wizard-beginner [inboxItem]="inboxItem$ | async" 
-                 (onInboxItemProcessed)="onInboxItemProcessed()"
-                 (onInboxItemNext)="onInboxItemNext()"></wizard-beginner>    
+                 (onInboxItemProcessed)="onInboxItemProcessed($event)"
+                 (onInboxItemNext)="onInboxItemNext($event)"></wizard-beginner>    

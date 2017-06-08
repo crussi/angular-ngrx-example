@@ -42,3 +42,10 @@ export function getNextInboxItem(inboxItemListing: IInboxItemListing) {
     inboxItemListing.inboxItems.find(inboxItem => !inboxItem.processed ) :
     null;
 }
+
+//New content is not actual ???
+export function setUpdateProcessed(inboxItemListing: IInboxItemListing, id: string) {
+  return Boolean(inboxItemListing) ?
+    inboxItemListing.inboxItems.find(inboxItem => inboxItem.processed !== true) :
+    null;
+}

@@ -65,7 +65,27 @@ export function inboxItemListingReducer(
           (game) => ({favorite: !game.favorite}),
         )
       };
-    default:
+    case InboxItemListingStore.UPDATE_PROCESSED:
+      console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
+      // return {
+      //   ...state,
+      //   inboxItems: updateChildObject(
+      //     state.inboxItems,
+      //     (item) => item.id === action.payload.id,
+      //     (item) => ({ processed: true }),
+      //   )
+      // };
+      let obj =  {
+        ...state,
+        inboxItems: updateChildObject(
+          state.inboxItems,
+          (item) => item.id === action.payload.id,
+          (item) => ({processed: true }),
+        )
+      };       
+      console.log('UPDATE_PROCESSED',obj);
+      return obj;
+      default:
       return state;
   }
 }

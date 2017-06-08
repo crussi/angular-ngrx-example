@@ -76,10 +76,17 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
 
   ngOnChanges(changes: SimpleChanges) {
     //console.log('ngOnChanges start');
-    if (changes.inboxItem) {
+    //console.log('changes', changes);
+    //console.log('changes.inboxItem', changes.inboxItem);
+    let obj = changes.inboxItem;
+    //console.log('obj.currentValue', obj.currentValue);
+    //console.log('changes.inboxItem.currentValue', changes.inboxItem.currentValue);
+    if (changes.inboxItem && !changes.inboxItem.currentValue.processed) {
       console.log('wizard.component ngOnChanges',changes.inboxItem);
       //console.log('called from ngOnChanges');
       this.initialize();
+    } else {
+      console.log('wizard.component ngOnChanges processed', changes.inboxItem);
     }
   }  
 
@@ -109,7 +116,8 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         console.log('Done hide description');
         //this.onHideDescription.emit(true);
         this.displayDesc = false;
-        this.onInboxItemProcessed.emit(new InboxItemProcessed());
+        console.log("emit InboxItemProcessed", this.inboxItem.id)
+        this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
         break;
       case StepEnum.Next:
         //console.log('wizard is done, process next inbox item');
