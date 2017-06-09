@@ -24,29 +24,29 @@ export function inboxItemListingReducer(
       const inboxItems = action.payload.inboxItems
         //.map(item => ({ ...item, favorite: false}));
 
-      //Get ids
-      var ids = inboxItems.map(function (i) {
-        return [i.id];
-      });
-      //Assign prev and next id for each id
-      for (let n in ids) {
-        let m = +n;
-        if (m > 0 && m < ids.length-1) {
-          ids[m].push(ids[m-1][0],ids[m+1][0]);
-        } else if (m == ids.length-1) {
-          ids[m].push(ids[m - 1][0], "0");
-        }
-        else if (m == 0) {
-          ids[m].push("0", ids[m + 1][0]);
-        }
-      } 
+      // //Get ids
+      // var ids = inboxItems.map(function (i) {
+      //   return [i.id];
+      // });
+      // //Assign prev and next id for each id
+      // for (let n in ids) {
+      //   let m = +n;
+      //   if (m > 0 && m < ids.length-1) {
+      //     ids[m].push(ids[m-1][0],ids[m+1][0]);
+      //   } else if (m == ids.length-1) {
+      //     ids[m].push(ids[m - 1][0], "0");
+      //   }
+      //   else if (m == 0) {
+      //     ids[m].push("0", ids[m + 1][0]);
+      //   }
+      // } 
 
-        //console.log('got it', ids);      
+      //   console.log('got it', ids);      
       return {
         ...state,
         isLoading: false,
         inboxItems: inboxItems,
-        linkedIds: ids
+        // linkedIds: ids
       };
     case InboxItemListingStore.RETRIEVE_ERROR:
       return {
@@ -85,7 +85,7 @@ export function inboxItemListingReducer(
         )
       };
     case InboxItemListingStore.UPDATE_PROCESSED:
-      //console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
+      console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         inboxItems: updateChildObject(
@@ -94,7 +94,7 @@ export function inboxItemListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      //console.log('UPDATE_PROCESSED',obj);
+      console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

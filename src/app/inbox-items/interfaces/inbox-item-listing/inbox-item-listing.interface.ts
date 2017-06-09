@@ -7,6 +7,6 @@ export interface IInboxItemListing extends ILoadable {
   filters: IInboxItemFilters;
   searchQuery: string;
   inboxItems: Array<IInboxItem>;
-  linkedIds: Array<ILinkdId>
+  //linkedIds: Array<ILinkdId>
 }
 

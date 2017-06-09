@@ -12,8 +12,7 @@ export function createDefaultInboxItemListing(): IInboxItemListing {
     loadingError: null,
     filters: createDefaultInboxItemFilters(),
     searchQuery: null,
-    inboxItems: [],
-    linkedIds: []
+    inboxItems: []
   };
 }
 
@@ -40,33 +39,93 @@ export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {
 
 export function getNextInboxItem(inboxItemListing: IInboxItemListing, id: string) {
   if (Boolean(inboxItemListing)) {
-    let inboxItems = inboxItemListing.inboxItems;
-    let ids = inboxItemListing.linkedIds;
-    let nextId = "0";
-    for (let i in inboxItemListing.linkedIds) {
-      if (ids[i][0] == id) {
-        nextId = ids[i][2];
-        console.log("found next id",nextId);
-        break;
-      }
-    }
-    if (nextId != "0") {
-      for (let item of inboxItems) {
-        if (item.id == nextId) {
-          console.log("returning item",item);
-          return item;
-        }
-      }
-    }
-    console.log("returning null");
-    return null;
-  } else {
-    return null;
+     let inboxItems = inboxItemListing.inboxItems; //.filter(inboxItem => inboxItem.processed != true);  
+     console.log("getNextInboxItem id",id);
+     console.log("inboxItems", inboxItems);
+     for (let i in inboxItems) {
+       console.log("i",i);
+       console.log("inboxItems[i].id", inboxItems[i].id);
+       if (inboxItems[i].id == id) {
+         console.log("matched id looking for next");
+         for (var j = +i+1; j < inboxItems.length; j++) {
+           if (inboxItems[j].processed == false) {
+             return inboxItems[j];
+           }
+         }
+         console.log("looking for next from start");
+         for (var k = 0; k < +i; k++) {
+           if (inboxItems[k].processed == false) {
+             return inboxItems[k];
+           }
+         }
+         
+
+        //  if (+i < inboxItems.length-1) {
+        //    console.log("found next");
+        //    return inboxItems[i+1];
+        //  } else {
+        //    console.log("eol ... looking for alt");
+        //    for (let j in inboxItems) {
+        //      if (inboxItems[j].id != id) {
+        //        return inboxItems[j];
+        //      }
+        //    }
+        //  }
+       }
+     }
+     console.log("returning null");
+     return null;
   }
+}
+// export function getNextInboxItem(inboxItemListing: IInboxItemListing, id: string) {
+//   if (Boolean(inboxItemListing)) {
+//     let inboxItems = inboxItemListing.inboxItems.filter(inboxItem => inboxItem.processed != true);
+//     let ids = inboxItemListing.linkedIds;
+//     const idIndex: string = "0";
+//     const nextIndex: string = "2";
+//     let nextId = "0";
+//     console.log("id:",id);
+//     for (let i in ids) {
+//       if (ids[i][idIndex] == id) {
+//           nextId = ids[i][nextIndex];
+//           console.log("id match nextId:",nextId);
+//           if (nextId == "0") {
+//             console.log("nextId == 0");
+//             for (let j in ids) {
+//               console.log("j:",j);
+//               if (ids[j][nextIndex] != "0") {
+//                 nextId = ids[j][nextIndex];
+//                 console.log("next id is alt");
+//                 break;
+//               }
+//             }
+//           }
+//           console.log("found next id",nextId);
+//           break;
+//         }
+//     }
+//     console.log("did i get here?");
+//     if (nextId != "0") {
+//       for (let item of inboxItems) {
+//         //console.log("item:",item);
+//         //console.log("item.id",item.id);
+//         //console.log("nextId",nextId)
+//         if (item.id == nextId) {
+//           console.log("returning item",item);
+//           return item;
+//         }
+//       }
+//     }
+//     console.log("returning null");
+//     return null;
+//   } else {
+//     return null;
+//   }
+
   // return Boolean(inboxItemListing) ?
   //   inboxItemListing.inboxItems.find(inboxItem => !inboxItem.processed ) :
   //   null;
-}
+// }
 
 //New content is not actual ???
 // export function setUpdateProcessed(inboxItemListing: IInboxItemListing, id: string) {

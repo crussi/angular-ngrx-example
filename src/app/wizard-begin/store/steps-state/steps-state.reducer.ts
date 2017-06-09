@@ -31,8 +31,8 @@ export function stepsStateReducer(state: IStepsState, action: Action): IStepsSta
             const s = action.payload;
             let name = StepEnum[s.Step];
             let idx = state.list.findIndex(function (el) { return el.Step == name });
-            console.log('idx',idx);
-            console.log('wizard.STATECHANGE payload',s);
+            //console.log('idx',idx);
+            //console.log('wizard.STATECHANGE payload',s);
             //console.log('wizard STATECHANGE prev state',state);
             let obj = Object.assign({}, state, {
                 selectedStep: s.Transition.to,
@@ -40,7 +40,7 @@ export function stepsStateReducer(state: IStepsState, action: Action): IStepsSta
                     .concat(state.list.slice(idx + 1))
             }
             );
-            console.log('+*+*+* reducer STATECHANGED +*+*+*', obj);
+            //console.log('+*+*+* reducer STATECHANGED +*+*+*', obj);
             return obj;
         default:
             return state;

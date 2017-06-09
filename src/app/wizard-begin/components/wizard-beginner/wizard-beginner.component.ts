@@ -78,15 +78,23 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     //console.log('ngOnChanges start');
     //console.log('changes', changes);
     //console.log('changes.inboxItem', changes.inboxItem);
-    let obj = changes.inboxItem;
+    //let obj = changes.inboxItem;
     //console.log('obj.currentValue', obj.currentValue);
     //console.log('changes.inboxItem.currentValue', changes.inboxItem.currentValue);
-    if (changes.inboxItem && !changes.inboxItem.currentValue.processed) {
-      console.log('wizard.component ngOnChanges',changes.inboxItem);
-      //console.log('called from ngOnChanges');
-      this.initialize();
+    if (changes.inboxItem) {
+      let hasCurVal = changes.inboxItem.currentValue;
+      if (hasCurVal && !hasCurVal.processed) {
+        console.log('wizard.component ngOnChanges', changes.inboxItem);
+        //console.log('called from ngOnChanges');
+        this.initialize();
+      } else if (hasCurVal && hasCurVal.processed)  {
+        console.log('wizard.component ngOnChanges processed',changes);
+      } else {
+        console.log('wizard.component ngOnChanges no currentValue',changes);
+      }
+
     } else {
-      console.log('wizard.component ngOnChanges processed', changes.inboxItem);
+      console.log("wizard.component ngOnChanges no changes.inboxItem",changes);
     }
   }  
 
@@ -115,7 +123,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
       case StepEnum.Done:
         console.log('Done hide description');
         //this.onHideDescription.emit(true);
-        this.displayDesc = false;
+        //this.displayDesc = false;
         console.log("emit InboxItemProcessed", this.inboxItem.id)
         this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
         break;

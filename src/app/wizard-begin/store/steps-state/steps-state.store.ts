@@ -32,7 +32,7 @@ export class StepsStateStore {
     }
 
     public stateChanged(stateChanged: WizStateChange) {
-        console.log('StepsStateStore.STATECHANGED stateChanged:',stateChanged);
+        //console.log('StepsStateStore.STATECHANGED stateChanged:',stateChanged);
         this.store.dispatch(createAction(StepsStateStore.STATECHANGED, stateChanged));
     }
 
@@ -44,7 +44,7 @@ export class StepsStateStore {
     public getState(step: StepEnum): Observable<StepState> {
         let obj = this.getStepsState()
             .map(stepsState => stepsState.list[step]);      
-        console.log('steps-state.store getState obj:', obj);   
+        //console.log('steps-state.store getState obj:', obj);   
         return obj;
     }
 }

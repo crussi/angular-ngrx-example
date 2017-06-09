@@ -34,7 +34,7 @@ export class YesNo extends BaseComponent implements OnInit   {
   }
 
   StateChanged(nextStep:StepEnum, val:any) {
-    console.log('StateChange YesNo dispatch ...',this.store);
+    //console.log('StateChange YesNo dispatch ...',this.store);
     //this.stateChanged.emit(new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep)));
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     //super.StateChanged(nextStep, val);
