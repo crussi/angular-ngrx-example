@@ -8,12 +8,12 @@ export class InboxItem {
 
 export class InboxItemProcessed {    
     //constructor(public State:WizState) {}
-    constructor(public id:string) {}
+    constructor(public id: string) {}
 }
 
 export class InboxItemNext {
     //constructor(public State:WizState) {}
-    constructor() { }
+    constructor(public id: string) { }
 }
 
 

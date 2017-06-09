@@ -9,7 +9,7 @@ import {
   getInboxItems,
   getInboxItem,
   getNextInboxItem,
-  setUpdateProcessed,
+  //setUpdateProcessed,
   IInboxItem,
   IInboxItemFilters,
   IInboxItemListing,
@@ -49,9 +49,9 @@ export class InboxItemListingStore {
   }
 
   //New
-  public getNextInboxItem(): Observable<IInboxItem> {
+  public getNextInboxItem(id: string): Observable<IInboxItem> {
     return this.getInboxItemListing()
-      .map(inboxItemListing => getNextInboxItem(inboxItemListing));
+      .map(inboxItemListing => getNextInboxItem(inboxItemListing,id));
   }
 
   //New

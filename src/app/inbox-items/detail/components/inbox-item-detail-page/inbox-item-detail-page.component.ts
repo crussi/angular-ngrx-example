@@ -37,7 +37,7 @@ export class InboxItemDetailPageComponent implements OnInit {
     console.log('onInboxItemNext()');
     // this.inboxItem$ = this.route.params
     //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());
-    this.inboxItem$ = this.inboxItemListingStore.getNextInboxItem();
+    this.inboxItem$ = this.inboxItemListingStore.getNextInboxItem(event.id);
   }  
 
 }

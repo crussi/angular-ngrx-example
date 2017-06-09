@@ -12,7 +12,8 @@ export function createDefaultInboxItemListing(): IInboxItemListing {
     loadingError: null,
     filters: createDefaultInboxItemFilters(),
     searchQuery: null,
-    inboxItems: []
+    inboxItems: [],
+    linkedIds: []
   };
 }
 
@@ -37,15 +38,39 @@ export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {
     null;
 }
 
-export function getNextInboxItem(inboxItemListing: IInboxItemListing) {
-  return Boolean(inboxItemListing) ?
-    inboxItemListing.inboxItems.find(inboxItem => !inboxItem.processed ) :
-    null;
+export function getNextInboxItem(inboxItemListing: IInboxItemListing, id: string) {
+  if (Boolean(inboxItemListing)) {
+    let inboxItems = inboxItemListing.inboxItems;
+    let ids = inboxItemListing.linkedIds;
+    let nextId = "0";
+    for (let i in inboxItemListing.linkedIds) {
+      if (ids[i][0] == id) {
+        nextId = ids[i][2];
+        console.log("found next id",nextId);
+        break;
+      }
+    }
+    if (nextId != "0") {
+      for (let item of inboxItems) {
+        if (item.id == nextId) {
+          console.log("returning item",item);
+          return item;
+        }
+      }
+    }
+    console.log("returning null");
+    return null;
+  } else {
+    return null;
+  }
+  // return Boolean(inboxItemListing) ?
+  //   inboxItemListing.inboxItems.find(inboxItem => !inboxItem.processed ) :
+  //   null;
 }
 
 //New content is not actual ???
-export function setUpdateProcessed(inboxItemListing: IInboxItemListing, id: string) {
-  return Boolean(inboxItemListing) ?
-    inboxItemListing.inboxItems.find(inboxItem => inboxItem.processed !== true) :
-    null;
-}
+// export function setUpdateProcessed(inboxItemListing: IInboxItemListing, id: string) {
+//   return Boolean(inboxItemListing) ?
+//     inboxItemListing.inboxItems.find(inboxItem => inboxItem.processed !== true) :
+//     null;
+// }

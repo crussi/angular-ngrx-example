@@ -121,7 +121,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         break;
       case StepEnum.Next:
         //console.log('wizard is done, process next inbox item');
-        this.onInboxItemNext.emit(new InboxItemNext());
+        this.onInboxItemNext.emit(new InboxItemNext(this.inboxItem.id));
         break;
       case StepEnum.Exit:
         console.log('exit wizard');        

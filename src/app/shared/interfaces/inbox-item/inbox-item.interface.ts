@@ -10,3 +10,9 @@ export interface IInboxItem {
   readonly processed?: boolean;
 
 }
+
+export interface ILinkdId {
+  readonly id: string;
+  readonly prevId: string;
+  readonly nextId: string;
+}
