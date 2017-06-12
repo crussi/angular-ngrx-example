@@ -16,6 +16,7 @@ import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.com
 import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProjectPlan, 
          RefineAction, Schedule, YesNo} from './components';
 import {WizardDirective} from './directives/wizard.directive';
+import { ProcessnextComponent } from './components/processnext/processnext.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import {WizardDirective} from './directives/wizard.directive';
     RefineAction, 
     Schedule, 
     YesNo,
-    WizardDirective
+    WizardDirective,
+    ProcessnextComponent
   ],
   providers: [
     StepsBeginService,

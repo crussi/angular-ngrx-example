@@ -15,6 +15,7 @@ import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-ite
 export class InboxItemDetailPageComponent implements OnInit {
 
   public inboxItem$: Observable<IInboxItem>;
+  public nextId$: Observable<string>;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +38,7 @@ export class InboxItemDetailPageComponent implements OnInit {
     console.log('onInboxItemNext()');
     // this.inboxItem$ = this.route.params
     //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());
-    this.inboxItem$ = this.inboxItemListingStore.getNextInboxItem(event.id);
+    this.nextId$ = this.inboxItemListingStore.getNextInboxItemId(event.id);
   }  
 
 }

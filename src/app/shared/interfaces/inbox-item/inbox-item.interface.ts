@@ -8,7 +8,8 @@ export interface IInboxItem {
   readonly imageUrl?: string;
   readonly favorite?: boolean;
   readonly processed?: boolean;
-
+  prevId?: string;
+  nextId?: string;
 }
 
 export interface ILinkdId {

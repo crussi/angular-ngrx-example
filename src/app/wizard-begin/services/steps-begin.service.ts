@@ -120,7 +120,7 @@ export class StepsBeginService {
       new StepSettings(
         StepEnum.ApproveChange,
         "",
-        "Approve change?",
+        "Undo change?",
         "",
         new StepOptions(
         undefined, 

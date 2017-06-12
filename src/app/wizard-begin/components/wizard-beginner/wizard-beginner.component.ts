@@ -128,8 +128,8 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
         break;
       case StepEnum.Next:
-        //console.log('wizard is done, process next inbox item');
-        this.onInboxItemNext.emit(new InboxItemNext(this.inboxItem.id));
+        console.log('*** Error: StepEnum.Next being phased out ***');
+        //this.onInboxItemNext.emit(new InboxItemNext(this.inboxItem.id));
         break;
       case StepEnum.Exit:
         console.log('exit wizard');        
@@ -155,6 +155,10 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         if (this.steps[i].Name == stepTransition.to) {
           //console.log('found match:',this.steps[i].Name);
           let step: Step = this.steps[i];
+          //Capture prev and next inbox item id's
+          step.Settings.prevInboxItemId = this.inboxItem.prevId;
+          step.Settings.nextInboxItemId = this.inboxItem.nextId;
+          
           switch (step.Name) {
             case StepEnum.ApproveChange:
               step.StepOptions.CancelStep = stepTransition.from;

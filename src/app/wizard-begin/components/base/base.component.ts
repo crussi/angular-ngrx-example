@@ -71,6 +71,12 @@ export class BaseComponent implements OnInit  {
   get hasCancel(): boolean {
     return this.Settings.Steps.hasCancel;
   } 
+  get hasNextInboxItemId(): boolean {
+    return this.Settings.nextInboxItemId != "0";
+  }
+  get hasPrevInboxItemId(): boolean {
+    return this.Settings.prevInboxItemId != "0";
+  }
 
 
   ngOnInit() {

@@ -8,7 +8,7 @@ import { createAction } from '../../../store/create-action';
 import {
   getInboxItems,
   getInboxItem,
-  getNextInboxItem,
+  getNextInboxItemId,
   //setUpdateProcessed,
   IInboxItem,
   IInboxItemFilters,
@@ -49,9 +49,9 @@ export class InboxItemListingStore {
   }
 
   //New
-  public getNextInboxItem(id: string): Observable<IInboxItem> {
+  public getNextInboxItemId(id: string): Observable<string> {
     return this.getInboxItemListing()
-      .map(inboxItemListing => getNextInboxItem(inboxItemListing,id));
+      .map(inboxItemListing => getNextInboxItemId(inboxItemListing,id));
   }
 
   //New

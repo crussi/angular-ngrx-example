@@ -36,7 +36,7 @@ export function inboxItemMatchesUserFilter(inboxItem: IInboxItem, filters: IInbo
     return false;
   }
 
-  return Boolean(filters) && Boolean(filters.user) ?
+return Boolean(filters) && Boolean(filters.user) ?
     inboxItem.user === filters.user :
     true;
 }

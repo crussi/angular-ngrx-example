@@ -3,30 +3,29 @@ import { StepEnum, NonActionableTypeEnum } from './step.enum';
 import { InboxItem } from './inbox.model';
 
 export class Step {
-    //Name: StepEnum;
+
     get Name() : StepEnum {
         return this.Settings.Name;
     }
-    //Declaration: string;
+
     get Declaration() : string {
         return this.Settings.Declaration;
     }    
-    //Question: string;
+
     get Question() : string {
         return this.Settings.Question;
     }    
     
-    //Component: Type<any>;
     get Component() : Type<any> {
         return this.component;
     }    
 
-    //Steps: StepOptions;
     get StepOptions() : StepOptions {
         return this.Settings.Steps;
     }    
     
     Settings: StepSettings;
+
     constructor(public component: Type<any>, settings: StepSettings) {
         //this.Steps = new StepOptions();
         this.Settings = settings;
@@ -43,7 +42,14 @@ export class Step {
 }
 
 export class StepSettings {
-    constructor(public Name: StepEnum, public  Declaration: string = "", public  Question: string = "", public ApproveMsg: string = "", public  Steps: StepOptions){}
+    public prevInboxItemId: string;
+    public nextInboxItemId: string;
+    constructor(
+        public Name: StepEnum, 
+        public  Declaration: string = "", 
+        public  Question: string = "", 
+        public  ApproveMsg: string = "", 
+        public  Steps: StepOptions){}
 }
 
 export class StepOptions {
