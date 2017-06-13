@@ -1,3 +1,14 @@
-<p>
-  nonactionable works!
-</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+  <div>
+    <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
+    <h3 *ngIf="hasQuestion">{{Question}}</h3>
+    <form #f="ngForm">
+      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="trash">Trash?<br>
+      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="someday">Someday/maybe?<br>
+      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="ref">Reference
+    </form>      
+
+    <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
+    <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
+  </div>
+</form>

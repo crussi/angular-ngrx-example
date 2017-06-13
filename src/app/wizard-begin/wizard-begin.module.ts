@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {EffectsModule} from '@ngrx/effects';
@@ -21,6 +22,7 @@ import {WizardDirective} from './directives/wizard.directive';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     //VideoGameListingModule,
     //VideoGameDetailModule,
