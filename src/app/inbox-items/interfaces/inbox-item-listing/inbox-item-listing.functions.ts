@@ -2,7 +2,6 @@ import { IInboxItemListing } from './inbox-item-listing.interface';
 import { IInboxItem } from '../../../shared/barrel';
 import { createDefaultInboxItemFilters } from './inbox-item-filters.functions';
 import {
-  inboxItemMatchesFavoritesFilter,
   inboxItemMatchesUserFilter,
   inboxItemMatchesSearchQuery
 } from '../inbox-item';
@@ -21,15 +20,15 @@ function getFilteredInboxItems(inboxItemListing: IInboxItemListing) {
   return inboxItemListing.inboxItems
     .filter(inboxItem => inboxItemMatchesSearchQuery(inboxItem, inboxItemListing.searchQuery))
     .filter(inboxItem => inboxItemMatchesUserFilter(inboxItem, inboxItemListing.filters))
-    .filter(inboxItem => inboxItemMatchesFavoritesFilter(inboxItem, inboxItemListing.filters));
 }
 
 export function getInboxItems(inboxItemListing: IInboxItemListing) {
   return Boolean(inboxItemListing) ?
     getFilteredInboxItems(inboxItemListing).sort(
       (inboxItemA, inboxItemB) => new Date(inboxItemA.dateEntered).getTime() - new Date(inboxItemB.dateEntered).getTime() 
-    ) :
-    [];
+    ).filter(inboxItem => inboxItem.processed != true)
+ 
+    : [];
 }
 
 export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {

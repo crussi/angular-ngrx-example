@@ -41,12 +41,12 @@ return Boolean(filters) && Boolean(filters.user) ?
     true;
 }
 
-export function inboxItemMatchesFavoritesFilter(inboxItem: IInboxItem, filters: IInboxItemFilters) {
-  if (!Boolean(inboxItem)) {
-    return false;
-  }
+// export function inboxItemMatchesFavoritesFilter(inboxItem: IInboxItem, filters: IInboxItemFilters) {
+//   if (!Boolean(inboxItem)) {
+//     return false;
+//   }
 
-  return Boolean(filters) && filters.favorites === true ?
-    inboxItem.favorite :
-    true;
-}
+//   return Boolean(filters) && filters.favorites === true ?
+//     inboxItem.favorite :
+//     true;
+// }
