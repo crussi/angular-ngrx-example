@@ -13,7 +13,7 @@ export class InboxItemsService {
   }
 
   public getAll(): Observable<Array<IInboxItem>> {
-    return this.apiService.get('/59388d8d120000fe00a672e7');
+    return this.apiService.get('/593f27521000008b1347f335');
   }
 
 }

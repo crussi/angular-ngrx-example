@@ -123,7 +123,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
       case StepEnum.Done:
         console.log('Done hide description');
         //this.onHideDescription.emit(true);
-        //this.displayDesc = false;
+        this.displayDesc = false;
         console.log("emit InboxItemProcessed", this.inboxItem.id)
         this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
         break;
@@ -143,7 +143,8 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   private loadComponent(stepTransition:StepTransition) {
     //console.log('loadComponent ' + stepTransition.to + ' ads.length: ' + this.ads.length);
     //console.log('stepTransition.to: ',stepTransition);
-    
+    this.displayDesc = true;
+
     //Find step component to load and load it
     if (!this.steps || !this.steps.length) {
       //console.log('steps empty');

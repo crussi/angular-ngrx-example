@@ -13,10 +13,9 @@ import {StepsStateStore} from './store/steps-state/steps-state.store';
 import { StepsBeginEffects, StepsStateEffects} from './store/effects';
 import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.component';
 //import { YesNo } from './components/yesno/yesno.component';
-import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProjectPlan, 
+import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProcessNext, ProjectPlan, 
          RefineAction, Schedule, YesNo} from './components';
 import {WizardDirective} from './directives/wizard.directive';
-import { ProcessnextComponent } from './components/processnext/processnext.component';
 
 @NgModule({
   imports: [
@@ -38,12 +37,12 @@ import { ProcessnextComponent } from './components/processnext/processnext.compo
     NewProject, 
     NextAction, 
     NonActionable, 
+    ProcessNext,
     ProjectPlan, 
     RefineAction, 
     Schedule, 
     YesNo,
-    WizardDirective,
-    ProcessnextComponent
+    WizardDirective
   ],
   providers: [
     StepsBeginService,
@@ -57,6 +56,7 @@ import { ProcessnextComponent } from './components/processnext/processnext.compo
     NewProject, 
     NextAction, 
     NonActionable, 
+    ProcessNext,
     ProjectPlan, 
     RefineAction, 
     Schedule, 
@@ -69,6 +69,7 @@ import { ProcessnextComponent } from './components/processnext/processnext.compo
     NewProject, 
     NextAction, 
     NonActionable, 
+    ProcessNext,
     ProjectPlan, 
     RefineAction, 
     Schedule, 

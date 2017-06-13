@@ -27,7 +27,7 @@ function getFilteredInboxItems(inboxItemListing: IInboxItemListing) {
 export function getInboxItems(inboxItemListing: IInboxItemListing) {
   return Boolean(inboxItemListing) ?
     getFilteredInboxItems(inboxItemListing).sort(
-      (inboxItemA, inboxItemB) => inboxItemA.title.localeCompare(inboxItemB.title)
+      (inboxItemA, inboxItemB) => new Date(inboxItemA.dateEntered).getTime() - new Date(inboxItemB.dateEntered).getTime() 
     ) :
     [];
 }
@@ -45,12 +45,14 @@ export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {
             inboxItem.prevId = "0";
             inboxItem.nextId = "0";
             for (var j = +i+1; j < inboxItems.length; j++) {
+              console.log('j',j);
               if (inboxItems[j].processed == false) {
                 inboxItem.nextId = inboxItems[j].id;
                 break;
               }
             }
-            for (var k = +i-1; k >= 0; k++) {
+            for (var k = +i-1; k >= 0; k--) {              
+              console.log('k', k);
               if (inboxItems[k].processed == false) {
                 inboxItem.prevId = inboxItems[k].id;
                 break;

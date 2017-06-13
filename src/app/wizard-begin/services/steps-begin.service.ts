@@ -9,7 +9,8 @@ import {Done} from '../components/done/done.component';
 import {NewProject} from '../components/newproject/newproject.component';
 import {NextAction} from '../components/nextaction/nextaction.component';
 import {NonActionable} from '../components/nonactionable/nonactionable.component';
-import {ProjectPlan} from '../components/projectplan/projectplan.component';
+import { ProcessNext } from '../components/processnext/processnext.component';
+import { ProjectPlan } from '../components/projectplan/projectplan.component';
 import {RefineAction} from '../components/refineaction/refineaction.component';
 import {Schedule} from '../components/schedule/schedule.component';
 import {YesNo} from '../components/yesno/yesno.component';
@@ -120,7 +121,7 @@ export class StepsBeginService {
       new StepSettings(
         StepEnum.ApproveChange,
         "",
-        "Undo change?",
+        "Approve change?",
         "",
         new StepOptions(
         undefined, 
@@ -236,19 +237,19 @@ export class StepsBeginService {
         undefined)
         )
       ),
-      new Step(YesNo,
+      new Step(ProcessNext,
       new StepSettings(
         StepEnum.Done,
         "",
-        "Process next Inbox item?",
+        "Continue processing inbox?",
         "",
         new StepOptions(
-        StepEnum.Next, 
-        StepEnum.Exit,
+        undefined, 
+        undefined,
         undefined, 
         undefined, 
         undefined, 
-        undefined)
+        StepEnum.Exit)
         )
       )  
            

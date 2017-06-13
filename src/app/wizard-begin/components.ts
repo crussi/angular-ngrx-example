@@ -5,6 +5,7 @@ export * from './components/done/done.component';
 export * from './components/newproject/newproject.component';
 export * from './components/nextaction/nextaction.component';
 export * from './components/nonactionable/nonactionable.component';
+export * from './components/processnext/processnext.component';
 export * from './components/projectplan/projectplan.component';
 export * from './components/refineaction/refineaction.component';
 export * from './components/schedule/schedule.component';

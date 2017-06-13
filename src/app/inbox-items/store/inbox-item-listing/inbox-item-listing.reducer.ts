@@ -67,23 +67,23 @@ export function inboxItemListingReducer(
           user: action.payload.user
         }
       };
-    case InboxItemListingStore.TOGGLE_FAVORITE_FILTER:
-      return {
-        ...state,
-        filters: {
-          ...state.filters,
-          favorites: !state.filters.favorites
-        }
-      };
-    case InboxItemListingStore.TOGGLE_FAVORITE:
-      return {
-        ...state,
-        inboxItems: updateChildObject(
-          state.inboxItems,
-          (game) => game.id === action.payload.id,
-          (game) => ({favorite: !game.favorite}),
-        )
-      };
+    // case InboxItemListingStore.TOGGLE_FAVORITE_FILTER:
+    //   return {
+    //     ...state,
+    //     filters: {
+    //       ...state.filters,
+    //       favorites: !state.filters.favorites
+    //     }
+    //   };
+    // case InboxItemListingStore.TOGGLE_FAVORITE:
+    //   return {
+    //     ...state,
+    //     inboxItems: updateChildObject(
+    //       state.inboxItems,
+    //       (game) => game.id === action.payload.id,
+    //       (game) => ({favorite: !game.favorite}),
+    //     )
+    //   };
     case InboxItemListingStore.UPDATE_PROCESSED:
       console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {

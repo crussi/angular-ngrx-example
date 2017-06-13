@@ -11,9 +11,8 @@ import { StepsStateStore} from '../../store/steps-state/steps-state.store';
     <div>
       <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
+      <button *ngIf="hasOk" (click)="Ok(OkStep)">Ok</button>
       <button *ngIf="hasCancel" (click)="Cancel(CancelStep)">Cancel</button>
-      <button *ngIf="hasOk" (click)="Prev(OkStep)">Previous</button>
-      <button *ngIf="hasOk" (click)="Next(OkStep)">Next</button>
     </div>
   `,  
   styleUrls: ['./approvechange.component.css']

@@ -74,8 +74,14 @@ export class BaseComponent implements OnInit  {
   get hasNextInboxItemId(): boolean {
     return this.Settings.nextInboxItemId != "0";
   }
+  get NextInboxItemId(): string {
+    return this.Settings.nextInboxItemId;
+  }
   get hasPrevInboxItemId(): boolean {
     return this.Settings.prevInboxItemId != "0";
+  }
+  get PrevInboxItemId(): string {
+    return this.Settings.prevInboxItemId;
   }
 
 
