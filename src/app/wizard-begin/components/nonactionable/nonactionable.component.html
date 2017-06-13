@@ -1,14 +1,12 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
-  <div>
-    <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
-    <h3 *ngIf="hasQuestion">{{Question}}</h3>
-    <form #f="ngForm">
-      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="trash">Trash?<br>
-      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="someday">Someday/maybe?<br>
-      <input type="radio" name="nonactionable" [(ngModel)]="NonActionable" value="ref">Reference
-    </form>      
-
+<div>
+  <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
+  <h3 *ngIf="hasQuestion">{{Question}}</h3>
+  <form [formGroup]="nonActForm" (ngSubmit)="onSubmit()">
+    <input type="radio" formControlName="nonactionable" value="trash">Trash?<br>
+    <input type="radio" formControlName="nonactionable" value="someday">Someday/maybe?<br>
+    <input type="radio" formControlName="nonactionable" value="ref">Reference<br>
     <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
-    <button *ngIf="hasNext" (click)="Next(NextStep)">Next</button>
-  </div>
-</form>
+    <button type="submit" [disabled]="!nonActForm.valid" *ngIf="hasNext">Next</button>
+  </form>
+
+</div>

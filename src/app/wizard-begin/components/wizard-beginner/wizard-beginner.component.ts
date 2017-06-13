@@ -1,4 +1,5 @@
 import { Component, Input, AfterViewInit, AfterContentInit, ViewChild, ComponentFactoryResolver, OnDestroy, OnInit, OnChanges, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import { WizardDirective } from '../../directives/wizard.directive';
 import { StepEnum } from '../../../shared/barrel';
@@ -47,7 +48,8 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   constructor(
     private _componentFactoryResolver: ComponentFactoryResolver,
     private stepService: StepsBeginService,
-    private store: StepsBeginStore) { 
+    private store: StepsBeginStore,
+    private router: Router) { 
 
     console.log('constructor start');
     this.store.getSteps().subscribe(s => {
@@ -165,6 +167,12 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
               step.StepOptions.CancelStep = stepTransition.from;
               //console.log('wiz approve changes ...', adItem.Steps.CancelStep);
               //adItem.Settings.Declaration = stepTransition.approveMsg;
+              break;
+            case StepEnum.Done:
+              //No sense in loading ProcessNext if no more inbox items to process
+              if (step.Settings.prevInboxItemId == "0" && step.Settings.nextInboxItemId == "0") {
+                this.router.navigate(['/inboxItems/listing']);
+              }
               break;
           }
 
