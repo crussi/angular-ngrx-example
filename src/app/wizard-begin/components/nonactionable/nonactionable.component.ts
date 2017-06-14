@@ -15,8 +15,7 @@ export class NonActionable extends BaseComponent implements OnInit   {
   state:any;
   nonActForm: FormGroup;
 
-  constructor(private store: StepsStateStore,
-              private fb: FormBuilder) { 
+  constructor(private store: StepsStateStore, private fb: FormBuilder) { 
     super();
   }
 
