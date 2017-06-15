@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap';
 //import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import { IInboxItem, InboxItemProcessed, InboxItemNext} from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
+import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';
 
 @Component({
   selector: 'app-inbox-item-detail-page',
@@ -19,7 +20,8 @@ export class InboxItemDetailPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private inboxItemListingStore: InboxItemListingStore
+    private inboxItemListingStore: InboxItemListingStore,
+    private stepsStateStore: StepsStateStore
   ) {
 
   }
@@ -30,7 +32,7 @@ export class InboxItemDetailPageComponent implements OnInit {
   }
 
   public onInboxItemProcessed(event:InboxItemProcessed) {
-    console.log('onInboxItemProcessed()',event);
+    console.log('*** onInboxItemProcessed() ***',event);
     this.inboxItemListingStore.setUpdateProcessed(event.id);
   }
 

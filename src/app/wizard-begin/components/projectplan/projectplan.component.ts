@@ -24,9 +24,8 @@ export class ProjectPlan extends BaseComponent implements OnInit {
   ngOnInit(): void {
     super.ngOnInit();
     this.store.getState(this.Name).subscribe(stepState => {
-    this.state = stepState.State ? stepState.State : undefined;
-    this.buildForm();
-      
+      this.state = stepState.State ? stepState.State : undefined;
+      this.buildForm();      
     });
   }
 

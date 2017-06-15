@@ -1,3 +1,9 @@
-<p>
-  nextaction works!
-</p>
+<div>
+  <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
+  <h3 *ngIf="hasQuestion">{{Question}}</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input placeholder="Next action" formControlName="nextaction" />
+    <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
+    <button type="submit" [disabled]="!form.valid" *ngIf="hasNext">Next</button>
+  </form>
+</div>

@@ -1,3 +1,11 @@
-<p>
-  refineaction works!
-</p>
+<div>
+  <h2 *ngIf="hasDeclaration">{{Declaration}}</h2>
+  <h3 *ngIf="hasQuestion">{{Question}}</h3>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>Refine action controls go here ....</p>
+    <input type="text" placeholder="Enter a refine action" formControlName="refineaction">
+
+    <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
+    <button type="submit" [disabled]="!form.valid" *ngIf="hasNext">Next</button>
+  </form>
+</div>
