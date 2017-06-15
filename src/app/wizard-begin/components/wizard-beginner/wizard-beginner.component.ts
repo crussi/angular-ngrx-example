@@ -50,7 +50,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     private stepStateStore: StepsStateStore,
     private router: Router) { 
 
-    console.log('constructor start');
+    //console.log('constructor start');
     this.stepsBeginStore.getSteps().subscribe(s => {
       this.steps = s.list;
       //console.log('ngOnInit wizard-beginner steps',this.steps);
@@ -77,7 +77,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
 
   ngOnChanges(changes: SimpleChanges) {
     //console.log('ngOnChanges start');
-    //console.log('changes', changes);
+    console.log('changes', changes);
     //console.log('changes.inboxItem', changes.inboxItem);
     //let obj = changes.inboxItem;
     //console.log('obj.currentValue', obj.currentValue);
@@ -85,22 +85,26 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     if (changes.inboxItem) {
       let hasCurVal = changes.inboxItem.currentValue;
       let hasPrevVal = changes.inboxItem.previousValue;
-      if (!hasPrevVal) {
+      console.log('(hasCurVal && hasPrevVal && (hasCurVal.id != hasPrevVal.id))', (hasCurVal && hasPrevVal && (hasCurVal.id != hasPrevVal.id)));
+      if (!hasPrevVal || (hasCurVal && hasPrevVal && (hasCurVal.id != hasPrevVal.id))) {
         //New inbox item, refresh step state
+        console.log('+++ called stepStateStore.retrieve()');
         this.stepStateStore.retrieve();
+      } else {
+        console.log('hasPrevVal=true');
       }
       if (hasCurVal && !hasCurVal.processed) {
-        console.log('wizard.component ngOnChanges', changes.inboxItem);
+        //console.log('wizard.component ngOnChanges', changes.inboxItem);
         //console.log('called from ngOnChanges');
         this.initialize();
       } else if (hasCurVal && hasCurVal.processed)  {
-        console.log('wizard.component ngOnChanges processed',changes);
+        //console.log('wizard.component ngOnChanges processed',changes);
       } else {
-        console.log('wizard.component ngOnChanges no currentValue',changes);
+        //console.log('wizard.component ngOnChanges no currentValue',changes);
       }
 
     } else {
-      console.log("wizard.component ngOnChanges no changes.inboxItem",changes);
+      //console.log("wizard.component ngOnChanges no changes.inboxItem",changes);
     }
   }  
 
@@ -116,7 +120,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   }
 
   stateChanged(stateChange:WizStateChange) {
-    console.log('wiz stateChanged: ' + StepEnum[stateChange.Step], stateChange.Value);
+    //console.log('wiz stateChanged: ' + StepEnum[stateChange.Step], stateChange.Value);
 
     //this.State.update(stateChange);
     //console.dir(this.State);
@@ -127,12 +131,12 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         //console.log('wizard navigate from here');
         break;
       case StepEnum.Done:
-        console.log('Done hide description');
+        //console.log('Done hide description');
         //this.onHideDescription.emit(true);
         this.displayDesc = false;
         console.log("emit InboxItemProcessed", this.inboxItem.id);
         let s = this.stepStateStore.getStepsState().subscribe(state => {
-          this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
+          this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id, state.list));
         });
         break;
       case StepEnum.Next:

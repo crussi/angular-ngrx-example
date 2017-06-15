@@ -85,7 +85,7 @@ export function inboxItemListingReducer(
     //     )
     //   };
     case InboxItemListingStore.UPDATE_PROCESSED:
-      console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         inboxItems: updateChildObject(

@@ -44,14 +44,14 @@ export function getInboxItem(inboxItemListing: IInboxItemListing, id: string) {
             inboxItem.prevId = "0";
             inboxItem.nextId = "0";
             for (var j = +i+1; j < inboxItems.length; j++) {
-              console.log('j',j);
+              //console.log('j',j);
               if (inboxItems[j].processed == false) {
                 inboxItem.nextId = inboxItems[j].id;
                 break;
               }
             }
             for (var k = +i-1; k >= 0; k--) {              
-              console.log('k', k);
+              //console.log('k', k);
               if (inboxItems[k].processed == false) {
                 inboxItem.prevId = inboxItems[k].id;
                 break;
@@ -70,17 +70,17 @@ export function getNextInboxItemId(inboxItemListing: IInboxItemListing, id: stri
       let inboxItems = inboxItemListing.inboxItems; //.filter(inboxItem => inboxItem.processed != true);  
       for (var i = 0; i < inboxItems.length; i++) {
         if (inboxItems[i].id == id) {
-          console.log("getNextInboxItemId found id! look for next id");
+          //console.log("getNextInboxItemId found id! look for next id");
           for (var j = +i+1; j < inboxItems.length; j++) {
             if (inboxItems[j].processed == false) {
-              console.log("returning next id",inboxItems[j].id);
+              //console.log("returning next id",inboxItems[j].id);
               return inboxItems[j].id;
             }
           }
-         console.log("looking for next from start");
+         //console.log("looking for next from start");
          for (var k = 0; k < +i; k++) {
            if (inboxItems[k].processed == false) {
-             console.log("returning next id",inboxItems[k].id);
+             //console.log("returning next id",inboxItems[k].id);
              return inboxItems[k].id;
            }
          }                    

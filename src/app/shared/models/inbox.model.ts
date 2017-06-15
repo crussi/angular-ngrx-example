@@ -1,5 +1,5 @@
 import { Type } from '@angular/core';
-import { WizState } from './step.model';
+import { WizState, StepState } from './step.model';
 //import { IStepsState } from '../../wizard-begin/interfaces';
 
 export class InboxItem {    
@@ -7,7 +7,7 @@ export class InboxItem {
 }
 
 export class InboxItemProcessed {    
-    constructor(public id: string) {}
+    constructor(public id: string, public stepStates: Array<StepState>) {}
 }
 
 export class InboxItemNext {

@@ -217,7 +217,7 @@ export class StepsBeginService {
         undefined, 
         undefined,
         StepEnum.IsSchedulable, 
-        StepEnum.ApproveChange, 
+        StepEnum.IsActionable, 
         undefined, 
         undefined)
         )

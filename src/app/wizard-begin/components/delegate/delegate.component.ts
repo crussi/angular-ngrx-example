@@ -65,7 +65,7 @@ export class Delegate extends BaseComponent implements OnInit   {
 
   onSubmit(): void {
     this.state = this.form.value;
-    console.log('onSubmit',this.state);
+    //console.log('onSubmit',this.state);
     let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, new StepTransition(this.Settings.Name, this.NextStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);
