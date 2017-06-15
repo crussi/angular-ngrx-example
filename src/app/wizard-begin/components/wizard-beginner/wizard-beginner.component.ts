@@ -132,8 +132,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         this.displayDesc = false;
         console.log("emit InboxItemProcessed", this.inboxItem.id);
         let s = this.stepStateStore.getStepsState().subscribe(state => {
-
-          this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id, state.list));
+          this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id));
         });
         break;
       case StepEnum.Next:

@@ -31,9 +31,9 @@ export class InboxItemDetailPageComponent implements OnInit {
       .switchMap((params: any) => this.inboxItemListingStore.getInboxItem(params.inboxItemId));
   }
 
-  public onInboxItemProcessed(event:InboxItemProcessed) {
-    console.log('*** onInboxItemProcessed() ***',event);
-    this.inboxItemListingStore.setUpdateProcessed(event.id);
+  public onInboxItemProcessed(id:string) {
+    console.log('*** onInboxItemProcessed() ***',id);
+    this.inboxItemListingStore.setUpdateProcessed(id);
   }
 
   public onInboxItemNext(event: InboxItemNext) {

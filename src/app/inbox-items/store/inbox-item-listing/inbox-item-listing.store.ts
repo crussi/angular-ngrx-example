@@ -14,7 +14,7 @@ import {
   IInboxItemFilters,
   IInboxItemListing,
 } from '../../interfaces';
-
+//import { InboxItemProcessed } from '../../../shared/barrel';
 @Injectable()
 export class InboxItemListingStore {
 
@@ -55,8 +55,8 @@ export class InboxItemListingStore {
   }
 
   //New
-  public setUpdateProcessed(id:string) {
-    console.log('store setUpdateProcessed id:',id);
+  public setUpdateProcessed(id: string) {
+    console.log('store setUpdateProcessed id:',event);
     this.store.dispatch(createAction(InboxItemListingStore.UPDATE_PROCESSED, {id}));
   }
 
