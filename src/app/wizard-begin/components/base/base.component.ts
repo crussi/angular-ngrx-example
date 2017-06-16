@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { StepEnum } from '../../../shared/barrel';
 import { StepTransition, StepSettings, WizStateChange, StepState } from '../../../shared/barrel';
 
@@ -11,7 +11,7 @@ import { StepTransition, StepSettings, WizStateChange, StepState } from '../../.
   `,  
   styleUrls: ['./base.component.css']
 })
-export class BaseComponent implements OnInit  {
+export class BaseComponent implements OnInit, OnDestroy  {
   //Data: any;
   @Input() Settings: StepSettings;
   @Input() State: any;
@@ -87,6 +87,11 @@ export class BaseComponent implements OnInit  {
 
   ngOnInit() {
     //this.Initialize();
+  }
+
+  ngOnDestroy() {
+    //this.Initialize();
+    //console.log('base component destroy');
   }
 
   // LoadStep(step:StepEnum) {

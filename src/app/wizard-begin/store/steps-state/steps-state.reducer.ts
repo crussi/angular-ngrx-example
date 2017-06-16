@@ -27,7 +27,7 @@ export function stepsStateReducer(state: IStepsState, action: Action): IStepsSta
                 loadingError: action.payload.error
             };
         case StepsStateStore.STATECHANGED:
-            //console.log('steps-state.reducer StepsStateStore.STATECHANGED', action.payload);
+            console.log('steps-state.reducer StepsStateStore.STATECHANGED', action.payload);
             const s = action.payload;
             let name = StepEnum[s.Step];
             let idx = state.list.findIndex(function (el) { return el.Step == name });

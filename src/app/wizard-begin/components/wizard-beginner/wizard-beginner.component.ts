@@ -7,10 +7,10 @@ import { Step, StepTransition, WizState, StepState, WizStateChange, InboxItemPro
 import { BaseComponent } from '../base/base.component';
 import { StepsBeginService } from '../../services/steps-begin.service';
 import { Store } from '@ngrx/store';
-import { ISteps } from '../../interfaces';
+import { ISteps, IStepsState } from '../../interfaces';
 import { StepsBeginStore } from '../../store/steps-begin/steps-begin.store';
 import { StepsStateStore } from '../../store/steps-state/steps-state.store';
-
+import { MessageService } from '../../../shared/services/message.service';
 
 @Component({
   selector: 'wizard-beginner',
@@ -27,11 +27,12 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   //public steps$: Observable<ISteps>;
   public steps: Array<Step>;
   public stepStates$: Observable<StepState>;
+  private state: IStepsState;
 
   @Input() inboxItem: IInboxItem;
   @Output() onInboxItemProcessed: EventEmitter<InboxItemProcessed> = new EventEmitter();
-  @Output() onInboxItemNext: EventEmitter<InboxItemNext> = new EventEmitter();
-  //@Output() onHideDescription: EventEmitter<boolean> = new EventEmitter();
+ // @Output() onInboxItemNext: EventEmitter<InboxItemNext> = new EventEmitter();
+
   currentAddIndex: number = -1;
   //State: WizState;
   @ViewChild(WizardDirective) adHost: WizardDirective;
@@ -48,14 +49,19 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
     private stepService: StepsBeginService,
     private stepsBeginStore: StepsBeginStore,
     private stepStateStore: StepsStateStore,
-    private router: Router) { 
+    private router: Router,
+    private messageService: MessageService
+    ) { 
 
     //console.log('constructor start');
     this.stepsBeginStore.getSteps().subscribe(s => {
       this.steps = s.list;
       //console.log('ngOnInit wizard-beginner steps',this.steps);
     });
-      
+    this.stepStateStore.getStepsState().subscribe(state => {
+      console.log("this.state (IStepState) just got updated (subscription)");
+      this.state = state;
+    });   
     }
 
   ngOnInit(){
@@ -72,6 +78,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   }
 
   ngOnDestroy() {
+    console.log('**************************nOnDestroy*******************************');
     clearInterval(this.interval);
   }
 
@@ -120,7 +127,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   }
 
   stateChanged(stateChange:WizStateChange) {
-    //console.log('wiz stateChanged: ' + StepEnum[stateChange.Step], stateChange.Value);
+    console.log('wiz stateChanged: ' + StepEnum[stateChange.Step], stateChange.Value);
 
     //this.State.update(stateChange);
     //console.dir(this.State);
@@ -135,9 +142,9 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         //this.onHideDescription.emit(true);
         this.displayDesc = false;
         console.log("emit InboxItemProcessed", this.inboxItem.id);
-        let s = this.stepStateStore.getStepsState().subscribe(state => {
-          this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id, state.list));
-        });
+
+        this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id, this.state.list));
+        this.sendMessage();
         break;
       case StepEnum.Next:
         console.log('*** Error: StepEnum.Next being phased out ***');
@@ -189,8 +196,9 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
           let componentFactory = this._componentFactoryResolver.resolveComponentFactory(step.Component);
           let viewContainerRef = this.adHost.viewContainerRef;
           viewContainerRef.clear();
-
+          
           let componentRef = viewContainerRef.createComponent(componentFactory);
+          //componentRef.onDestroy(()=>{console.log("i am a component that got destroyed")});
           //console.log('about to assign Settings',step.Settings);
           (<BaseComponent>componentRef.instance).Settings = step.Settings;
           //(<BaseComponent>componentRef.instance).State = this.State.getState(stepTransition.to);            
@@ -199,5 +207,15 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         }
     }
   }
+
+  sendMessage(): void {
+    // send message to subscribers via observable subject
+    this.messageService.sendMessage('Message from Home Component to App Component!');
+  }
+
+  clearMessage(): void {
+    // clear message
+    this.messageService.clearMessage();
+  }  
 
 }

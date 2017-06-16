@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { StepEnum, WizStateChange, StepTransition } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';

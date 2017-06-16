@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
 import { StepEnum } from '../../../shared/barrel';
 import { WizStateChange, StepTransition } from '../../../shared/barrel';
@@ -23,7 +23,6 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 })
 export class YesNo extends BaseComponent implements OnInit   {
 
-
   constructor(private store: StepsStateStore) { 
     super();
   }
@@ -39,9 +38,8 @@ export class YesNo extends BaseComponent implements OnInit   {
     let stateChange:WizStateChange = new WizStateChange(this.Settings.Name, val,new StepTransition(this.Settings.Name,nextStep));
     //super.StateChanged(nextStep, val);
     //this.store.dispatch(new action.StateChangeAction(stateChange));
-    this.store.stateChanged(stateChange);
     super.EmitStateChanged(stateChange);
+    this.store.stateChanged(stateChange);
   }
-
 
 }

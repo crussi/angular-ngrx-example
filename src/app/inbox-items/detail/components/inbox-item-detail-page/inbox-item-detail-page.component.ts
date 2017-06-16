@@ -1,12 +1,13 @@
-import { Component, OnInit, ErrorHandler} from '@angular/core';
+import { Component, OnInit, OnDestroy, ErrorHandler} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
-
+import { Subscription } from 'rxjs/Subscription';
 //import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import { IInboxItem, InboxItemProcessed, InboxItemNext, StepEnum} from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';
+import { MessageService } from '../../../../shared/services/message.service';
 
 @Component({
   selector: 'app-inbox-item-detail-page',
@@ -17,18 +18,27 @@ export class InboxItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public inboxItem$: Observable<IInboxItem>;
   public nextId$: Observable<string>;
+  message: any;
+  subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
     private inboxItemListingStore: InboxItemListingStore,
-    private stepsStateStore: StepsStateStore
+    private stepsStateStore: StepsStateStore,
+    private messageService: MessageService
   ) {
-
+    // subscribe to home component messages
+    this.subscription = this.messageService.getMessage().subscribe(message => { this.message = message; console.log('message',message) });
   }
 
   public ngOnInit() {
     this.inboxItem$ = this.route.params
       .switchMap((params: any) => this.inboxItemListingStore.getInboxItem(params.inboxItemId));
+  }
+
+  public ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 
   public onInboxItemProcessed(event: InboxItemProcessed) {
@@ -86,12 +96,12 @@ export class InboxItemDetailPageComponent implements OnInit, ErrorHandler {
     }
   }
 
-  public onInboxItemNext(event: InboxItemNext) {
-    console.log('onInboxItemNext()');
-    // this.inboxItem$ = this.route.params
-    //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());
-    this.nextId$ = this.inboxItemListingStore.getNextInboxItemId(event.id);
-  }  
+  // public onInboxItemNext(event: InboxItemNext) {
+  //   console.log('***--->>>> onInboxItemNext() <<<<---***');
+  //   // this.inboxItem$ = this.route.params
+  //   //   .switchMap((params: any) => this.inboxItemListingStore.getNextInboxItem());
+  //   this.nextId$ = this.inboxItemListingStore.getNextInboxItemId(event.id);
+  // }  
 
   handleError(error) {
     // do something with the exception
