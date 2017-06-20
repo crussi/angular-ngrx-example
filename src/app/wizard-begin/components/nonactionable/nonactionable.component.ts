@@ -36,7 +36,21 @@ export class NonActionable extends BaseComponent implements OnInit   {
 
   onSubmit(): void {
     this.state = this.nonActForm.value;
-    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, new StepTransition(this.Settings.Name, this.NextStep));
+    let transition: StepTransition = new StepTransition(this.Settings.Name, this.NextStep);
+    let approveMsg = "... this item will be sent to ";
+    switch (this.state.nonactionable) {
+      case "trash":
+        approveMsg += "Trash.";
+        break;
+      case "someday":
+        approveMsg += "Someday/maybe.";
+        break;
+      case "reference":
+        approveMsg += "Reference.";
+        break;
+    }
+    transition.approveMsg = approveMsg;
+    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, transition);
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);  
   }

@@ -30,12 +30,12 @@ export class RefineAction extends BaseComponent implements OnInit   {
   buildForm(): void {
     let refineaction = this.state ? this.state.refineaction : undefined;
     this.form = this.fb.group({
-      'refineaction': [refineaction, Validators.required]
+      //'refineaction': [refineaction, Validators.required]
     });
   } 
   onSubmit(): void {
     this.state = this.form.value;
-    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, new StepTransition(this.Settings.Name, this.NextStep));
+    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, new StepTransition(this.Settings.Name, this.OkStep));
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);
   }

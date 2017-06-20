@@ -15,7 +15,9 @@ export class Step {
     get Question() : string {
         return this.Settings.Question;
     }    
-    
+    set Question(question: string) {
+        this.Settings.Question = question;
+    }     
     get Component() : Type<any> {
         return this.component;
     }    
@@ -82,12 +84,10 @@ export class StepOptions {
 }
 
 export class StepTransition {
-    from:StepEnum;
-    to: StepEnum;
-    constructor(from:StepEnum, to: StepEnum){
-        this.from = from;
-        this.to = to;
+    public approveMsg: string;
+    constructor(public from:StepEnum, public to: StepEnum){
     }
+
 }
 
 export class ProjectPlan {

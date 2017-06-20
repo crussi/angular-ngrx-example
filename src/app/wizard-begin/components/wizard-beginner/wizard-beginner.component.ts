@@ -144,12 +144,12 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
         console.log("emit InboxItemProcessed", this.inboxItem.id);
 
         this.onInboxItemProcessed.emit(new InboxItemProcessed(this.inboxItem.id, this.state.list));
-        this.sendMessage();
+        //this.sendMessage();
         break;
-      case StepEnum.Next:
-        console.log('*** Error: StepEnum.Next being phased out ***');
-        //this.onInboxItemNext.emit(new InboxItemNext(this.inboxItem.id));
-        break;
+      // case StepEnum.Next:
+      //   console.log('*** Error: StepEnum.Next being phased out ***');
+      //   //this.onInboxItemNext.emit(new InboxItemNext(this.inboxItem.id));
+      //   break;
       case StepEnum.Exit:
         console.log('exit wizard');        
         break;
@@ -182,14 +182,20 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
           switch (step.Name) {
             case StepEnum.ApproveChange:
               step.StepOptions.CancelStep = stepTransition.from;
+              step.Question = stepTransition.approveMsg;
               //console.log('wiz approve changes ...', adItem.Steps.CancelStep);
               //adItem.Settings.Declaration = stepTransition.approveMsg;
+              break;
+            case StepEnum.RefineAction:
+              let nextaction = this.state.list[StepEnum.Next].State ? this.state.list[StepEnum.Next].State.nextaction : "";
+              step.Question = '"' + nextaction + '"' + " will be added to Next Actions";
               break;
             case StepEnum.Done:
               //No sense in loading ProcessNext if no more inbox items to process
               if (step.Settings.prevInboxItemId == "0" && step.Settings.nextInboxItemId == "0") {
                 this.router.navigate(['/inboxItems/listing']);
               }
+              this.displayDesc = false;
               break;
           }
 

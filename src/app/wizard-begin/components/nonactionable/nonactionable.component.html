@@ -4,7 +4,7 @@
   <form [formGroup]="nonActForm" (ngSubmit)="onSubmit()">
     <input type="radio" formControlName="nonactionable" value="trash">Trash?<br>
     <input type="radio" formControlName="nonactionable" value="someday">Someday/maybe?<br>
-    <input type="radio" formControlName="nonactionable" value="ref">Reference<br>
+    <input type="radio" formControlName="nonactionable" value="reference">Reference<br>
     <button *ngIf="hasPrev" (click)="StateChanged(PrevStep,undefined)">Previous</button>
     <button type="submit" [disabled]="!nonActForm.valid" *ngIf="hasNext">Next</button>
   </form>

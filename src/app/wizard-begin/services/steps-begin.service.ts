@@ -210,16 +210,16 @@ export class StepsBeginService {
       new Step(RefineAction,
       new StepSettings(
         StepEnum.RefineAction,
-        "Please refine this task ...",
+        "",
         "",
         "",
         new StepOptions(
         undefined, 
         undefined,
-        StepEnum.IsSchedulable, 
-        StepEnum.IsActionable, 
         undefined, 
-        undefined)
+        undefined,
+        StepEnum.Done, 
+        StepEnum.IsSchedulable)
         )
       ), 
       new Step(Delegate,
@@ -241,7 +241,7 @@ export class StepsBeginService {
       new StepSettings(
         StepEnum.Done,
         "",
-        "Continue processing inbox?",
+        "Continue with ...",
         "",
         new StepOptions(
         undefined, 

@@ -10,12 +10,10 @@ import { StepsStateStore} from '../../store/steps-state/steps-state.store';
   template: `
     <div>
       
-      <div style="display:inline-block; margin-top: 30px"><label *ngIf="hasQuestion">{{Question}}</label>
-        <button style="margin-left: 20px" *ngIf="hasCancel" [routerLink]="['/inboxItems/listing']">No</button>
-      </div>
-      <h3>Go to ...</h3>
+      <h3 *ngIf="hasQuestion">{{Question}}</h3>
       <button [disabled]="!hasPrevInboxItemId" [routerLink]="['/inboxItems/',PrevInboxItemId]">Previous</button>
       <button [disabled]="!hasNextInboxItemId" [routerLink]="['/inboxItems/',NextInboxItemId]">Next</button>
+      <button style="margin-left: 20px" *ngIf="hasCancel" [routerLink]="['/inboxItems/listing']">Exit</button>
     </div>
   `,
   styleUrls: ['./processnext.component.css']
