@@ -19,10 +19,6 @@ export class StepsBeginStore {
 
   }
 
-  // public getInboxItem(id: string): Observable<IInboxItem> {
-  //   return this.getInboxItemListing()
-  //     .map(inboxItemListing => getInboxItem(inboxItemListing, id));
-  // }
   public getSteps(): Observable<ISteps> {
     return this.store.select(appState => appState.stepsBegin);
   }
@@ -31,10 +27,4 @@ export class StepsBeginStore {
     this.store.dispatch(createAction(StepsBeginStore.RETRIEVE));
   }
 
-  // public stateChanged(stateChanged:WizStateChange) {
-  //   this.store.dispatch(createAction(StepsBeginStore.STATECHANGED,stateChanged));
-  // }
-  // public getState() {
-  //   return {};
-  // }
 }

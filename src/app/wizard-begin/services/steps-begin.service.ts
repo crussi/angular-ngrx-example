@@ -75,12 +75,12 @@ export class StepsBeginService {
       new Step(NewProject,
       new StepSettings(
         StepEnum.NewProject,
-        "Project created.",
-        "Go to new project or continue processing inbox?",
+        "",
+        "",
         "",
         new StepOptions(
         StepEnum.Navigate, 
-        StepEnum.Done,
+        StepEnum.ProcessNext,
         StepEnum.ProjectPlan, 
         undefined, 
         undefined, 
@@ -128,8 +128,8 @@ export class StepsBeginService {
         undefined,
         undefined, 
         undefined, 
-        StepEnum.Done, 
-        StepEnum.Done)
+        StepEnum.ProcessNext, 
+        StepEnum.ProcessNext)
         )
       ),           
       new Step(YesNo,
@@ -152,7 +152,7 @@ export class StepsBeginService {
         StepEnum.DoItNow,
         "Do it now!",
         "Did you do it?",
-        "Task mark completed ...",
+        "... this will be marked as done.",
         new StepOptions(
         StepEnum.ApproveChange, 
         StepEnum.IsDelegatable,
@@ -218,7 +218,7 @@ export class StepsBeginService {
         undefined,
         undefined, 
         undefined,
-        StepEnum.Done, 
+        StepEnum.ProcessNext, 
         StepEnum.IsSchedulable)
         )
       ), 
@@ -239,9 +239,9 @@ export class StepsBeginService {
       ),
       new Step(ProcessNext,
       new StepSettings(
-        StepEnum.Done,
+        StepEnum.ProcessNext,
         "",
-        "Continue with ...",
+        "Continue with inbox ...",
         "",
         new StepOptions(
         undefined, 

@@ -13,7 +13,7 @@ import { StepsStateStore} from '../../store/steps-state/steps-state.store';
       <h3 *ngIf="hasQuestion">{{Question}}</h3>
       <button [disabled]="!hasPrevInboxItemId" [routerLink]="['/inboxItems/',PrevInboxItemId]">Previous</button>
       <button [disabled]="!hasNextInboxItemId" [routerLink]="['/inboxItems/',NextInboxItemId]">Next</button>
-      <button style="margin-left: 20px" *ngIf="hasCancel" [routerLink]="['/inboxItems/listing']">Exit</button>
+      <a style="margin-left: 20px" *ngIf="hasCancel" [routerLink]="['/inboxItems/listing']">Exit</a>
     </div>
   `,
   styleUrls: ['./processnext.component.css']

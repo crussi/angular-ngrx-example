@@ -13,7 +13,7 @@ import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 export class NonActionable extends BaseComponent implements OnInit   {
 
   state:any;
-  nonActForm: FormGroup;
+  form: FormGroup;
 
   constructor(private store: StepsStateStore, private fb: FormBuilder) { 
     super();
@@ -22,6 +22,7 @@ export class NonActionable extends BaseComponent implements OnInit   {
   ngOnInit(): void {
     super.ngOnInit();
     this.store.getState(this.Name).subscribe(stepState => {
+      console.log('nonactionable stepState changed', stepState);
       this.state = stepState.State ? stepState.State : undefined;
       this.buildForm();
     });
@@ -29,16 +30,16 @@ export class NonActionable extends BaseComponent implements OnInit   {
 
   buildForm(): void {
     let val = this.state ? this.state.nonactionable : undefined;
-    this.nonActForm = this.fb.group({
+    this.form = this.fb.group({
       'nonactionable': [val, Validators.required]
     });
   }  
 
   onSubmit(): void {
-    this.state = this.nonActForm.value;
+    //this.state = this.form.value;
     let transition: StepTransition = new StepTransition(this.Settings.Name, this.NextStep);
     let approveMsg = "... this item will be sent to ";
-    switch (this.state.nonactionable) {
+    switch (this.form.value.nonactionable) {
       case "trash":
         approveMsg += "Trash.";
         break;
@@ -49,8 +50,9 @@ export class NonActionable extends BaseComponent implements OnInit   {
         approveMsg += "Reference.";
         break;
     }
+    
     transition.approveMsg = approveMsg;
-    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.state, transition);
+    let stateChange: WizStateChange = new WizStateChange(this.Settings.Name, this.form.value, transition);
     super.EmitStateChanged(stateChange);
     this.store.stateChanged(stateChange);  
   }

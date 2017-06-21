@@ -11,6 +11,11 @@ export interface IInboxItem {
   readonly dateEntered? : Date;
   prevId?: string;
   nextId?: string;
+  nextaction?: string;
+  // get displayText(): string {
+  //   return this.nextaction ? this.nextaction : this.description;
+  // }
+
 }
 
 export interface ILinkdId {

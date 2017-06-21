@@ -19,10 +19,6 @@ export class StepsStateStore {
 
     }
 
-    // public getInboxItem(id: string): Observable<IInboxItem> {
-    //   return this.getInboxItemListing()
-    //     .map(inboxItemListing => getInboxItem(inboxItemListing, id));
-    // }
     public getStepsState(): Observable<IStepsState> {
         return this.store.select(appState => appState.stepsState);
     }

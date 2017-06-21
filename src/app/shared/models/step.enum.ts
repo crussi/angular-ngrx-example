@@ -14,7 +14,7 @@ export enum StepEnum {
     Schedule = 12,
     RefineAction = 13,
     ApproveChange = 14,
-    Done = 15,
+    ProcessNext = 15,
     Next = 16,
     Exit = 17,
     Navigate = 18,

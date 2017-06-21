@@ -16,7 +16,7 @@ import { MessageService } from '../../../shared/services/message.service';
   selector: 'wizard-beginner',
   template: `
               <div class="ad-banner">
-                <h3 *ngIf="displayDesc">{{Description}}</h3>
+                <h3 *ngIf="displayDesc">{{DisplayText}}</h3>
                 <ng-template wizard-host></ng-template>                
               </div>
             `
@@ -39,9 +39,26 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
   subscription: any;
   interval: any;
   displayDesc = true;
+  nextaction: string;
+  projectTitle: string;
 
+  get DisplayText() {
+    if (this.NextAction != '') {
+      return this.NextAction;
+    } else if (this.ProjectTitle != '') {
+      return this.ProjectTitle;
+    } else {
+      return this.Description;
+    }
+  }
   get Description() {
     return this.inboxItem ? this.inboxItem.description : '';
+  }
+  get NextAction() {
+    return (this.nextaction ? this.nextaction : '');
+  }
+  get ProjectTitle() {
+    return (this.projectTitle ? 'Project "' + this.projectTitle + '" created ...' : '');
   }  
 
   constructor(
@@ -59,8 +76,9 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
       //console.log('ngOnInit wizard-beginner steps',this.steps);
     });
     this.stepStateStore.getStepsState().subscribe(state => {
-      console.log("this.state (IStepState) just got updated (subscription)");
       this.state = state;
+      this.nextaction = state.list[StepEnum.NextAction].State ? state.list[StepEnum.NextAction].State.nextaction : "";
+      this.projectTitle = state.list[StepEnum.ProjectPlan].State ? state.list[StepEnum.ProjectPlan].State.title : "";
     });   
     }
 
@@ -137,7 +155,7 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
       case StepEnum.Navigate:
         //console.log('wizard navigate from here');
         break;
-      case StepEnum.Done:
+      case StepEnum.ProcessNext:
         //console.log('Done hide description');
         //this.onHideDescription.emit(true);
         this.displayDesc = false;
@@ -183,14 +201,13 @@ export class WizardBeginner implements AfterViewInit, OnDestroy, OnInit, OnChang
             case StepEnum.ApproveChange:
               step.StepOptions.CancelStep = stepTransition.from;
               step.Question = stepTransition.approveMsg;
-              //console.log('wiz approve changes ...', adItem.Steps.CancelStep);
-              //adItem.Settings.Declaration = stepTransition.approveMsg;
               break;
             case StepEnum.RefineAction:
-              let nextaction = this.state.list[StepEnum.Next].State ? this.state.list[StepEnum.Next].State.nextaction : "";
-              step.Question = '"' + nextaction + '"' + " will be added to Next Actions";
+              //let nextaction = this.state.list[StepEnum.Next].State ? this.state.list[StepEnum.Next].State.nextaction : "";
+              this.displayDesc = false;
+              step.Question = '"' + this.DisplayText + '"' + " will be added to Next Actions";
               break;
-            case StepEnum.Done:
+            case StepEnum.ProcessNext:
               //No sense in loading ProcessNext if no more inbox items to process
               if (step.Settings.prevInboxItemId == "0" && step.Settings.nextInboxItemId == "0") {
                 this.router.navigate(['/inboxItems/listing']);
