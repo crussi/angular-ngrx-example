@@ -1,0 +1,5 @@
+<!--<app-list-item-detail [listItem]="listItem$ | async">
+</app-list-item-detail>-->
+<wizard-beginner [listItem]="listItem$ | async" 
+                 (onListItemProcessed)="onListItemProcessed($event)"                 
+                 ></wizard-beginner>    

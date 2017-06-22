@@ -1,0 +1,13 @@
+<app-loading-container [loadable]="listItemListingStore.getListItemListing() | async">
+  <header>
+    <app-list-item-search (queryChanged)="search($event)"></app-list-item-search>
+    <app-list-item-filters [filters]="listItemListingStore.getListItemFilters() | async"
+                            [users]="(usersStore.getUsers() | async).list"
+                            (userFilterChanged)="filterUser($event)"
+                            >
+    </app-list-item-filters>
+  </header>
+
+  <app-list-item-listing [listItems]="listItemListingStore.getListItems() | async">
+  </app-list-item-listing>
+</app-loading-container>
