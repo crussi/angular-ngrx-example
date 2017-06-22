@@ -1,2 +1,2 @@
 export * from './inbox-item.functions';
-export * from './inbox-item.interface';
+//export * from './inbox-item.interface';

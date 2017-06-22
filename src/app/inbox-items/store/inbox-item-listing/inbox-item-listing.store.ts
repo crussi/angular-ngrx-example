@@ -10,11 +10,11 @@ import {
   getInboxItem,
   getNextInboxItemId,
   //setUpdateProcessed,
-  IInboxItem,
+  
   IInboxItemFilters,
   IInboxItemListing,
 } from '../../interfaces';
-import { InboxItemProcessed } from '../../../shared/barrel';
+import { InboxItemProcessed, IInboxItem } from '../../../shared/barrel';
 
 //import { InboxItemProcessed } from '../../../shared/barrel';
 @Injectable()

@@ -9,6 +9,7 @@ import {RouterStoreModule} from '@ngrx/router-store';
 
 import {VideoGamesModule} from '../video-games/video-games.module';
 import {InboxItemsModule} from '../inbox-items/inbox-items.module';
+import { ListItemsModule } from '../list-items/list-items.module';
 //import {WizardBeginModule} from '../wizard-begin/wizard-begin.module';
 import {SharedModule} from '../shared/shared.module';
 
@@ -19,6 +20,7 @@ import {RootComponent} from './components';
 
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
 import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
+import {ListItemListingStore } from '../list-items/store/stores';
 import {StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import {ApiService} from './services';
 import { MessageService } from '../shared/services/message.service';
@@ -34,6 +36,7 @@ import { MessageService } from '../shared/services/message.service';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     VideoGamesModule,
     InboxItemsModule,
+    ListItemsModule,
     //WizardBeginModule,
     SharedModule
 
@@ -47,6 +50,7 @@ import { MessageService } from '../shared/services/message.service';
     UsersStore,
     VideoGameListingStore,
     InboxItemListingStore,
+    ListItemListingStore,
     StepsBeginStore,
     StepsStateStore,
     MessageService

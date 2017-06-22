@@ -10,11 +10,11 @@ import {
   getListItem,
   getNextListItemId,
   //setUpdateProcessed,
-  IListItem,
+  
   IListItemFilters,
   IListItemListing,
 } from '../../interfaces';
-import { ListItemProcessed } from '../../../shared/barrel';
+import { IListItem } from '../../../shared/barrel';
 
 //import { ListItemProcessed } from '../../../shared/barrel';
 @Injectable()

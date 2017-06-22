@@ -16,8 +16,8 @@ export class ListItemListItemComponent {
 
   constructor(private listItemListingStore: ListItemListingStore) { }
 
-  public toggleListItemFavorite() {
-    this.listItemListingStore.toggleFavorite(this.listItem.id);
-  }
+  // public toggleListItemFavorite() {
+  //   this.listItemListingStore.toggleFavorite(this.listItem.id);
+  // }
 
 }

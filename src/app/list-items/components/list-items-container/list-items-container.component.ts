@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
 
-//import {UsersStore} from '../../store/users/users.store';
 import {ListItemListingStore} from '../../store/list-item-listing/list-item-listing.store';
-import {StepsBeginStore} from '../../../wizard-begin/store/steps-begin/steps-begin.store';
-import {StepsStateStore} from '../../../wizard-begin/store/steps-state/steps-state.store';
 
 @Component({
   selector: 'app-list-items-container',
@@ -13,16 +10,10 @@ import {StepsStateStore} from '../../../wizard-begin/store/steps-state/steps-sta
 export class ListItemsContainerComponent {
 
   constructor(
-    //private usersStore: UsersStore,
-    private listItemListingStore: ListItemListingStore,
-    private stepsBeginStore: StepsBeginStore,
-    private stepsStateStore: StepsStateStore
+    private listItemListingStore: ListItemListingStore
 
   ) {
-    //this.usersStore.retrieve();
     this.listItemListingStore.retrieve();
-    this.stepsBeginStore.retrieve();
-    this.stepsStateStore.retrieve();
   }
 
 }
