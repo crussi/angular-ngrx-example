@@ -8,7 +8,6 @@ import { Subscription } from 'rxjs/Subscription';
 import { IListItem, StepEnum } from '../../../../shared/barrel';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';
-import { MessageService } from '../../../../shared/services/message.service';
 
 @Component({
   selector: 'app-list-item-detail-page',
@@ -26,10 +25,7 @@ export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
     private route: ActivatedRoute,
     private listItemListingStore: ListItemListingStore,
     private stepsStateStore: StepsStateStore,
-    private messageService: MessageService
   ) {
-    // subscribe to home component messages
-    this.subscription = this.messageService.getMessage().subscribe(message => { this.message = message; console.log('message',message) });
   }
 
   public ngOnInit() {

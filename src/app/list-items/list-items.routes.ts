@@ -6,7 +6,7 @@ import {ListItemsContainerComponent} from './components';
 
 export const listItemsRoutes: Routes = [
   {
-    path: 'trash',
+    path: '',
     redirectTo: 'listItems',
     pathMatch: 'full',
   },

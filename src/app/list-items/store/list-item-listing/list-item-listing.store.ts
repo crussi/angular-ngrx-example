@@ -32,7 +32,10 @@ export class ListItemListingStore {
   constructor(private store: Store<IAppState>) {}
 
   public getListItemListing(): Observable<IListItemListing> {
-    return this.store.select(appState => appState.listItemListing);
+    return this.store.select((appState) => {
+      console.log('getListItemListing appState', appState);
+      return appState.listItemListing
+    });
   }
 
   public getListItemFilters(): Observable<IListItemFilters> {
@@ -41,6 +44,7 @@ export class ListItemListingStore {
   }
 
   public getListItems(): Observable<Array<IListItem>> {
+    console.log('list-item-listing.store getListItems');
     return this.getListItemListing()
       .map(listItemListing => getListItems(listItemListing));
   }
@@ -63,6 +67,7 @@ export class ListItemListingStore {
   }
 
   public retrieve() {
+    console.log('list-item-listing.store retrieve');
     this.store.dispatch(createAction(ListItemListingStore.RETRIEVE));
   }
 

@@ -8,10 +8,10 @@ import { listItemsRoutes } from '../list-items/list-items.routes';
 //   ...videoGamesRoutes, ...inboxItemsRoutes
 // ];
 
-// export const rootRoutes: Routes = [
-//   ...inboxItemsRoutes, ...listItemsRoutes
-// ];
-
 export const rootRoutes: Routes = [
-  ...listItemsRoutes
+  ...inboxItemsRoutes, ...listItemsRoutes
 ];
+
+// export const rootRoutes: Routes = [
+//   ...listItemsRoutes
+// ];

@@ -43,7 +43,7 @@ export function listItemListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("list reducer RETRIEVE_SUCCESS");
+      console.log("list reducer RETRIEVE_SUCCESS action.payload.listItems", action.payload.listItems);
       return {
         ...state,
         isLoading: false,

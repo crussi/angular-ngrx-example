@@ -2,7 +2,7 @@
   <header>
     <app-list-item-search (queryChanged)="search($event)"></app-list-item-search>
     <app-list-item-filters [filters]="listItemListingStore.getListItemFilters() | async"
-                            [users]="(usersStore.getUsers() | async).list"
+                            
                             (userFilterChanged)="filterUser($event)"
                             >
     </app-list-item-filters>

@@ -6,6 +6,7 @@ import {localStorageSync} from 'ngrx-store-localstorage';
 
 import {platformsReducer, videoGameListingReducer} from '../video-games/store/reducers';
 import {usersReducer, inboxItemListingReducer} from '../inbox-items/store/reducers';
+import { listItemListingReducer } from '../list-items/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
 
 const reducers = {
@@ -15,7 +16,8 @@ const reducers = {
   users: usersReducer,
   router: routerReducer,
   videoGameListing: videoGameListingReducer,
-  inboxItemListing: inboxItemListingReducer
+  inboxItemListing: inboxItemListingReducer,
+  listItemListing: listItemListingReducer
 };
 
 const localStorageState = {

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {ListItemListingStore} from '../../store/list-item-listing/list-item-listing.store';
+//import {ListItemListingStore} from '../../store/list-item-listing/list-item-listing.store';
 
 @Component({
   selector: 'app-list-items-container',
@@ -10,10 +10,10 @@ import {ListItemListingStore} from '../../store/list-item-listing/list-item-list
 export class ListItemsContainerComponent {
 
   constructor(
-    private listItemListingStore: ListItemListingStore
+    //private listItemListingStore: ListItemListingStore
 
   ) {
-    this.listItemListingStore.retrieve();
+    //this.listItemListingStore.retrieve();
   }
 
 }
