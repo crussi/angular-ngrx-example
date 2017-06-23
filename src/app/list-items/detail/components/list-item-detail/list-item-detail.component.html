@@ -1,5 +1,8 @@
-<h2>{{listItem?.title}}</h2>
-<p>{{listItem?.displayText}}</p>
+<h2>{{listItem?.description}}</h2>
+<div style="display:block; text-align: center"><span>Date entered:</span><span style="margin-left: 20px">{{listItem?.dateEntered}}</span></div>
+<div style="display:block; text-align: center"><span>Entered by:</span><span style="margin-left: 20px">{{listItem?.user}}</span></div>
+<div style="display:block; text-align: center"><span>Date deleted:</span><span style="margin-left: 20px">{{listItem?.dateDeleted}}</span></div>
+<div style="display:block; text-align: center"><span>Deleted by:</span><span style="margin-left: 20px">{{listItem?.deletedBy}}</span></div>
 <app-button-group>
   <app-button (onButtonPressed)="goBack()">
     <span class="fa fa-arrow-circle-left"></span> Go Back
