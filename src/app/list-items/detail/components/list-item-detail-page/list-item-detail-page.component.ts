@@ -19,7 +19,7 @@ export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
   public listItem$: Observable<IListItem>;
   public nextId$: Observable<string>;
   message: any;
-  subscription: Subscription;
+  //subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,7 +35,7 @@ export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public ngOnDestroy() {
     // unsubscribe to ensure no memory leaks
-    this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
   }
 
   // public onListItemProcessed(event: ListItemProcessed) {

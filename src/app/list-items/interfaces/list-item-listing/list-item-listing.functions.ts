@@ -23,11 +23,11 @@ function getFilteredListItems(listItemListing: IListItemListing) {
 }
 
 export function getListItems(listItemListing: IListItemListing) {
-  console.log('list-item-listing.function getListItems', listItemListing);
+  //console.log('list-item-listing.function getListItems', listItemListing);
   return Boolean(listItemListing) ?
     getFilteredListItems(listItemListing).sort(
       (listItemA, listItemB) => new Date(listItemA.dateEntered).getTime() - new Date(listItemB.dateEntered).getTime() 
-    ).filter(listItem => listItem.processed != true)
+    ).filter(listItem => listItem.processed != false)
  
     : [];
 }

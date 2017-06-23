@@ -33,7 +33,7 @@ export class ListItemListingStore {
 
   public getListItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
-      console.log('getListItemListing appState', appState);
+      //console.log('getListItemListing appState', appState);
       return appState.listItemListing
     });
   }
@@ -44,7 +44,7 @@ export class ListItemListingStore {
   }
 
   public getListItems(): Observable<Array<IListItem>> {
-    console.log('list-item-listing.store getListItems');
+    //console.log('list-item-listing.store getListItems');
     return this.getListItemListing()
       .map(listItemListing => getListItems(listItemListing));
   }
@@ -62,12 +62,12 @@ export class ListItemListingStore {
 
   //New
   public setListItemProcessed(id: string) {
-    console.log('store setUpdateProcessed id:',event);
+    //console.log('store setUpdateProcessed id:',event);
     this.store.dispatch(createAction(ListItemListingStore.UPDATE_PROCESSED, {id}));
   }
 
   public retrieve() {
-    console.log('list-item-listing.store retrieve');
+    //console.log('list-item-listing.store retrieve');
     this.store.dispatch(createAction(ListItemListingStore.RETRIEVE));
   }
 

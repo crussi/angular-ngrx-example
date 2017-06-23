@@ -14,7 +14,7 @@ export class ListItemsService {
 
   public getAll(): Observable<Array<IListItem>> {
     console.log('*** ListItemsService getAll');
-    return this.apiService.get('/593f27521000008b1347f335');
+    return this.apiService.get('/594d7a23110000e700d6d33f');
   }
 
 }
