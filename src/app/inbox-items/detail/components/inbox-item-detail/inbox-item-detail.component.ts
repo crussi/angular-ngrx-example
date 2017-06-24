@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {Location} from '@angular/common';
-//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import { IInboxItem } from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 

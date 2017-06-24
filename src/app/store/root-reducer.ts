@@ -3,9 +3,7 @@ import {routerReducer} from '@ngrx/router-store';
 import {compose} from '@ngrx/core/compose';
 import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
-
 import {platformsReducer, videoGameListingReducer} from '../video-games/store/reducers';
-//import {usersReducer, inboxItemListingReducer} from '../inbox-items/store/reducers';
 import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { usersReducer } from '../users/store/users.reducer';
 import { listItemListingReducer } from '../list-items/store/reducers';

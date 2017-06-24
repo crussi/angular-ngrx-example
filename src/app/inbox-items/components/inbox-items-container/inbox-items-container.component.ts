@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-
 import { UsersStore } from '../../../users/store/users.store';
 import {InboxItemListingStore} from '../../store/inbox-item-listing/inbox-item-listing.store';
-//import {ListItemListingStore } from '../../../list-items/store/list-item-listing/list-item-listing.store';
 import {StepsBeginStore} from '../../../wizard-begin/store/steps-begin/steps-begin.store';
 import {StepsStateStore} from '../../../wizard-begin/store/steps-state/steps-state.store';
 

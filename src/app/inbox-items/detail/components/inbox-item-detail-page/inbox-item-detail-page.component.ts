@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { Subscription } from 'rxjs/Subscription';
-//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import { IInboxItem, InboxItemProcessed, InboxItemNext, StepEnum} from '../../../../shared/barrel';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';

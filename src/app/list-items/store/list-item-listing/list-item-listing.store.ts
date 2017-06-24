@@ -2,21 +2,17 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
 import { IAppState } from '../../../interfaces/app-state.interface';
 import { createAction } from '../../../store/create-action';
 import {
   getListItems,
   getListItem,
   getNextListItemId,
-  //setUpdateProcessed,
-  
   IListItemFilters,
   IListItemListing,
 } from '../../interfaces';
 import { IListItem } from '../../../shared/barrel';
 
-//import { ListItemProcessed } from '../../../shared/barrel';
 @Injectable()
 export class ListItemListingStore {
 

@@ -6,20 +6,14 @@ import {RouterModule} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStoreModule} from '@ngrx/router-store';
-
 import {VideoGamesModule} from '../video-games/video-games.module';
 import {InboxItemsModule} from '../inbox-items/inbox-items.module';
 import { ListItemsModule } from '../list-items/list-items.module';
-//import {WizardBeginModule} from '../wizard-begin/wizard-begin.module';
 import {SharedModule} from '../shared/shared.module';
-
 import {rootRoutes} from './root.routes';
 import {rootReducer} from '../store/root-reducer';
-
 import {RootComponent} from './components';
-
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
-//import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
 import { UsersStore } from '../users/store/users.store';
 import {ListItemListingStore } from '../list-items/store/stores';

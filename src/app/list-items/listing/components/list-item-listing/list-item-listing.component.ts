@@ -1,6 +1,4 @@
 import {Component, Input} from '@angular/core';
-
-//import {IListItem} from '../../../interfaces/list-item/list-item.interface';
 import { IListItem } from '../../../../shared/barrel';
 
 @Component({

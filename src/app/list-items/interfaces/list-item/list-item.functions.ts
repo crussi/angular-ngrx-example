@@ -1,4 +1,3 @@
-//import { IListItem } from './list-item.interface';
 import { IListItem } from '../../../shared/barrel';
 import { IListItemFilters } from '../list-item-listing';
 

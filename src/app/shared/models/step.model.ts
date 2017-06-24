@@ -1,7 +1,7 @@
 import { Type } from '@angular/core';
 import { StepEnum, NonActionableTypeEnum } from './step.enum';
-//import { InboxItem } from './inbox.model';
 import { IInboxItem } from '../interfaces/inbox-item/inbox-item.interface';
+
 export class Step {
 
     get Name() : StepEnum {

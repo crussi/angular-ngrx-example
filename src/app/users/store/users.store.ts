@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
-
-//import {IUsers} from '../../interfaces/users/users.interface';
 import { IUsers } from '../../users/interfaces/users.interface';
 import {IAppState} from '../../interfaces/app-state.interface';
 import { createAction } from '../../store/create-action';

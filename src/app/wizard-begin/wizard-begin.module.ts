@@ -4,16 +4,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {EffectsModule} from '@ngrx/effects';
-
-//import {VideoGamesContainerComponent} from './components';
-
 import {StepsBeginService} from './services';
 import {StepsStateStore} from './store/steps-state/steps-state.store';
-//import {VideoGameListingModule} from './listing/listing.module';
-//import {VideoGameDetailModule} from './detail/detail.module';
 import { StepsBeginEffects, StepsStateEffects} from './store/effects';
 import { WizardBeginner } from './components/wizard-beginner/wizard-beginner.component';
-//import { YesNo } from './components/yesno/yesno.component';
 import { ApproveChange, Delegate, Done, NewProject, NextAction, NonActionable, ProcessNext, ProjectPlan, 
          RefineAction, Schedule, YesNo} from './components';
 import {WizardDirective} from './directives/wizard.directive';
@@ -24,14 +18,11 @@ import {WizardDirective} from './directives/wizard.directive';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    //VideoGameListingModule,
-    //VideoGameDetailModule,
     EffectsModule.run(StepsBeginEffects),
     EffectsModule.run(StepsStateEffects),
   ],
 
   declarations: [
-    //VideoGamesContainerComponent
     WizardBeginner,
     ApproveChange, 
     Delegate, 

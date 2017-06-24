@@ -1,6 +1,4 @@
 import {Component, Input} from '@angular/core';
-
-//import {IInboxItem} from '../../../interfaces/inbox-item/inbox-item.interface';
 import { IInboxItem } from '../../../../shared/barrel';
 
 @Component({

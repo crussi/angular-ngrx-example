@@ -3,8 +3,6 @@ import { BaseComponent } from '../base/base.component';
 import { StepEnum } from '../../../shared/barrel';
 import { WizStateChange, StepTransition } from '../../../shared/barrel';
 import { Store } from '@ngrx/store';
-//import * as fromRoot from '../../../state-management/reducers';
-//import * as action from '../../../state-management/actions/wizard';
 import { StepsStateStore } from '../../store/steps-state/steps-state.store';
 
 @Component({
