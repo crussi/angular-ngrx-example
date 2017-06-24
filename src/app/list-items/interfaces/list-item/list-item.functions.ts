@@ -4,14 +4,13 @@ import { IListItemFilters } from '../list-item-listing';
 
 export function createListItem(
   id: string,
-  title: string,
   user?: string,
   description?: string,
   youtubeUrl?: string,
   imageUrl?: string,
   favorite = false,
 ) {
-  return {id, title, user, description, youtubeUrl, imageUrl, favorite};
+  return {id, user, description, youtubeUrl, imageUrl, favorite};
 }
 
 function textMatchesSearchQuery(text: string, searchQuery: string) {
@@ -26,7 +25,6 @@ export function listItemMatchesSearchQuery(listItem: IListItem, searchQuery: str
   }
 
   return Boolean(searchQuery) ?
-    textMatchesSearchQuery(listItem.title, searchQuery) ||
     textMatchesSearchQuery(listItem.description, searchQuery) :
     true;
 }

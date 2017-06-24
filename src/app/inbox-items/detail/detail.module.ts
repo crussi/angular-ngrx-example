@@ -4,13 +4,11 @@ import {RouterModule} from '@angular/router';
 
 import {LoadingModule} from '../../loading/loading.module';
 import {WizardBeginModule} from '../../wizard-begin/wizard-begin.module';
+import {SharedModule} from '../../shared/shared.module';
+
 import {
-  ButtonComponent,
-  ButtonGroupComponent,
-  ButtonToggleComponent,
   InboxItemDetailComponent,
   InboxItemDetailPageComponent,
-  YouTubeVideoComponent,
 } from './components';
 
 @NgModule({
@@ -18,15 +16,12 @@ import {
     CommonModule,
     RouterModule,
     LoadingModule,
-    WizardBeginModule
+    WizardBeginModule,
+    SharedModule
   ],
   declarations: [
-    ButtonComponent,
-    ButtonGroupComponent,
-    ButtonToggleComponent,
     InboxItemDetailComponent,
     InboxItemDetailPageComponent,
-    YouTubeVideoComponent,
   ],
   providers: []
 })

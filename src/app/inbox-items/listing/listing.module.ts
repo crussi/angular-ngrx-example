@@ -3,10 +3,9 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
 import {LoadingModule} from '../../loading/loading.module';
+import {SharedModule} from '../../shared/shared.module';
+
 import {
-  CardComponent,
-  CardsComponent,
-  FavoriteToggleComponent,
   InboxItemFiltersComponent,
   InboxItemListingComponent,
   InboxItemListingPageComponent,
@@ -19,11 +18,9 @@ import {
     CommonModule,
     RouterModule,
     LoadingModule,
+    SharedModule
   ],
   declarations: [
-    CardComponent,
-    CardsComponent,
-    FavoriteToggleComponent,
     InboxItemFiltersComponent,
     InboxItemListingComponent,
     InboxItemListingPageComponent,

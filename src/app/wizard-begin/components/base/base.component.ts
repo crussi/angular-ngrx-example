@@ -27,13 +27,13 @@ export class BaseComponent implements OnInit, OnDestroy  {
     return this.Settings.Question;
   }
   get hasQuestion(): boolean {
-    return this.Settings.Question.length > 0;
+    return this.Settings.Question && this.Settings.Question.length > 0 ? true : false;
   }  
   get Declaration(): string {
     return this.Settings.Declaration;
   }
   get hasDeclaration(): boolean {
-    return this.Settings.Declaration.length > 0;
+    return this.Settings.Declaration && this.Settings.Declaration.length > 0 ? true : false;
   }   
   get YesStep(): StepEnum {
     return this.Settings.Steps.YesStep;

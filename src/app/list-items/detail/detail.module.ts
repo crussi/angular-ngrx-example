@@ -4,29 +4,23 @@ import {RouterModule} from '@angular/router';
 
 import {LoadingModule} from '../../loading/loading.module';
 import {WizardBeginModule} from '../../wizard-begin/wizard-begin.module';
+import {SharedModule} from '../../shared/shared.module';
+
 import {
-  ButtonComponent,
-  ButtonGroupComponent,
-  ButtonToggleComponent,
   ListItemDetailComponent,
   ListItemDetailPageComponent,
-  YouTubeVideoComponent,
 } from './components';
-
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     LoadingModule,
-    WizardBeginModule
+    WizardBeginModule,
+    SharedModule
   ],
   declarations: [
-    ButtonComponent,
-    ButtonGroupComponent,
-    ButtonToggleComponent,
     ListItemDetailComponent,
-    ListItemDetailPageComponent,
-    YouTubeVideoComponent,
+    ListItemDetailPageComponent
   ],
   providers: []
 })
