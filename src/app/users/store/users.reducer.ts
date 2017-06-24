@@ -3,7 +3,9 @@ import {Action} from '@ngrx/store';
 import {
   createDefaultUsers,
   IUsers
-} from '../../interfaces/users/users.interface';
+} from '../../users/interfaces/users.interface';
+
+
 import {UsersStore} from './users.store';
 
 export function usersReducer(state: IUsers, action: Action): IUsers {

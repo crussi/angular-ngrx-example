@@ -19,7 +19,9 @@ import {rootReducer} from '../store/root-reducer';
 import {RootComponent} from './components';
 
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
-import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
+//import {UsersStore, InboxItemListingStore} from '../inbox-items/store/stores';
+import { InboxItemListingStore } from '../inbox-items/store/stores';
+import { UsersStore } from '../users/store/users.store';
 import {ListItemListingStore } from '../list-items/store/stores';
 import {StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import {ApiService} from './services';

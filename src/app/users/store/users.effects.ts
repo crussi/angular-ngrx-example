@@ -3,8 +3,8 @@ import {Effect, Actions} from '@ngrx/effects';
 import {Observable} from 'rxjs/Observable';
 
 import {UsersStore} from './users.store';
-import {createAction} from '../../../store/create-action';
-import {UsersService} from '../../services/users.service';
+import {createAction} from '../../store/create-action';
+import {UsersService} from '../services/users.service';
 
 @Injectable()
 export class UsersEffects {

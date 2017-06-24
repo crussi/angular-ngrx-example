@@ -1,7 +1,7 @@
-import {createAction} from '../../../store/create-action';
+import { createAction } from '../../store/create-action';
 import {usersReducer} from './users.reducer';
 import {UsersStore} from './users.store';
-import {createDefaultUsers} from '../../interfaces/users/users.interface';
+import {createDefaultUsers} from '../interfaces/users.interface';
 
 describe('usersReducer(falsy, unknownAction)', () => {
   const unknownAction = createAction('UNKNOWN');
