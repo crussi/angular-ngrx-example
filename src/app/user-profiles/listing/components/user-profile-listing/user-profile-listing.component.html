@@ -1,0 +1,11 @@
+<app-cards *ngIf="userProfiles.length > 0">
+  <app-card *ngFor="let userProfile of userProfiles"
+            [routerLink]="['/userProfiles', userProfile.id]">
+    <app-user-profile-list-item [userProfile]="userProfile">
+    </app-user-profile-list-item>
+  </app-card>
+</app-cards>
+
+<p *ngIf="userProfiles.length === 0">
+  No user profiles found.
+</p>
