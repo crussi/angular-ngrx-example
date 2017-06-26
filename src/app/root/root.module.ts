@@ -17,7 +17,6 @@ import {RootComponent} from './components';
 import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
 import { UserProfileListingStore } from '../user-profiles/store/stores';
-//import { UsersStore } from '../users/store/users.store';
 import {ListItemListingStore } from '../list-items/store/stores';
 import {StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import {ApiService} from './services';
@@ -36,7 +35,6 @@ import { MessageService } from '../shared/services/message.service';
     InboxItemsModule,
     UserProfilesModule,
     ListItemsModule,
-    //WizardBeginModule,
     SharedModule
 
   ],
@@ -46,7 +44,6 @@ import { MessageService } from '../shared/services/message.service';
   providers: [
     ApiService,
     PlatformsStore,
-    //UsersStore,
     VideoGameListingStore,
     InboxItemListingStore,
     UserProfileListingStore,
