@@ -11,6 +11,7 @@ import { listItemListingReducer } from '../list-items/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
 
 //MAKE SURE YOU ADD THIS FOR EACH REDUCER!!!
+//LOOK HERE 
 const reducers = {
   platforms: platformsReducer,
   stepsBegin: stepsBeginReducer,

@@ -25,12 +25,20 @@ function getFilteredUserProfiles(userProfileListing: IUserProfileListing) {
 export function getUserProfiles(userProfileListing: IUserProfileListing) {
   return Boolean(userProfileListing) ?
     getFilteredUserProfiles(userProfileListing).sort(
-      (userProfileA, userProfileB) => new Date(userProfileA.dateEntered).getTime() - new Date(userProfileB.dateEntered).getTime() 
-    ).filter(userProfile => userProfile.processed != true)
+    (userProfileA, userProfileB) => userProfileA.description.localeCompare(userProfileB.description)
+    )//.filter(userProfile => userProfile.processed != true)
  
     : [];
 }
 
+export function getUsers(userProfileListing: IUserProfileListing) {
+  return Boolean(userProfileListing) ?
+    getFilteredUserProfiles(userProfileListing).sort(
+      (userProfileA, userProfileB) => userProfileA.description.localeCompare(userProfileB.description)
+    ).map(userProfile => userProfile.description)
+
+    : [];
+}
 export function getUserProfile(userProfileListing: IUserProfileListing, id: string) {
   // return Boolean(userProfileListing) ?
   //   userProfileListing.userProfiles.find(userProfile => userProfile.id === id) :

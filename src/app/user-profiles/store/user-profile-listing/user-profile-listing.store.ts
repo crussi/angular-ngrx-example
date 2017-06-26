@@ -6,6 +6,7 @@ import { IAppState } from '../../../interfaces/app-state.interface';
 import { createAction } from '../../../store/create-action';
 import {
   getUserProfiles,
+  getUsers,
   getUserProfile,
   getNextUserProfileId,
     IUserProfileFilters,
@@ -28,9 +29,9 @@ export class UserProfileListingStore {
   constructor(private store: Store<IAppState>) {}
 
   public getUserProfileListing(): Observable<IUserProfileListing> {
-    console.log('inside store getUserProfileListing');
+    //console.log('inside store getUserProfileListing');
     return this.store.select(appState => { 
-      console.log('store getUserProfileListing appState',appState);
+      //console.log('store getUserProfileListing appState',appState);
       return appState.userProfileListing
     });
   }
@@ -44,6 +45,12 @@ export class UserProfileListingStore {
     return this.getUserProfileListing()
       .map(userProfileListing => getUserProfiles(userProfileListing));
   }
+
+  public getUsers(): Observable<Array<string>> {
+    return this.getUserProfileListing()
+      .map(userProfileListing => getUsers(userProfileListing));
+  }
+  
 
   public getUserProfile(id: string): Observable<IUserProfile> {
     return this.getUserProfileListing()

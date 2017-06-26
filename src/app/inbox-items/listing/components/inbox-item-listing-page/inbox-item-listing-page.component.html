@@ -2,7 +2,8 @@
   <header>
     <app-inbox-item-search (queryChanged)="search($event)"></app-inbox-item-search>
     <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
-                            [users]="(usersStore.getUsers() | async).list"
+                            
+                             [users]="(userProfileListingStore.getUsers() | async)"
                             (userFilterChanged)="filterUser($event)"
                             >
     </app-inbox-item-filters>
@@ -11,3 +12,5 @@
   <app-inbox-item-listing [inboxItems]="inboxItemListingStore.getInboxItems() | async">
   </app-inbox-item-listing>
 </app-loading-container>
+
+<!--[users]="(usersStore.getUsers() | async).list"-->

@@ -43,7 +43,7 @@ export function userProfileListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("user profile reducer RETRIEVE_SUCCESS");
+      console.log("user profile reducer RETRIEVE_SUCCESS", userProfiles);
       return {
         ...state,
         isLoading: false,

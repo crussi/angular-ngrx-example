@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import { IUsers } from '../../../../users/interfaces/users.interface';
 import { IInboxItem } from '../../../../shared/barrel';
 import { UsersStore } from '../../../../users/store/users.store';
+import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
 import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import {IInboxItemFilters} from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
 
@@ -15,9 +16,11 @@ export class InboxItemListingPageComponent {
 
   constructor(
     public usersStore: UsersStore,
+    public userProfileListingStore: UserProfileListingStore,
     public inboxItemListingStore: InboxItemListingStore
   ) {
-
+    console.log('InboxItemListingPageComponent userProfileListingStore', this.userProfileListingStore);
+    this.userProfileListingStore.getUserProfiles().subscribe(up => console.log('up',up));
   }
 
   public search(query: string) {
