@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { UsersStore } from '../../../users/store/users.store';
+//import { UsersStore } from '../../../users/store/users.store';
 import {UserProfileListingStore} from '../../store/user-profile-listing/user-profile-listing.store';
 //import {StepsBeginStore} from '../../../wizard-begin/store/steps-begin/steps-begin.store';
 //import {StepsStateStore} from '../../../wizard-begin/store/steps-state/steps-state.store';
@@ -12,14 +12,14 @@ import {UserProfileListingStore} from '../../store/user-profile-listing/user-pro
 export class UserProfilesContainerComponent {
 
   constructor(
-    private usersStore: UsersStore,
+    //private usersStore: UsersStore,
     private userProfileListingStore: UserProfileListingStore,
     //private listItemListingStore: ListItemListingStore,
     //private stepsBeginStore: StepsBeginStore,
     //private stepsStateStore: StepsStateStore
 
   ) {
-    this.usersStore.retrieve();
+    //this.usersStore.retrieve();
     this.userProfileListingStore.retrieve();
     //this.listItemListingStore.retrieve();
     //this.stepsBeginStore.retrieve();

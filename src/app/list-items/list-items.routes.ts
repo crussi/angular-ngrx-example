@@ -12,12 +12,29 @@ export const listItemsRoutes: Routes = [
   },
   {
     path: 'listItems',
-    component: ListItemsContainerComponent,
-    children: [
-      ...listingRoutes,
-      ...detailRoutes
-    ]
+      component: ListItemsContainerComponent,
+        children: [
+          ...listingRoutes,
+          ...detailRoutes
+        ]
   }
 ];
 
 
+// {
+//   path: 'listItems',
+//     component: ListItemsContainerComponent,
+//       children: [
+//         ...listingRoutes,
+//         ...detailRoutes
+//       ]
+// }
+
+// {
+//   path: 'listItems',
+//     loadChildren: 'list-items/list-items.module#ListItemsContainerComponent',
+//       children: [
+//         ...listingRoutes,
+//         ...detailRoutes
+//       ]
+// }

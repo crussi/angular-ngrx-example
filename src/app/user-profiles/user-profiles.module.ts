@@ -4,11 +4,11 @@ import {RouterModule} from '@angular/router';
 import {EffectsModule} from '@ngrx/effects';
 import {UserProfilesContainerComponent} from './components';
 import {UserProfilesService } from './services';
-import {UsersService} from '../users/services/users.service';
+//import {UsersService} from '../users/services/users.service';
 import {UserProfileListingModule} from './listing/listing.module';
 import {UserProfileDetailModule} from './detail/detail.module';
 import { UserProfileListingEffects } from '../user-profiles/store/effects';
-import { UsersEffects} from '../users/store/users.effects';
+//import { UsersEffects} from '../users/store/users.effects';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { UsersEffects} from '../users/store/users.effects';
     RouterModule,
     UserProfileListingModule,
     UserProfileDetailModule,
-    EffectsModule.run(UsersEffects),
+    //EffectsModule.run(UsersEffects),
     EffectsModule.run(UserProfileListingEffects),
   ],
   declarations: [
@@ -25,7 +25,7 @@ import { UsersEffects} from '../users/store/users.effects';
   
   ],
   providers: [
-    UsersService,
+    //UsersService,
     UserProfilesService
   ]
 })
