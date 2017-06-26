@@ -5,11 +5,11 @@ import {detailRoutes} from './detail/detail.routes';
 import {InboxItemsContainerComponent} from './components';
 
 export const inboxItemsRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: 'inboxItems',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'inboxItems',
+  //   pathMatch: 'full',
+  // },
   {
     path: 'inboxItems',
     component: InboxItemsContainerComponent,

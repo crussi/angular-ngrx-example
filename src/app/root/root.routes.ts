@@ -10,9 +10,23 @@ import { listItemsRoutes } from '../list-items/list-items.routes';
 // ];
 
 export const rootRoutes: Routes = [
-  ...inboxItemsRoutes, ...listItemsRoutes, ...userProfilesRoutes
+  {
+    path: '',
+    redirectTo: 'inboxItems',
+    pathMatch: 'full',
+  },  
+  ...inboxItemsRoutes, ...userProfilesRoutes,
+  {
+    path: 'listItems', 
+    loadChildren: '../list-items/list-items.module#ListItemsModule'
+  }  
+
+  // ...inboxItemsRoutes, ...listItemsRoutes, ...userProfilesRoutes
 ];
 
 // export const rootRoutes: Routes = [
 //   ...listItemsRoutes
 // ];
+
+
+//pathMatch: 'full',
