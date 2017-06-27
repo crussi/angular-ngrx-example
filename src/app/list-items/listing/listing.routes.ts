@@ -5,11 +5,11 @@ import {ListItemListingPageComponent} from './components';
 export const listingRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'listing',
+    redirectTo: 'trash',
     pathMatch: 'full',
   },
   {
-    path: 'listing',
+    path: 'trash',
     component: ListItemListingPageComponent
   }
 ];

@@ -34,6 +34,13 @@ export class ListItemListingStore {
     });
   }
 
+  public getListItemListingByType(listType: string): Observable<IListItemListing> {
+    return this.store.select((appState) => {
+      console.log('getListItemListingByType',listType);
+      return appState.listItemListing
+    });
+  }
+
   public getListItemFilters(): Observable<IListItemFilters> {
     return this.getListItemListing()
       .map(listItemListing => listItemListing.filters);

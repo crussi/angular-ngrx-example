@@ -1,4 +1,4 @@
-<app-loading-container [loadable]="listItemListingStore.getListItemListing() | async">
+<app-loading-container [loadable]="getListItemListing() | async">
   <header>
     <app-list-item-search (queryChanged)="search($event)"></app-list-item-search>
     <app-list-item-filters [filters]="listItemListingStore.getListItemFilters() | async"
@@ -11,3 +11,7 @@
   <app-list-item-listing [listItems]="listItemListingStore.getListItems() | async">
   </app-list-item-listing>
 </app-loading-container>
+
+
+
+<!--<app-loading-container [loadable]="listItemListingStore.getListItemListing() | async">-->
