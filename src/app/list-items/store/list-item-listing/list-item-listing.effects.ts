@@ -15,7 +15,7 @@ export class ListItemListingEffects {
   @Effect()
   private retrieve$ = this.actions$
     .ofType(ListItemListingStore.RETRIEVE)
-    .mergeMap(() => this.listItemsService.getAll()
+    .mergeMap(() => this.listItemsService.getAll('all')
       .map(listItems => createAction(ListItemListingStore.RETRIEVE_SUCCESS, { listItems }))
       .catch(error => Observable.of(createAction(ListItemListingStore.RETRIEVE_ERROR, { error })))
     );

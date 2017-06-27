@@ -10,9 +10,16 @@ export class ListItemsService {
 
   }
 
-  public getAll(): Observable<Array<IListItem>> {
-    console.log('*** ListItemsService getAll');
-    return this.apiService.get('/594d9b141100002904d6d361');
+  public getAll(listType:string): Observable<Array<IListItem>> {
+    console.log('*** ListItemsService getAll', listType);
+    switch (listType) {
+      case 'all':    
+        return this.apiService.get('/594d9b141100002904d6d361');
+      case 'trash':
+        return this.apiService.get('/594d9b141100002904d6d361');
+      default:
+        break;
+    }
   }
 
 }

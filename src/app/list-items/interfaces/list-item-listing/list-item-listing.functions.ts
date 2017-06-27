@@ -27,7 +27,7 @@ export function getListItems(listItemListing: IListItemListing) {
   return Boolean(listItemListing) ?
     getFilteredListItems(listItemListing).sort(
       (listItemA, listItemB) => new Date(listItemA.dateEntered).getTime() - new Date(listItemB.dateEntered).getTime() 
-    ).filter(listItem => listItem.processed != false)
+    ) //.filter(listItem => listItem.processed != false)
  
     : [];
 }

@@ -22,9 +22,22 @@ export class ListItemListingPageComponent {
   }
 
   public getListItemListing() {
-    //this.listItemListingStore.getListItemListingByType(this.listType);
-    //return this.listItemListingStore.getListItemListing();
-    return this.listItemListingStore.getListItemListingByType(this.listType);
+    switch (this.listType) {
+      case 'trash':
+        return this.listItemListingStore.getTrashItemListing();
+      default:
+        break;
+    }
+  }
+
+  public getListItems() {
+    switch (this.listType) {
+      case 'trash':
+        return this.listItemListingStore.getTrashItems();
+      default:
+        break;
+    }
+    
   }
 
   public search(query: string) {

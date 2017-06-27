@@ -10,6 +10,7 @@ export interface IAppState {
   readonly inboxItemListing: IInboxItemListing;
   readonly userProfileListing: IUserProfileListing;
   readonly listItemListing: IListItemListing;
+  readonly trashItemListing: IListItemListing;
   readonly stepsBegin: ISteps;
   readonly stepsState: IStepsState;
 }

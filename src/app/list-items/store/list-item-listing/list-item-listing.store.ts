@@ -25,19 +25,23 @@ export class ListItemListingStore {
   public static TOGGLE_FAVORITE = 'LIST_ITEM_TOGGLE_FAVORITE';
   public static UPDATE_PROCESSED = 'LIST_ITEM_LISTING_UPDATE_PROCESSED';
 
+  public static RETRIEVE_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE';
+  public static RETRIEVE_SUCCESS_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_SUCCESS';
+  public static RETRIEVE_ERROR_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_ERROR';
+
   constructor(private store: Store<IAppState>) {}
 
   public getListItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
       //console.log('getListItemListing appState', appState);
-      return appState.listItemListing
+      return appState.listItemListing;
     });
   }
 
-  public getListItemListingByType(listType: string): Observable<IListItemListing> {
+  public getTrashItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
-      console.log('getListItemListingByType',listType);
-      return appState.listItemListing
+      console.log('***** getTrashItemListing appState', appState);
+      return appState.trashItemListing;
     });
   }
 
@@ -51,6 +55,13 @@ export class ListItemListingStore {
     return this.getListItemListing()
       .map(listItemListing => getListItems(listItemListing));
   }
+
+  public getTrashItems(): Observable<Array<IListItem>> {
+    //console.log('list-item-listing.store getListItems');
+    console.log('***** getTrashItems ');
+    return this.getTrashItemListing()
+      .map(listItemListing => getListItems(listItemListing));
+  }  
 
   public getListItem(id: string): Observable<IListItem> {
     return this.getListItemListing()
@@ -69,9 +80,16 @@ export class ListItemListingStore {
     this.store.dispatch(createAction(ListItemListingStore.UPDATE_PROCESSED, {id}));
   }
 
-  public retrieve() {
+  public retrieve(listType) {
     //console.log('list-item-listing.store retrieve');
-    this.store.dispatch(createAction(ListItemListingStore.RETRIEVE));
+    switch(listType) {
+      case 'all':
+        this.store.dispatch(createAction(ListItemListingStore.RETRIEVE));
+        break;
+      case 'trash':
+        this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_TRASH));
+        break;
+    }
   }
 
   public search(query: string) {

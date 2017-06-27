@@ -13,7 +13,7 @@ export class ListItemsContainerComponent {
     private listItemListingStore: ListItemListingStore
 
   ) {
-    this.listItemListingStore.retrieve();
+    this.listItemListingStore.retrieve('trash');
   }
 
 }
