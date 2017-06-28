@@ -4,9 +4,13 @@ import {ListItemDetailPageComponent} from './components';
 
 export const detailRoutes: Routes = [
   {
-    path: ':listItemId',
+    path: 'trash/:listItemId',
     component: ListItemDetailPageComponent
-  }
+  },
+  {
+    path: 'someday/:listItemId',
+    component: ListItemDetailPageComponent
+  }  
 ];
 
 

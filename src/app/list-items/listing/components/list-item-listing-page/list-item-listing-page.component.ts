@@ -17,7 +17,7 @@ export class ListItemListingPageComponent {
     private route: ActivatedRoute,
     public listItemListingStore: ListItemListingStore
   ) {
-    console.log('route.routeConfig.path:', route.routeConfig.path);
+    console.log('route.routeConfig.path:', route);
     this.listType = route.routeConfig.path;
   }
 

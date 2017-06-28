@@ -15,8 +15,8 @@ import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/step
 export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public listItem$: Observable<IListItem>;
-  public nextId$: Observable<string>;
-  message: any;
+  //public nextId$: Observable<string>;
+  //message: any;
   //subscription: Subscription;
 
   constructor(
@@ -28,7 +28,21 @@ export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public ngOnInit() {
     this.listItem$ = this.route.params
-      .switchMap((params: any) => this.listItemListingStore.getListItem(params.listItemId));
+      .switchMap((params: any) =>{
+        //console.log('ngOnInit list-item-detail-page',this.route); 
+        let paths = this.route.routeConfig.path.split('/');
+        if (paths.length > 0) {
+          let listType: string = paths[0];
+          console.log('ngOnInit list-item-detail-page listType', listType); 
+          switch (listType) {
+            case 'trash':
+              return this.listItemListingStore.getTrashItem(params.listItemId)
+            default:
+              return this.listItemListingStore.getListItem(params.listItemId)
+
+          }
+        }
+      });
   }
 
   public ngOnDestroy() {

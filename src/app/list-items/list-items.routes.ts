@@ -1,3 +1,5 @@
+//NOTE: THIS WAS MOVED INTO THE MODULE
+
 // import {Routes} from '@angular/router';
 
 // import {listingRoutes} from './listing/listing.routes';
@@ -19,7 +21,7 @@
 //         ]
 //   }
 // ];
-import {Routes} from '@angular/router';
+// import {Routes} from '@angular/router';
 
 // import {listingRoutes} from './listing/listing.routes';
 // import {detailRoutes} from './detail/detail.routes';

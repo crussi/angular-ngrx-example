@@ -40,7 +40,7 @@ export class ListItemListingStore {
 
   public getTrashItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
-      console.log('***** getTrashItemListing appState', appState);
+      //console.log('***** getTrashItemListing appState', appState);
       return appState.trashItemListing;
     });
   }
@@ -58,7 +58,7 @@ export class ListItemListingStore {
 
   public getTrashItems(): Observable<Array<IListItem>> {
     //console.log('list-item-listing.store getListItems');
-    console.log('***** getTrashItems ');
+    //console.log('***** getTrashItems ');
     return this.getTrashItemListing()
       .map(listItemListing => getListItems(listItemListing));
   }  
@@ -68,17 +68,22 @@ export class ListItemListingStore {
       .map(listItemListing => getListItem(listItemListing, id));
   }
 
-  //New
-  public getNextListItemId(id: string): Observable<string> {
-    return this.getListItemListing()
-      .map(listItemListing => getNextListItemId(listItemListing,id));
+  public getTrashItem(id: string): Observable<IListItem> {
+    return this.getTrashItemListing()
+      .map(listItemListing => getListItem(listItemListing, id));
   }
 
   //New
-  public setListItemProcessed(id: string) {
-    //console.log('store setUpdateProcessed id:',event);
-    this.store.dispatch(createAction(ListItemListingStore.UPDATE_PROCESSED, {id}));
-  }
+  // public getNextListItemId(id: string): Observable<string> {
+  //   return this.getListItemListing()
+  //     .map(listItemListing => getNextListItemId(listItemListing,id));
+  // }
+
+  //New
+  // public setListItemProcessed(id: string) {
+  //   //console.log('store setUpdateProcessed id:',event);
+  //   this.store.dispatch(createAction(ListItemListingStore.UPDATE_PROCESSED, {id}));
+  // }
 
   public retrieve(listType) {
     //console.log('list-item-listing.store retrieve');
