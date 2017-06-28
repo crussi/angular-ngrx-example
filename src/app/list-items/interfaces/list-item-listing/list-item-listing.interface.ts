@@ -1,4 +1,4 @@
-import { IListItem, ILinkdId } from '../../../shared/barrel';
+import { IListItem } from '../../interfaces';
 import { IListItemFilters } from './list-item-filters.interface';
 import { ILoadable } from '../../../loading/interfaces/loadable/loadable';
 

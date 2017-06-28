@@ -3,7 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { Subscription } from 'rxjs/Subscription';
-import { IListItem, StepEnum } from '../../../../shared/barrel';
+import { StepEnum } from '../../../../shared/barrel';
+import { IListItem } from '../../../interfaces/list-item/list-item.interface';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';
 

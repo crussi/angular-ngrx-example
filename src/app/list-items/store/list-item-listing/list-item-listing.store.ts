@@ -7,11 +7,10 @@ import { createAction } from '../../../store/create-action';
 import {
   getListItems,
   getListItem,
-  getNextListItemId,
   IListItemFilters,
   IListItemListing,
 } from '../../interfaces';
-import { IListItem } from '../../../shared/barrel';
+import { IListItem } from '../../interfaces';
 
 @Injectable()
 export class ListItemListingStore {

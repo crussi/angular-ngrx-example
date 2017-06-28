@@ -1,4 +1,4 @@
-import { IListItem } from '../../../shared/barrel';
+import { IListItem } from './list-item.interface';
 import { IListItemFilters } from '../list-item-listing';
 
 export function createListItem(
