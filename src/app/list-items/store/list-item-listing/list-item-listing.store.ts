@@ -10,7 +10,7 @@ import {
   IListItemFilters,
   IListItemListing,
 } from '../../interfaces';
-import { IListItem } from '../../interfaces';
+import { IListItem, TrashItem } from '../../interfaces';
 
 @Injectable()
 export class ListItemListingStore {
@@ -55,6 +55,7 @@ export class ListItemListingStore {
       .map(listItemListing => getListItems(listItemListing));
   }
 
+  //trash
   public getTrashItems(): Observable<Array<IListItem>> {
     //console.log('list-item-listing.store getListItems');
     //console.log('***** getTrashItems ');
@@ -67,9 +68,10 @@ export class ListItemListingStore {
       .map(listItemListing => getListItem(listItemListing, id));
   }
 
+  //trash
   public getTrashItem(id: string): Observable<IListItem> {
     return this.getTrashItemListing()
-      .map(listItemListing => getListItem(listItemListing, id));
+      .map(listItemListing => { console.log('getTrashItem', getListItem(listItemListing, id)); return getListItem(listItemListing, id); });
   }
 
   //New

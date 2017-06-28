@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { IListItem } from '../../../../shared/barrel';
+import { IListItem } from '../../../interfaces/list-item/list-item.interface';
 
 @Component({
   selector: 'app-list-item-listing',

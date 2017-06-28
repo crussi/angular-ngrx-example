@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import { IListItem } from '../../../../shared/barrel';
+import { IListItem } from '../../../interfaces/list-item/list-item.interface';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 import {IListItemFilters} from '../../../interfaces/list-item-listing/list-item-filters.interface';
 
