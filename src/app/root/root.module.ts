@@ -6,7 +6,6 @@ import {RouterModule} from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStoreModule} from '@ngrx/router-store';
-import {VideoGamesModule} from '../video-games/video-games.module';
 import {InboxItemsModule} from '../inbox-items/inbox-items.module';
 import { UserProfilesModule } from '../user-profiles/user-profiles.module';
 import { ListItemsModule } from '../list-items/list-items.module';
@@ -14,7 +13,6 @@ import {SharedModule} from '../shared/shared.module';
 import {rootRoutes} from './root.routes';
 import {rootReducer} from '../store/root-reducer';
 import {RootComponent} from './components';
-import {PlatformsStore, VideoGameListingStore} from '../video-games/store/stores';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
 import { UserProfileListingStore } from '../user-profiles/store/stores';
 import {ListItemListingStore } from '../list-items/store/stores';
@@ -31,7 +29,6 @@ import { MessageService } from '../shared/services/message.service';
     StoreModule.provideStore(rootReducer),
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    VideoGamesModule,
     InboxItemsModule,
     UserProfilesModule,
     ListItemsModule,
@@ -43,8 +40,6 @@ import { MessageService } from '../shared/services/message.service';
   ],
   providers: [
     ApiService,
-    PlatformsStore,
-    VideoGameListingStore,
     InboxItemListingStore,
     UserProfileListingStore,
     ListItemListingStore,

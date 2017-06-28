@@ -1,13 +1,13 @@
-import { browser, element, by } from 'protractor';
+// import { browser, element, by } from 'protractor';
 
-export class VideoGameTrailersPage {
+// export class VideoGameTrailersPage {
 
-  public navigateTo() {
-    return browser.get('/');
-  }
+//   public navigateTo() {
+//     return browser.get('/');
+//   }
 
-  public getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
+//   public getParagraphText() {
+//     return element(by.css('app-root h1')).getText();
+//   }
 
-}
+// }

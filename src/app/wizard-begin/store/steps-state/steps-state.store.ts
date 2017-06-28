@@ -32,11 +32,6 @@ export class StepsStateStore {
         this.store.dispatch(createAction(StepsStateStore.STATECHANGED, stateChanged));
     }
 
-    // public getVideoGame(id: string): Observable<IVideoGame> {
-    //     return this.getVideoGameListing()
-    //         .map(videoGameListing => getVideoGame(videoGameListing, id));
-    // }
-
     public getState(step: StepEnum): Observable<StepState> {
         let obj = this.getStepsState()
             .map(stepsState => stepsState.list[step]);      
