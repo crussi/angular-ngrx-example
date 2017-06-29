@@ -28,6 +28,10 @@ export class ListItemListingStore {
   public static RETRIEVE_SUCCESS_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_ERROR';
 
+  public static RETRIEVE_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE';
+  public static RETRIEVE_SUCCESS_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_SUCCESS';
+  public static RETRIEVE_ERROR_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_ERROR';
+
   constructor(private store: Store<IAppState>) {}
 
   public getListItemListing(): Observable<IListItemListing> {
@@ -43,6 +47,13 @@ export class ListItemListingStore {
       return appState.trashItemListing;
     });
   }
+
+  public getSomedayItemListing(): Observable<IListItemListing> {
+    return this.store.select((appState) => {
+      console.log('***** getSomedayItemListing appState', appState);
+      return appState.somedayItemListing;
+    });
+  }  
 
   public getListItemFilters(): Observable<IListItemFilters> {
     return this.getListItemListing()
@@ -63,6 +74,12 @@ export class ListItemListingStore {
       .map(listItemListing => getListItems(listItemListing));
   }  
 
+  //someday
+  public getSomedayItems(): Observable<Array<IListItem>> {
+    return this.getSomedayItemListing()
+      .map(listItemListing => getListItems(listItemListing));
+  }  
+
   public getListItem(id: string): Observable<IListItem> {
     return this.getListItemListing()
       .map(listItemListing => getListItem(listItemListing, id));
@@ -71,20 +88,15 @@ export class ListItemListingStore {
   //trash
   public getTrashItem(id: string): Observable<IListItem> {
     return this.getTrashItemListing()
-      .map(listItemListing => { console.log('getTrashItem', getListItem(listItemListing, id)); return getListItem(listItemListing, id); });
+      .map(listItemListing => getListItem(listItemListing, id));
   }
 
-  //New
-  // public getNextListItemId(id: string): Observable<string> {
-  //   return this.getListItemListing()
-  //     .map(listItemListing => getNextListItemId(listItemListing,id));
-  // }
-
-  //New
-  // public setListItemProcessed(id: string) {
-  //   //console.log('store setUpdateProcessed id:',event);
-  //   this.store.dispatch(createAction(ListItemListingStore.UPDATE_PROCESSED, {id}));
-  // }
+  //someday
+  public getSomedayItem(id: string): Observable<IListItem> {
+    console.log('HI Im in getSomedayItem');
+    return this.getSomedayItemListing()
+      .map(listItemListing => getListItem(listItemListing, id));
+  }
 
   public retrieve(listType) {
     //console.log('list-item-listing.store retrieve');
@@ -94,6 +106,9 @@ export class ListItemListingStore {
         break;
       case 'trash':
         this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_TRASH));
+        break;
+      case 'someday':
+        this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_SOMEDAY));
         break;
     }
   }

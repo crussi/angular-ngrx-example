@@ -25,6 +25,8 @@ export class ListItemListingPageComponent {
     switch (this.listType) {
       case 'trash':
         return this.listItemListingStore.getTrashItemListing();
+      case 'someday':
+        return this.listItemListingStore.getSomedayItemListing();
       default:
         break;
     }
@@ -34,6 +36,8 @@ export class ListItemListingPageComponent {
     switch (this.listType) {
       case 'trash':
         return this.listItemListingStore.getTrashItems();
+      case 'someday':
+        return this.listItemListingStore.getSomedayItems();
       default:
         break;
     }

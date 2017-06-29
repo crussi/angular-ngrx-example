@@ -36,6 +36,7 @@ export function getListItem(listItemListing: IListItemListing, id: string) {
   // return Boolean(listItemListing) ?
   //   listItemListing.listItems.find(listItem => listItem.id === id) :
   //   null;
+  console.log('.function getListItem listItemListing id:' + id, listItemListing);
   if (Boolean(listItemListing)) {
       let listItems = listItemListing.listItems;
       let listItem: IListItem = null;

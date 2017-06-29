@@ -1,6 +1,6 @@
 <app-cards *ngIf="listItems.length > 0">
   <app-card *ngFor="let listItem of listItems"
-            [routerLink]="['/listItems/trash', listItem.id]">
+            [routerLink]="['/listItems/' + listItem.type, listItem.id]">
     <app-list-item-list-item [listItem]="listItem">
     </app-list-item-list-item>
   </app-card>

@@ -14,6 +14,7 @@ export class ListItemsContainerComponent {
 
   ) {
     this.listItemListingStore.retrieve('trash');
+    this.listItemListingStore.retrieve('someday');
   }
 
 }

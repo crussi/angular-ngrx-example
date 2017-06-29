@@ -8,6 +8,7 @@ export interface IAppState {
   readonly userProfileListing: IUserProfileListing;
   readonly listItemListing: IListItemListing;
   readonly trashItemListing: IListItemListing;
+  readonly somedayItemListing: IListItemListing;
   readonly stepsBegin: ISteps;
   readonly stepsState: IStepsState;
 }

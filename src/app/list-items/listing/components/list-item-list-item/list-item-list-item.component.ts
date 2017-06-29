@@ -1,4 +1,4 @@
-import {Input, Component} from '@angular/core';
+import {Input, Component, OnChanges, SimpleChanges} from '@angular/core';
 import { IListItem } from '../../../interfaces';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 
@@ -7,15 +7,26 @@ import {ListItemListingStore} from '../../../store/list-item-listing/list-item-l
   templateUrl: './list-item-list-item.component.html',
   styleUrls: ['./list-item-list-item.component.scss']
 })
-export class ListItemListItemComponent {
+export class ListItemListItemComponent implements OnChanges {
 
   @Input()
   public listItem: IListItem;
+
+  public isTrash = false;
+  public isSomeday = false;
 
   constructor(private listItemListingStore: ListItemListingStore) { }
 
   // public toggleListItemFavorite() {
   //   this.listItemListingStore.toggleFavorite(this.listItem.id);
   // }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes);
+    if (changes.listItem) {
+      this.isTrash = this.listItem.type == 'trash';
+      this.isSomeday = this.listItem.type == 'someday';
+    }
+  }
 
 }

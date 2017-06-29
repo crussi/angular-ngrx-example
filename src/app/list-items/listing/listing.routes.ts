@@ -11,7 +11,11 @@ export const listingRoutes: Routes = [
   {
     path: 'trash',
     component: ListItemListingPageComponent
-  }
+  },
+  {
+    path: 'someday',
+    component: ListItemListingPageComponent
+  }  
 ];
 
 

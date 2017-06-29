@@ -1,6 +1,7 @@
 
 export interface IListItem {
   readonly id: string;
+  readonly type: string;
   readonly user?: string;
   readonly description?: string;
   readonly dateEntered? : Date;
@@ -8,9 +9,23 @@ export interface IListItem {
 
 export class TrashItem implements IListItem {
   readonly id: string;
+  readonly type: string;
   readonly user?: string;
   readonly deletedBy?: string;
   readonly description?: string;
   readonly dateEntered? : Date;
   readonly dateDeleted?: Date;
+}
+
+export class SomedayItem implements IListItem {
+  readonly id: string;
+  readonly type: string;
+  readonly user?: string;
+  readonly deletedBy?: string;
+  readonly description?: string;
+  readonly dateEntered?: Date;
+  readonly datePostponed?: Date;
+  readonly reminderCycle: string;
+  readonly reminderNext: string;
+  readonly reminderCount: Number;  
 }

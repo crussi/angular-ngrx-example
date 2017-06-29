@@ -1,10 +1,23 @@
-<h2>{{listItem?.description}}</h2>
-<div style="display:block; text-align: center"><span>Date entered:</span><span style="margin-left: 20px">{{listItem?.dateEntered}}</span></div>
-<div style="display:block; text-align: center"><span>Entered by:</span><span style="margin-left: 20px">{{listItem?.user}}</span></div>
-<div style="display:block; text-align: center"><span>Date deleted:</span><span style="margin-left: 20px">{{listItem?.dateDeleted}}</span></div>
-<div style="display:block; text-align: center"><span>Deleted by:</span><span style="margin-left: 20px">{{listItem?.deletedBy}}</span></div>
-<app-button-group>
-  <app-button (onButtonPressed)="goBack()">
-    <span class="fa fa-arrow-circle-left"></span> Go Back
-  </app-button>
-</app-button-group>
+<div *ngIf="isTrash">
+  <h2>{{listItem?.description}}</h2>
+  <div style="display:block; text-align: center"><span>Date entered:</span><span style="margin-left: 20px">{{trashItem?.dateEntered}}</span></div>
+  <div style="display:block; text-align: center"><span>Entered by:</span><span style="margin-left: 20px">{{trashItem?.user}}</span></div>
+  <div style="display:block; text-align: center"><span>Date deleted:</span><span style="margin-left: 20px">{{trashItem?.dateDeleted}}</span></div>
+  <div style="display:block; text-align: center"><span>Deleted by:</span><span style="margin-left: 20px">{{trashItem?.deletedBy}}</span></div>
+
+</div>
+<div *ngIf="isSomeday">
+  <h2>{{listItem?.description}}</h2>
+  <div style="display:block; text-align: center"><span>Date entered:</span><span style="margin-left: 20px">{{somedayItem?.dateEntered}}</span></div>
+  <div style="display:block; text-align: center"><span>Entered by:</span><span style="margin-left: 20px">{{somedayItem?.user}}</span></div>
+  <div style="display:block; text-align: center"><span>Date postponed:</span><span style="margin-left: 20px">{{somedayItem?.datePostponed}}</span></div>
+  <div style="display:block; text-align: center"><span>Postponed by:</span><span style="margin-left: 20px">{{somedayItem?.postponedBy}}</span></div>
+  <div style="display:block; text-align: center"><span>Reminder cycle:</span><span style="margin-left: 20px">{{somedayItem?.reminderCycle}}</span></div>
+  <div style="display:block; text-align: center"><span>Next Reminder:</span><span style="margin-left: 20px">{{somedayItem?.reminderNext}}</span></div>
+
+</div>
+  <app-button-group>
+    <app-button (onButtonPressed)="goBack()">
+      <span class="fa fa-arrow-circle-left"></span> Go Back
+    </app-button>
+  </app-button-group>
