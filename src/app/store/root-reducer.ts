@@ -5,7 +5,7 @@ import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
-import { listItemListingReducer, trashItemListingReducer, somedayItemListingReducer } from '../list-items/store/reducers';
+import { listItemListingReducer, trashItemListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
 
 //MAKE SURE YOU ADD THIS FOR EACH REDUCER!!!
@@ -18,7 +18,8 @@ const reducers = {
   userProfileListing: userProfileListingReducer,
   listItemListing: listItemListingReducer,
   trashItemListing: trashItemListingReducer,
-  somedayItemListing: somedayItemListingReducer
+  somedayItemListing: somedayItemListingReducer,
+  referenceItemListing: referenceItemListingReducer
 };
 
 const localStorageState = {

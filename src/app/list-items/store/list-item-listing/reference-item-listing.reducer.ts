@@ -7,30 +7,30 @@ import {
     IListItemListing,
 } from '../../interfaces';
 
-export function trashItemListingReducer(
+export function referenceItemListingReducer(
     state: IListItemListing,
     action: Action
 ): IListItemListing {
     state = state || createDefaultListItemListing();
 
     switch (action.type) {
-        case ListItemListingStore.RETRIEVE_TRASH:
-            //console.log("trash list reducer RETRIEVE");
+        case ListItemListingStore.RETRIEVE_REFERENCE:
+            console.log("reference list reducer RETRIEVE");
             return {
                 ...state,
                 isLoading: true,
                 loadingError: null
             };
-        case ListItemListingStore.RETRIEVE_SUCCESS_TRASH:
+        case ListItemListingStore.RETRIEVE_SUCCESS_REFERENCE:
             const listItems = action.payload.listItems
-            //console.log("trash list reducer RETRIEVE_TRASH_SUCCESS action.payload.listItems", action.payload.listItems);
+            console.log("reference list reducer RETRIEVE_TRASH_SUCCESS action.payload.listItems", action.payload.listItems);
             return {
                 ...state,
                 isLoading: false,
                 listItems: listItems,
                 // linkedIds: ids
             };
-        case ListItemListingStore.RETRIEVE_ERROR_TRASH:
+        case ListItemListingStore.RETRIEVE_ERROR_REFERENCE:
             return {
                 ...state,
                 isLoading: false,

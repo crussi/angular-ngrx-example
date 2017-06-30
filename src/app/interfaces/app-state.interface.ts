@@ -9,6 +9,7 @@ export interface IAppState {
   readonly listItemListing: IListItemListing;
   readonly trashItemListing: IListItemListing;
   readonly somedayItemListing: IListItemListing;
+  readonly referenceItemListing: IListItemListing;
   readonly stepsBegin: ISteps;
   readonly stepsState: IStepsState;
 }

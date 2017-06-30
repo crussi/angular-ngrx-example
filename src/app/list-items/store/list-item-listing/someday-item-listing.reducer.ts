@@ -15,7 +15,7 @@ export function somedayItemListingReducer(
 
     switch (action.type) {
         case ListItemListingStore.RETRIEVE_SOMEDAY:
-            console.log("someday list reducer RETRIEVE");
+            //console.log("someday list reducer RETRIEVE");
             return {
                 ...state,
                 isLoading: true,
@@ -23,7 +23,7 @@ export function somedayItemListingReducer(
             };
         case ListItemListingStore.RETRIEVE_SUCCESS_SOMEDAY:
             const listItems = action.payload.listItems
-            console.log("trash list reducer RETRIEVE_SOMEDAY_SUCCESS action.payload.listItems", action.payload.listItems);
+            //console.log("someday list reducer RETRIEVE_SOMEDAY_SUCCESS action.payload.listItems", action.payload.listItems);
             return {
                 ...state,
                 isLoading: false,

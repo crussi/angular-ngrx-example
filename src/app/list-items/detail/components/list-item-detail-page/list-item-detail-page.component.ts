@@ -16,7 +16,6 @@ import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/step
 export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public listItem$: Observable<IListItem>;
-  public isTrash = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +37,8 @@ export class ListItemDetailPageComponent implements OnInit, ErrorHandler {
               return this.listItemListingStore.getTrashItem(params.listItemId)
             case 'someday':
               return this.listItemListingStore.getSomedayItem(params.listItemId)
+            case 'reference':
+              return this.listItemListingStore.getReferenceItem(params.listItemId)
             default:
               return this.listItemListingStore.getListItem(params.listItemId)
 

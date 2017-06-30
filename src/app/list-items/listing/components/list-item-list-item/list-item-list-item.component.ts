@@ -14,6 +14,7 @@ export class ListItemListItemComponent implements OnChanges {
 
   public isTrash = false;
   public isSomeday = false;
+  public isReference = false;
 
   constructor(private listItemListingStore: ListItemListingStore) { }
 
@@ -26,6 +27,7 @@ export class ListItemListItemComponent implements OnChanges {
     if (changes.listItem) {
       this.isTrash = this.listItem.type == 'trash';
       this.isSomeday = this.listItem.type == 'someday';
+      this.isReference = this.listItem.type == 'reference';
     }
   }
 

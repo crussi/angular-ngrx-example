@@ -15,7 +15,11 @@ export const listingRoutes: Routes = [
   {
     path: 'someday',
     component: ListItemListingPageComponent
-  }  
+  },
+  {
+    path: 'reference',
+    component: ListItemListingPageComponent
+  }      
 ];
 
 

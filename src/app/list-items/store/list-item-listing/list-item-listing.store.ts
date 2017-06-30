@@ -32,6 +32,10 @@ export class ListItemListingStore {
   public static RETRIEVE_SUCCESS_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_ERROR';
 
+  public static RETRIEVE_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE';
+  public static RETRIEVE_SUCCESS_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE_SUCCESS';
+  public static RETRIEVE_ERROR_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE_ERROR';
+
   constructor(private store: Store<IAppState>) {}
 
   public getListItemListing(): Observable<IListItemListing> {
@@ -50,8 +54,15 @@ export class ListItemListingStore {
 
   public getSomedayItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
-      console.log('***** getSomedayItemListing appState', appState);
+      //console.log('***** getSomedayItemListing appState', appState);
       return appState.somedayItemListing;
+    });
+  }
+
+  public getReferenceItemListing(): Observable<IListItemListing> {
+    return this.store.select((appState) => {
+      console.log('***** getReferenceItemListing appState', appState);
+      return appState.referenceItemListing;
     });
   }  
 
@@ -80,6 +91,12 @@ export class ListItemListingStore {
       .map(listItemListing => getListItems(listItemListing));
   }  
 
+  //reference
+  public getReferenceItems(): Observable<Array<IListItem>> {
+    return this.getReferenceItemListing()
+      .map(listItemListing => getListItems(listItemListing));
+  } 
+
   public getListItem(id: string): Observable<IListItem> {
     return this.getListItemListing()
       .map(listItemListing => getListItem(listItemListing, id));
@@ -93,8 +110,15 @@ export class ListItemListingStore {
 
   //someday
   public getSomedayItem(id: string): Observable<IListItem> {
-    console.log('HI Im in getSomedayItem');
+    //console.log('HI Im in getSomedayItem');
     return this.getSomedayItemListing()
+      .map(listItemListing => getListItem(listItemListing, id));
+  }
+
+  //reference
+  public getReferenceItem(id: string): Observable<IListItem> {
+    console.log('HI Im in getReferenceItem');
+    return this.getReferenceItemListing()
       .map(listItemListing => getListItem(listItemListing, id));
   }
 
@@ -110,6 +134,10 @@ export class ListItemListingStore {
       case 'someday':
         this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_SOMEDAY));
         break;
+      case 'reference':
+        console.log('this.store.dispatch RETRIEVE_REFERENCE');
+        this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_REFERENCE));
+        break;        
     }
   }
 

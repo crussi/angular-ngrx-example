@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Location} from '@angular/common';
-import { IListItem, TrashItem, SomedayItem } from '../../../interfaces';
+import { IListItem, TrashItem, SomedayItem, ReferenceItem } from '../../../interfaces';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 
 @Component({
@@ -17,6 +17,8 @@ export class ListItemDetailComponent implements OnChanges {
   public trashItem?: TrashItem;
   public isSomeday = false;
   public somedayItem?: SomedayItem;
+  public isReference = false;
+  public referenceItem?: ReferenceItem;
 
   constructor(
     private location: Location,
@@ -32,12 +34,16 @@ export class ListItemDetailComponent implements OnChanges {
         case 'trash':
           this.isTrash = true;
           this.trashItem = Object.assign(new TrashItem(), this.listItem);
-          console.log('my new trash item', this.trashItem);
+          //console.log('my new trash item', this.trashItem);
           break;
         case 'someday':
           this.isSomeday = true;
           this.somedayItem = Object.assign(new SomedayItem(), this.listItem);
-          console.log('my new someday item', this.somedayItem);
+          //console.log('my new someday item', this.somedayItem);
+        case 'reference':
+          this.isReference = true;
+          this.referenceItem = Object.assign(new ReferenceItem(), this.listItem);
+          console.log('my new reference item', this.referenceItem);
         
       }
       

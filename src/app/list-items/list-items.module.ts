@@ -7,7 +7,7 @@ import {ListItemsContainerComponent} from './components';
 import {ListItemsService} from './services';
 import {ListItemListingModule} from './listing/listing.module';
 import {ListItemDetailModule} from './detail/detail.module';
-import { ListItemListingEffects, TrashItemListingEffects, SomedayItemListingEffects } from '../list-items/store/effects';
+import { ListItemListingEffects, TrashItemListingEffects, SomedayItemListingEffects, ReferenceItemListingEffects } from '../list-items/store/effects';
 
 import { listingRoutes } from './listing/listing.routes';
 import { detailRoutes } from './detail/detail.routes';
@@ -33,8 +33,10 @@ export const listItemsModuleRoutes: Routes = [
     ListItemDetailModule,
     //EffectsModule.run(UsersEffects),
     //EffectsModule.run(ListItemListingEffects),
+    //LOOK here to 
     EffectsModule.run(TrashItemListingEffects),
-    EffectsModule.run(SomedayItemListingEffects)
+    EffectsModule.run(SomedayItemListingEffects),
+    EffectsModule.run(ReferenceItemListingEffects)
   ],
   //exports: [ListItemsContainerComponent],
   declarations: [

@@ -23,6 +23,10 @@ export class ListItemsService {
       case 'someday':
         key = '/595440670f00005d00fc0c55';
         break;
+      case 'reference':
+        console.log('getAll reference')
+        key = '/595595412900005a00cd7057';
+        break;
       default:
         break;
     }

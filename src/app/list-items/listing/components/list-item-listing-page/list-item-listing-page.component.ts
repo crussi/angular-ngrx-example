@@ -27,6 +27,8 @@ export class ListItemListingPageComponent {
         return this.listItemListingStore.getTrashItemListing();
       case 'someday':
         return this.listItemListingStore.getSomedayItemListing();
+      case 'reference':
+        return this.listItemListingStore.getReferenceItemListing();
       default:
         break;
     }
@@ -38,6 +40,8 @@ export class ListItemListingPageComponent {
         return this.listItemListingStore.getTrashItems();
       case 'someday':
         return this.listItemListingStore.getSomedayItems();
+      case 'reference':
+        return this.listItemListingStore.getReferenceItems();
       default:
         break;
     }

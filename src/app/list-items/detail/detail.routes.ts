@@ -10,7 +10,11 @@ export const detailRoutes: Routes = [
   {
     path: 'someday/:listItemId',
     component: ListItemDetailPageComponent
-  }  
+  },
+  {
+    path: 'reference/:listItemId',
+    component: ListItemDetailPageComponent
+  }      
 ];
 
 
