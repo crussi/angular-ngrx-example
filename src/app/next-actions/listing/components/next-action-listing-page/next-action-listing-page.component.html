@@ -1,0 +1,16 @@
+<app-loading-container [loadable]="nextActionListingStore.getNextActionListing() | async">
+  <header>
+    <app-next-action-search (queryChanged)="search($event)"></app-next-action-search>
+    <app-next-action-filters [filters]="nextActionListingStore.getNextActionFilters() | async"
+                            
+                             [users]="(userProfileListingStore.getUsers() | async)"
+                            (userFilterChanged)="filterUser($event)"
+                            >
+    </app-next-action-filters>
+  </header>
+
+  <app-next-action-listing [nextActions]="nextActionListingStore.getNextActions() | async">
+  </app-next-action-listing>
+</app-loading-container>
+
+<!--[users]="(usersStore.getUsers() | async).list"-->

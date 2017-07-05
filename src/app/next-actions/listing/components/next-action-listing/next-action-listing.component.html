@@ -1,0 +1,11 @@
+<app-cards *ngIf="nextActions.length > 0">
+  <app-card *ngFor="let nextAction of nextActions"
+            [routerLink]="['/nextActions', nextAction.id]">
+    <app-next-action-list-item [nextAction]="nextAction">
+    </app-next-action-list-item>
+  </app-card>
+</app-cards>
+
+<p *ngIf="nextActions.length === 0">
+  Your nextaction is empty.
+</p>

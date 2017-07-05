@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Location} from '@angular/common';
-import { IListItem, TrashItem, SomedayItem, ReferenceItem } from '../../../interfaces';
+import { IListItem } from '../../../interfaces';
+import { TrashItem, SomedayItem, ReferenceItem } from '../../../models/list-item.models';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
+import { ListTypeEnum } from '../../../models/list-item.enum';
 
 @Component({
   selector: 'app-list-item-detail',
@@ -13,11 +15,12 @@ export class ListItemDetailComponent implements OnChanges {
   @Input()
   public listItem: IListItem;
 
-  public isTrash = false;
+  public listType: ListTypeEnum;
+  public isTrash() { return this.listType == ListTypeEnum.Trash; }
   public trashItem?: TrashItem;
-  public isSomeday = false;
+  public isSomeday() { return this.listType == ListTypeEnum.Someday; }
   public somedayItem?: SomedayItem;
-  public isReference = false;
+  public isReference() { return this.listType == ListTypeEnum.Reference; }
   public referenceItem?: ReferenceItem;
 
   constructor(
@@ -29,22 +32,23 @@ export class ListItemDetailComponent implements OnChanges {
     console.log('changes', changes);
     console.log('this.listItem', this.listItem);
     if (changes.listItem && this.listItem) {
-      console.log('****!!! ngOnChanges listItem.type', this.listItem.type);
+      console.log('****!!! ngOnChanges listItem:', this.listItem);
       switch (this.listItem.type) {
         case 'trash':
-          this.isTrash = true;
+          this.listType = ListTypeEnum.Trash;
           this.trashItem = Object.assign(new TrashItem(), this.listItem);
-          //console.log('my new trash item', this.trashItem);
+          console.log('my new trash item', this.trashItem);
           break;
         case 'someday':
-          this.isSomeday = true;
+          this.listType = ListTypeEnum.Someday;
           this.somedayItem = Object.assign(new SomedayItem(), this.listItem);
+          break;
           //console.log('my new someday item', this.somedayItem);
         case 'reference':
-          this.isReference = true;
+          this.listType = ListTypeEnum.Reference;
           this.referenceItem = Object.assign(new ReferenceItem(), this.listItem);
           console.log('my new reference item', this.referenceItem);
-        
+          break;
       }
       
     }

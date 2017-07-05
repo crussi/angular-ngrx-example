@@ -10,7 +10,8 @@ import {
   IListItemFilters,
   IListItemListing,
 } from '../../interfaces';
-import { IListItem, TrashItem } from '../../interfaces';
+import { IListItem } from '../../interfaces';
+import { TrashItem } from '../../models/list-item.models';
 
 @Injectable()
 export class ListItemListingStore {
