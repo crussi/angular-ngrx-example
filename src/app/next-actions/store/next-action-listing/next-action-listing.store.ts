@@ -11,7 +11,8 @@ import {
     INextActionFilters,
   INextActionListing,
 } from '../../interfaces';
-import { NextActionProcessed, INextAction } from '../../../shared/barrel';
+import { NextActionProcessed } from '../../models/next-action.models';
+import { INextAction } from '../../interfaces';
 
 @Injectable()
 export class NextActionListingStore {

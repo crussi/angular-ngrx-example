@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import { INextAction } from '../../../../shared/barrel';
+//import { INextAction } from '../../../../shared/barrel';
+import { INextAction } from '../../../interfaces';
 import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
 import {NextActionListingStore} from '../../../store/next-action-listing/next-action-listing.store';
 import {INextActionFilters} from '../../../interfaces/next-action-listing/next-action-filters.interface';

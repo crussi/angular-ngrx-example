@@ -3,7 +3,9 @@ import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { Subscription } from 'rxjs/Subscription';
-import { INextAction, NextActionProcessed, NextActionNext, StepEnum} from '../../../../shared/barrel';
+//import { INextAction, NextActionProcessed, NextActionNext, StepEnum} from '../../../../shared/barrel';
+import { NextActionProcessed, NextActionNext } from '../../../models/next-action.models';
+import { INextAction } from '../../../interfaces';
 import {NextActionListingStore} from '../../../store/next-action-listing/next-action-listing.store';
 import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/steps-state.store';
 import { MessageService } from '../../../../shared/services/message.service';
@@ -43,57 +45,9 @@ export class NextActionDetailPageComponent implements OnInit, ErrorHandler {
   public onNextActionProcessed(event: NextActionProcessed) {
     console.log('*** onNextActionProcessed() ***',event);
     this.nextActionListingStore.setNextActionProcessed(event.id);
-    this.abc(event);
+    //this.abc(event);
   }
 
-  private abc(event: NextActionProcessed) {
-    let states = event.stepStates;
-    if (states[StepEnum.IsActionable].State === true) {
-      console.log('is actionable');
-      if (states[StepEnum.IsProject].State === true) {
-        console.log('is project');
-        console.log('outcome: ' + states[StepEnum.ProjectPlan].State.outcome);
-        console.log('title: ' + states[StepEnum.ProjectPlan].State.title);
-      } else {
-        console.log('is not a project');
-        let nextaction = states[StepEnum.NextAction].State.nextaction;
-        if (states[StepEnum.IsDoableNow].State === true) {
-          console.log('is doable now');
-          if (states[StepEnum.DoItNow].State === true) {
-            console.log('task was completed in doitnow nextaction:',nextaction);
-          }          
-        } else if (states[StepEnum.IsDelegatable].State === true) {
-          let delegate = states[StepEnum.Delegate].State.delegate;
-          console.log('is delegateable nextaction: ' + nextaction + ' delegated to:', delegate);
-        } else if (states[StepEnum.IsSchedulable].State === true) {
-          let eventdate = states[StepEnum.Schedule].State.eventdate;
-          console.log('is schedulable eventdate:', eventdate);
-        } else {
-          let refineaction = states[StepEnum.Schedule].State ? states[StepEnum.Schedule].State.refineaction : ''; 
-          console.log('refine action', refineaction);
-        }
-      }
-
-    } else {
-        console.log('is nonactionable');
-        let nonactionable = states[StepEnum.NonActionable].State ? states[StepEnum.NonActionable].State.nonactionable : '';
-        switch (nonactionable)
-        {
-          case "someday":
-            console.log('process someday');
-            break
-          case "trash":
-            console.log('process trash');
-            break;
-          case "reference":
-            console.log('process reference');
-            break;
-          default: 
-            console.log('unknown nonactionable');
-            break;
-        }
-    }
-  }
 
   // public onNextActionNext(event: NextActionNext) {
   //   console.log('***--->>>> onNextActionNext() <<<<---***');

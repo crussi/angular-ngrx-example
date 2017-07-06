@@ -1,4 +1,5 @@
-import { INextAction } from '../../../shared/barrel';
+//import { INextAction } from '../../../shared/barrel';
+import { INextAction } from '../../interfaces';
 import { INextActionFilters } from '../next-action-listing';
 
 export function createNextAction(

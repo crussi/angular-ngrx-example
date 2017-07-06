@@ -4,6 +4,7 @@ import {compose} from '@ngrx/core/compose';
 import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import { inboxItemListingReducer } from '../inbox-items/store/reducers';
+import { nextActionListingReducer } from '../next-actions/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
 import { listItemListingReducer, trashItemListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
@@ -15,6 +16,7 @@ const reducers = {
   stepsState: stepsStateReducer,
   router: routerReducer,
   inboxItemListing: inboxItemListingReducer,
+  nextActionListing: nextActionListingReducer,
   userProfileListing: userProfileListingReducer,
   listItemListing: listItemListingReducer,
   trashItemListing: trashItemListingReducer,

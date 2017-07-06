@@ -1,2 +1,2 @@
 export * from './next-action.functions';
-//export * from './next-action.interface';
+export * from './next-action.interface';

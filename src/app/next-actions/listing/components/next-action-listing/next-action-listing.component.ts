@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
-import { INextAction } from '../../../../shared/barrel';
+//import { INextAction } from '../../../../shared/barrel';
+import { INextAction } from '../../../interfaces';
 
 @Component({
   selector: 'app-next-action-listing',

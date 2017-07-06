@@ -1,5 +1,6 @@
 import { INextActionListing } from './next-action-listing.interface';
-import { INextAction } from '../../../shared/barrel';
+//import { INextAction } from '../../../shared/barrel';
+import { INextAction } from '../../interfaces';
 import { createDefaultNextActionFilters } from './next-action-filters.functions';
 import {
   nextActionMatchesUserFilter,
@@ -12,7 +13,8 @@ export function createDefaultNextActionListing(): INextActionListing {
     loadingError: null,
     filters: createDefaultNextActionFilters(),
     searchQuery: null,
-    nextActions: []
+    nextActions: [],
+    linkedIds: null
   };
 }
 

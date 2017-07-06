@@ -1,5 +1,6 @@
 import {Routes} from '@angular/router';
 import {inboxItemsRoutes} from '../inbox-items/inbox-items.routes';
+import { nextActionsRoutes } from '../next-actions/next-actions.routes';
 import { userProfilesRoutes } from '../user-profiles/user-profiles.routes';
 
 export const rootRoutes: Routes = [
@@ -8,7 +9,7 @@ export const rootRoutes: Routes = [
     redirectTo: 'inboxItems',
     pathMatch: 'full',
   },  
-  ...inboxItemsRoutes, ...userProfilesRoutes,
+  ...inboxItemsRoutes, ...nextActionsRoutes, ...userProfilesRoutes,
   {
     path: 'listItems', 
     loadChildren: '../list-items/list-items.module#ListItemsModule'
