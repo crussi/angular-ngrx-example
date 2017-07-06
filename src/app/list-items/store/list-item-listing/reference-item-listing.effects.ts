@@ -8,6 +8,7 @@ import 'rxjs/add/operator/mergeMap';
 import { ListItemListingStore } from './list-item-listing.store';
 import { createAction } from '../../../store/create-action';
 import { ListItemsService } from '../../services/list-items.service';
+import { ListTypeEnum } from '../../models';
 
 @Injectable()
 export class ReferenceItemListingEffects {
@@ -15,7 +16,7 @@ export class ReferenceItemListingEffects {
     @Effect()
     private retrieve$ = this.actions$
         .ofType(ListItemListingStore.RETRIEVE_REFERENCE)
-        .mergeMap(() => this.listItemsService.getAll('reference')
+        .mergeMap(() => this.listItemsService.getAll(ListTypeEnum.Reference)
             .map(listItems => createAction(ListItemListingStore.RETRIEVE_SUCCESS_REFERENCE, { listItems }))
             .catch(error => Observable.of(createAction(ListItemListingStore.RETRIEVE_ERROR_REFERENCE, { error })))
         );

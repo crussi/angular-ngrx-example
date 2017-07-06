@@ -29,15 +29,15 @@ export class ListItemDetailComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
-    console.log('this.listItem', this.listItem);
+    //console.log('changes', changes);
+    //console.log('this.listItem', this.listItem);
     if (changes.listItem && this.listItem) {
-      console.log('****!!! ngOnChanges listItem:', this.listItem);
+      //console.log('****!!! ngOnChanges listItem:', this.listItem);
       switch (this.listItem.type) {
         case 'trash':
           this.listType = ListTypeEnum.Trash;
           this.trashItem = Object.assign(new TrashItem(), this.listItem);
-          console.log('my new trash item', this.trashItem);
+          //console.log('my new trash item', this.trashItem);
           break;
         case 'someday':
           this.listType = ListTypeEnum.Someday;
@@ -47,16 +47,16 @@ export class ListItemDetailComponent implements OnChanges {
         case 'reference':
           this.listType = ListTypeEnum.Reference;
           this.referenceItem = Object.assign(new ReferenceItem(), this.listItem);
-          console.log('my new reference item', this.referenceItem);
+          //console.log('my new reference item', this.referenceItem);
           break;
       }
       
     }
   }  
 
-  public toggleFavorite() {
-    this.listItemListingStore.toggleFavorite(this.listItem.id);
-  }
+  // public toggleFavorite() {
+  //   this.listItemListingStore.toggleFavorite(this.listItem.id);
+  // }
 
   public goBack() {
     this.location.back();

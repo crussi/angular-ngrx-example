@@ -23,7 +23,7 @@ export class ListItemListItemComponent implements OnChanges {
   // }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
+    //console.log('changes', changes);
     if (changes.listItem) {
       this.isTrash = this.listItem.type == 'trash';
       this.isSomeday = this.listItem.type == 'someday';

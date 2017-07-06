@@ -3,20 +3,21 @@ import { IListItem } from '../interfaces';
 export class TrashItem implements IListItem {
     readonly id: string;
     readonly type: string;
-    readonly user?: string;
-    readonly deletedBy?: string;
     readonly description?: string;
-    readonly dateEntered?: Date;
-    readonly dateDeleted?: Date;
+    readonly userCreated?: string;
+    readonly dateCreated?: Date;
+    readonly userChanged?: string;
+    readonly dateChanged?: Date;
 }
 
 export class SomedayItem implements IListItem {
     readonly id: string;
     readonly type: string;
-    readonly user?: string;
     readonly description?: string;
-    readonly dateEntered?: Date;
-    readonly datePostponed?: Date;
+    readonly userCreated?: string;
+    readonly dateCreated?: Date;
+    readonly userChanged?: string;
+    readonly dateChanged?: Date;
     readonly reminderCycle: string;
     readonly reminderNext: string;
     readonly reminderCount: Number;
@@ -25,8 +26,10 @@ export class SomedayItem implements IListItem {
 export class ReferenceItem implements IListItem {
     readonly id: string;
     readonly type: string;
-    readonly user?: string;
     readonly description?: string;
-    readonly dateEntered?: Date;
+    readonly userCreated?: string;
+    readonly dateCreated?: Date;
+    readonly userChanged?: string;
+    readonly dateChanged?: Date;
     //put new properties here ...
 }

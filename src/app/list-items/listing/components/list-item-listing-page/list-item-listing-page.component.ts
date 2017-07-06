@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import { IListItem } from '../../../interfaces/list-item/list-item.interface';
 import {ListItemListingStore} from '../../../store/list-item-listing/list-item-listing.store';
 import {IListItemFilters} from '../../../interfaces/list-item-listing/list-item-filters.interface';
+import { ListTypeEnum } from '../../../models';
 
 @Component({
   selector: 'app-list-item-listing-page',
@@ -11,23 +12,35 @@ import {IListItemFilters} from '../../../interfaces/list-item-listing/list-item-
   styleUrls: ['./list-item-listing-page.component.scss']
 })
 export class ListItemListingPageComponent {
-  listType: string;
+  listType: ListTypeEnum;
 
   constructor(
     private route: ActivatedRoute,
     public listItemListingStore: ListItemListingStore
   ) {
     console.log('route.routeConfig.path:', route);
-    this.listType = route.routeConfig.path;
+    //this.listType = route.routeConfig.path;
+    switch (route.routeConfig.path) {
+      case 'trash':
+        this.listType = ListTypeEnum.Trash;
+        break;
+      case 'someday':
+        this.listType = ListTypeEnum.Someday;
+        break;
+      case 'reference':
+        this.listType = ListTypeEnum.Reference;
+        break;
+    }
   }
 
   public getListItemListing() {
+    
     switch (this.listType) {
-      case 'trash':
+      case ListTypeEnum.Trash:       
         return this.listItemListingStore.getTrashItemListing();
-      case 'someday':
+      case ListTypeEnum.Someday:
         return this.listItemListingStore.getSomedayItemListing();
-      case 'reference':
+      case ListTypeEnum.Reference:
         return this.listItemListingStore.getReferenceItemListing();
       default:
         break;
@@ -36,11 +49,11 @@ export class ListItemListingPageComponent {
 
   public getListItems() {
     switch (this.listType) {
-      case 'trash':
+      case ListTypeEnum.Trash:
         return this.listItemListingStore.getTrashItems();
-      case 'someday':
+      case ListTypeEnum.Someday:
         return this.listItemListingStore.getSomedayItems();
-      case 'reference':
+      case ListTypeEnum.Reference:
         return this.listItemListingStore.getReferenceItems();
       default:
         break;
@@ -49,15 +62,26 @@ export class ListItemListingPageComponent {
   }
 
   public search(query: string) {
-    this.listItemListingStore.search(query);
-  }
+    // switch (this.listType) {
+    //   case ListTypeEnum.Trash:
+    //     this.listItemListingStore.search(query);
+    //     break
+    //   case ListTypeEnum.Someday:
+    //     this.listItemListingStore.search(query);
+    //     break
+    //   case ListTypeEnum.Reference:
+    //     this.listItemListingStore.search(query);
+    //     break
+    // }
+    this.listItemListingStore.search(query, this.listType);
 
-  public filterUser(user: string) {
-    this.listItemListingStore.filterUser(user);
   }
+  // public filterUser(user: string) {
+  //   this.listItemListingStore.filterUser(user);
+  // }
 
-  public filterFavorites() {
-    this.listItemListingStore.toggleFavoriteFilter();
-  }
+  // public filterFavorites() {
+  //   this.listItemListingStore.toggleFavoriteFilter();
+  // }
 
 }

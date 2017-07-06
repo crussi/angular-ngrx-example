@@ -7,7 +7,7 @@ import {ListItemsContainerComponent} from './components';
 import {ListItemsService} from './services';
 import {ListItemListingModule} from './listing/listing.module';
 import {ListItemDetailModule} from './detail/detail.module';
-import { ListItemListingEffects, TrashItemListingEffects, SomedayItemListingEffects, ReferenceItemListingEffects } from '../list-items/store/effects';
+import { TrashItemListingEffects, SomedayItemListingEffects, ReferenceItemListingEffects } from '../list-items/store/effects';
 
 import { listingRoutes } from './listing/listing.routes';
 import { detailRoutes } from './detail/detail.routes';

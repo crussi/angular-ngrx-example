@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {ApiService} from '../../root/services/api/api.service';
-import { IListItem } from '../interfaces/list-item/list-item.interface';
+import { IListItem } from '../interfaces';
+import { ListTypeEnum } from '../models';
 
 @Injectable()
 export class ListItemsService {
@@ -10,22 +11,19 @@ export class ListItemsService {
 
   }
 
-  public getAll(listType:string): Observable<Array<IListItem>> {
+  public getAll(listType: ListTypeEnum): Observable<Array<IListItem>> {
     //console.log('*** ListItemsService getAll', listType);
     let key: string = '';
     switch (listType) {
-      case 'all':    
-        key = '/594d9b141100002904d6d361';
+      case ListTypeEnum.Trash:
+        key = '/595d9833100000a6007c1745';
         break;
-      case 'trash':
-        key = '/59542c360f00006100fc0c32';
+      case ListTypeEnum.Someday:
+        key = '/595d9d5d100000ae007c174d';
         break;
-      case 'someday':
-        key = '/595440670f00005d00fc0c55';
-        break;
-      case 'reference':
+      case ListTypeEnum.Reference:
         console.log('getAll reference')
-        key = '/595595412900005a00cd7057';
+        key = '/595d9d32100000a2007c174b';
         break;
       default:
         break;

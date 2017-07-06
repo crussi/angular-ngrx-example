@@ -8,6 +8,7 @@ import 'rxjs/add/operator/mergeMap';
 import { ListItemListingStore } from './list-item-listing.store';
 import { createAction } from '../../../store/create-action';
 import { ListItemsService } from '../../services/list-items.service';
+import { ListTypeEnum } from '../../models';
 
 @Injectable()
 export class TrashItemListingEffects {
@@ -15,7 +16,7 @@ export class TrashItemListingEffects {
     @Effect()
     private retrieve$ = this.actions$
         .ofType(ListItemListingStore.RETRIEVE_TRASH)
-        .mergeMap(() => this.listItemsService.getAll('trash')
+        .mergeMap(() => this.listItemsService.getAll(ListTypeEnum.Trash)
             .map(listItems => createAction(ListItemListingStore.RETRIEVE_SUCCESS_TRASH, { listItems }))
             .catch(error => Observable.of(createAction(ListItemListingStore.RETRIEVE_ERROR_TRASH, { error })))
         );

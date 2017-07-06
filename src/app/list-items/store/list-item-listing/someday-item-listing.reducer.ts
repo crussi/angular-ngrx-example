@@ -36,6 +36,12 @@ export function somedayItemListingReducer(
                 isLoading: false,
                 loadingError: action.payload.error
             };
+        case ListItemListingStore.SEARCH_SOMEDAY:
+            return {
+                ...state,
+                searchQuery: action.payload.query
+            };
+
         default:
             return state;
     }

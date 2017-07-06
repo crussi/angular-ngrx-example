@@ -26,7 +26,7 @@ export class InboxItemFiltersComponent implements OnChanges  {
 
   ngOnChanges(changes: SimpleChanges) {
     //console.log('ngOnChanges start');
-    console.log('**** changes', changes);
+    //console.log('**** changes', changes);
   }
 
 }

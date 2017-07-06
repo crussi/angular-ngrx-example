@@ -36,6 +36,11 @@ export function trashItemListingReducer(
                 isLoading: false,
                 loadingError: action.payload.error
             };
+        case ListItemListingStore.SEARCH_TRASH:
+            return {
+                ...state,
+                searchQuery: action.payload.query
+            };
         default:
             return state;
     }

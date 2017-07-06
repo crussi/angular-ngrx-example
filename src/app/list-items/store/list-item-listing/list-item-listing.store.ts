@@ -11,31 +11,34 @@ import {
   IListItemListing,
 } from '../../interfaces';
 import { IListItem } from '../../interfaces';
-import { TrashItem } from '../../models/list-item.models';
+import { ListTypeEnum } from '../../models';
 
 @Injectable()
 export class ListItemListingStore {
 
-  public static RETRIEVE = 'LIST_ITEM_LISTING_RETRIEVE';
-  public static RETRIEVE_SUCCESS = 'LIST_ITEM_LISTING_RETRIEVE_SUCCESS';
-  public static RETRIEVE_ERROR = 'LIST_ITEM_LISTING_RETRIEVE_ERROR';
-  public static SEARCH = 'LIST_ITEM_LISTING_SEARCH';
-  public static FILTER_USER = 'LIST_ITEM_LISTING_FILTER_USER';
-  public static TOGGLE_FAVORITE_FILTER = 'LIST_ITEM_LISTING_FILTER_FAVORITES';
-  public static TOGGLE_FAVORITE = 'LIST_ITEM_TOGGLE_FAVORITE';
-  public static UPDATE_PROCESSED = 'LIST_ITEM_LISTING_UPDATE_PROCESSED';
+  // public static RETRIEVE = 'LIST_ITEM_LISTING_RETRIEVE';
+  // public static RETRIEVE_SUCCESS = 'LIST_ITEM_LISTING_RETRIEVE_SUCCESS';
+  // public static RETRIEVE_ERROR = 'LIST_ITEM_LISTING_RETRIEVE_ERROR';
+  // public static SEARCH = 'LIST_ITEM_LISTING_SEARCH';
+  // public static FILTER_USER = 'LIST_ITEM_LISTING_FILTER_USER';
+  // public static TOGGLE_FAVORITE_FILTER = 'LIST_ITEM_LISTING_FILTER_FAVORITES';
+  // public static TOGGLE_FAVORITE = 'LIST_ITEM_TOGGLE_FAVORITE';
+  // public static UPDATE_PROCESSED = 'LIST_ITEM_LISTING_UPDATE_PROCESSED';
 
   public static RETRIEVE_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE';
   public static RETRIEVE_SUCCESS_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR_TRASH = 'TRASH_ITEM_LISTING_RETRIEVE_ERROR';
+  public static SEARCH_TRASH = 'TRASH_ITEM_LISTING_SEARCH';
 
   public static RETRIEVE_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE';
   public static RETRIEVE_SUCCESS_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR_SOMEDAY = 'SOMEDAY_ITEM_LISTING_RETRIEVE_ERROR';
+  public static SEARCH_SOMEDAY = 'SOMEDAY_ITEM_LISTING_SEARCH';
 
   public static RETRIEVE_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE';
   public static RETRIEVE_SUCCESS_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE_SUCCESS';
   public static RETRIEVE_ERROR_REFERENCE = 'REFERENCE_ITEM_LISTING_RETRIEVE_ERROR';
+  public static SEARCH_REFERENCE = 'REFERENCE_ITEM_LISTING_SEARCH';
 
   constructor(private store: Store<IAppState>) {}
 
@@ -62,21 +65,21 @@ export class ListItemListingStore {
 
   public getReferenceItemListing(): Observable<IListItemListing> {
     return this.store.select((appState) => {
-      console.log('***** getReferenceItemListing appState', appState);
+      //console.log('***** getReferenceItemListing appState', appState);
       return appState.referenceItemListing;
     });
   }  
 
-  public getListItemFilters(): Observable<IListItemFilters> {
-    return this.getListItemListing()
-      .map(listItemListing => listItemListing.filters);
-  }
+  // public getListItemFilters(): Observable<IListItemFilters> {
+  //   return this.getListItemListing()
+  //     .map(listItemListing => listItemListing.filters);
+  // }
 
-  public getListItems(): Observable<Array<IListItem>> {
-    //console.log('list-item-listing.store getListItems');
-    return this.getListItemListing()
-      .map(listItemListing => getListItems(listItemListing));
-  }
+  // public getListItems(): Observable<Array<IListItem>> {
+  //   //console.log('list-item-listing.store getListItems');
+  //   return this.getListItemListing()
+  //     .map(listItemListing => getListItems(listItemListing));
+  // }
 
   //trash
   public getTrashItems(): Observable<Array<IListItem>> {
@@ -123,39 +126,50 @@ export class ListItemListingStore {
       .map(listItemListing => getListItem(listItemListing, id));
   }
 
-  public retrieve(listType) {
+  public retrieve(listType:ListTypeEnum) {
     //console.log('list-item-listing.store retrieve');
     switch(listType) {
-      case 'all':
-        this.store.dispatch(createAction(ListItemListingStore.RETRIEVE));
-        break;
-      case 'trash':
+      case ListTypeEnum.Trash:
         this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_TRASH));
         break;
-      case 'someday':
+      case ListTypeEnum.Someday:
         this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_SOMEDAY));
         break;
-      case 'reference':
+      case ListTypeEnum.Reference:
         console.log('this.store.dispatch RETRIEVE_REFERENCE');
         this.store.dispatch(createAction(ListItemListingStore.RETRIEVE_REFERENCE));
         break;        
     }
   }
 
-  public search(query: string) {
-    this.store.dispatch(createAction(ListItemListingStore.SEARCH, {query}));
+  public search(query: string, listType: ListTypeEnum) {
+    
+    //this.store.dispatch(createAction(ListItemListingStore.SEARCH, {query}));
+    switch (listType) {
+      case ListTypeEnum.Trash:
+        this.store.dispatch(createAction(ListItemListingStore.SEARCH_TRASH, { query }));
+        break;
+      case ListTypeEnum.Someday:
+        this.store.dispatch(createAction(ListItemListingStore.SEARCH_SOMEDAY, { query }));
+        break;
+      case ListTypeEnum.Reference:
+        console.log('this.store.dispatch RETRIEVE_REFERENCE');
+        this.store.dispatch(createAction(ListItemListingStore.SEARCH_REFERENCE, { query }));
+        break;
+    }
+    
   }
 
-  public filterUser(user: string) {
-    this.store.dispatch(createAction(ListItemListingStore.FILTER_USER, {user}));
-  }
+  // public filterUser(user: string) {
+  //   this.store.dispatch(createAction(ListItemListingStore.FILTER_USER, {user}));
+  // }
 
-  public toggleFavoriteFilter() {
-    this.store.dispatch(createAction(ListItemListingStore.TOGGLE_FAVORITE_FILTER));
-  }
+  // public toggleFavoriteFilter() {
+  //   this.store.dispatch(createAction(ListItemListingStore.TOGGLE_FAVORITE_FILTER));
+  // }
 
-  public toggleFavorite(id: string) {
-    this.store.dispatch(createAction(ListItemListingStore.TOGGLE_FAVORITE, {id}));
-  }
+  // public toggleFavorite(id: string) {
+  //   this.store.dispatch(createAction(ListItemListingStore.TOGGLE_FAVORITE, {id}));
+  // }
 
 }

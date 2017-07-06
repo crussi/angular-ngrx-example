@@ -13,7 +13,8 @@ export class ApiService {
 
   public get(path: string): Observable<any> {
     return this.http.get(`${this.location}${path}`)
-      .map(response => { console.log('api.service response',response); return response.json() });
+      .map(response => response.json());
+      //.map(response => { console.log('api.service response',response); return response.json() });
   }
 
 }

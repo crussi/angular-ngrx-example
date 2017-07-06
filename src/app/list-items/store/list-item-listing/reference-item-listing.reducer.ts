@@ -36,6 +36,12 @@ export function referenceItemListingReducer(
                 isLoading: false,
                 loadingError: action.payload.error
             };
+        case ListItemListingStore.SEARCH_REFERENCE:
+            return {
+                ...state,
+                searchQuery: action.payload.query
+            };
+
         default:
             return state;
     }

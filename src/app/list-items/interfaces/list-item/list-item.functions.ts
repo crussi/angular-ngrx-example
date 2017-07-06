@@ -34,7 +34,7 @@ export function listItemMatchesUserFilter(listItem: IListItem, filters: IListIte
   }
 
 return Boolean(filters) && Boolean(filters.user) ?
-    listItem.user === filters.user :
+    listItem.userCreated === filters.user :
     true;
 }
 
