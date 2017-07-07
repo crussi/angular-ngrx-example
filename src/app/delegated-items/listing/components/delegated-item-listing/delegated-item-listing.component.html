@@ -1,0 +1,11 @@
+<app-cards *ngIf="delegatedItems.length > 0">
+  <app-card *ngFor="let delegatedItem of delegatedItems"
+            [routerLink]="['/delegatedItems', delegatedItem.id]">
+    <app-delegated-item-list-item [delegatedItem]="delegatedItem">
+    </app-delegated-item-list-item>
+  </app-card>
+</app-cards>
+
+<p *ngIf="delegatedItems.length === 0">
+  Your next list is empty.
+</p>

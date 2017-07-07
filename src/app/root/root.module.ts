@@ -8,6 +8,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {RouterStoreModule} from '@ngrx/router-store';
 import {InboxItemsModule} from '../inbox-items/inbox-items.module';
 import { NextActionsModule } from '../next-actions/next-actions.module';
+import { DelegatedItemsModule } from '../delegated-items/delegated-items.module';
 import { UserProfilesModule } from '../user-profiles/user-profiles.module';
 import { ListItemsModule } from '../list-items/list-items.module';
 import {SharedModule} from '../shared/shared.module';
@@ -16,6 +17,7 @@ import {rootReducer} from '../store/root-reducer';
 import {RootComponent} from './components';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
 import { NextActionListingStore } from '../next-actions/store/stores';
+import { DelegatedItemListingStore } from '../delegated-items/store/stores';
 import { UserProfileListingStore } from '../user-profiles/store/stores';
 import {ListItemListingStore } from '../list-items/store/stores';
 import {StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
@@ -45,6 +47,7 @@ import { MessageService } from '../shared/services/message.service';
     ApiService,
     InboxItemListingStore,
     NextActionListingStore,
+    DelegatedItemListingStore,
     UserProfileListingStore,
     ListItemListingStore,
     StepsBeginStore,

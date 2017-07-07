@@ -1,0 +1,16 @@
+<app-loading-container [loadable]="delegatedItemListingStore.getDelegatedItemListing() | async">
+  <header>
+    <app-delegated-item-search (queryChanged)="search($event)"></app-delegated-item-search>
+    <app-delegated-item-filters [filters]="delegatedItemListingStore.getDelegatedItemFilters() | async"
+                            
+                             [users]="(userProfileListingStore.getUsers() | async)"
+                            (userFilterChanged)="filterUser($event)"
+                            >
+    </app-delegated-item-filters>
+  </header>
+
+  <app-delegated-item-listing [delegatedItems]="delegatedItemListingStore.getDelegatedItems() | async">
+  </app-delegated-item-listing>
+</app-loading-container>
+
+<!--[users]="(usersStore.getUsers() | async).list"-->
