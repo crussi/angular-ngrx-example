@@ -12,16 +12,16 @@ import {StepsStateStore} from '../../../wizard-begin/store/steps-state/steps-sta
 export class DelegatedItemsContainerComponent {
 
   constructor(
-    private userProfileListingStore: UserProfileListingStore,
+    //private userProfileListingStore: UserProfileListingStore,
     private delegatedItemListingStore: DelegatedItemListingStore,
-    private stepsBeginStore: StepsBeginStore,
-    private stepsStateStore: StepsStateStore
+    // private stepsBeginStore: StepsBeginStore,
+    // private stepsStateStore: StepsStateStore
 
   ) {
-    this.userProfileListingStore.retrieve();
+    //this.userProfileListingStore.retrieve();
     this.delegatedItemListingStore.retrieve();
-    this.stepsBeginStore.retrieve();
-    this.stepsStateStore.retrieve();
+    // this.stepsBeginStore.retrieve();
+    // this.stepsStateStore.retrieve();
   }
 
 }

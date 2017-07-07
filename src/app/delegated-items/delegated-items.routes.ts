@@ -11,7 +11,7 @@ export const delegatedItemsRoutes: Routes = [
   //   pathMatch: 'full',
   // },
   {
-    path: 'delegatedItems',
+    path: '',
     component: DelegatedItemsContainerComponent,
     children: [
       ...listingRoutes,
