@@ -12,7 +12,7 @@ export class DelegatedItemsService {
   }
 
   public getAll(): Observable<Array<IDelegatedItem>> {
-    return this.apiService.get('/595eca490f000010000eaaee');
+    return this.apiService.get('/595f13690f0000b0000eab6e');
   }
 
 }

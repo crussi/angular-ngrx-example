@@ -6,13 +6,13 @@ export function createDelegatedItem(
   id: string,
   //title: string,
   userCreated?: string,
-  delegateditem?: string,
+  nextaction?: string,
   description?: string,
   //youtubeUrl?: string,
   //imageUrl?: string,
   //favorite = false,
 ) {
-  return {id, userCreated, delegateditem, description};
+  return { id, userCreated, nextaction, description};
 }
 
 function textMatchesSearchQuery(text: string, searchQuery: string) {
@@ -31,7 +31,7 @@ export function delegatedItemMatchesSearchQuery(delegatedItem: IDelegatedItem, s
   //   textMatchesSearchQuery(delegatedItem.description, searchQuery) :
   //   true;
   return Boolean(searchQuery) ?
-    textMatchesSearchQuery(delegatedItem.delegateditem, searchQuery) :
+    textMatchesSearchQuery(delegatedItem.nextaction, searchQuery) :
     true;
 
 }

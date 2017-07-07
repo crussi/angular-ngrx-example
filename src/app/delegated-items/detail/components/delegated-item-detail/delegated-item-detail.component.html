@@ -1,8 +1,10 @@
-<h2>{{delegatedItem?.delegateditem}}</h2>
-<p>{{delegatedItem?.userCreated}}</p>
-<p>{{delegatedItem?.dateCreated}}</p>
-<p>{{delegatedItem?.userChanged}}</p>
-<p>{{delegatedItem?.dateChanged}}</p>
+<h2>{{delegatedItem?.nextaction}}</h2>
+<p>Created by: {{delegatedItem?.userCreated}}</p>
+<p>Created by: {{delegatedItem?.dateCreated}}</p>
+<p>Changed by: {{delegatedItem?.userChanged}}</p>
+<p>Date changed: {{delegatedItem?.dateChanged}}</p>
+<p>Date due: {{delegatedItem?.dateDue}}</p>
+<p>Delegated to: {{delegatedItem?.usersDelegated}}</p>
 <app-button-group>
   <app-button (onButtonPressed)="goBack()">
     <span class="fa fa-arrow-circle-left"></span> Go Back

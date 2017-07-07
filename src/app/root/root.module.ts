@@ -35,6 +35,7 @@ import { MessageService } from '../shared/services/message.service';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     InboxItemsModule,
     NextActionsModule,
+    DelegatedItemsModule,
     UserProfilesModule,
     ListItemsModule,
     SharedModule
