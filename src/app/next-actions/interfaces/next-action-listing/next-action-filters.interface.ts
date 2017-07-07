@@ -1,4 +1,4 @@
 export interface INextActionFilters {
-  user: string;
+  userCreated: string;
   favorites: boolean;
 }

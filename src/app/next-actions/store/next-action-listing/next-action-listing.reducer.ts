@@ -66,7 +66,7 @@ export function nextActionListingReducer(
         ...state,
         filters: {
           ...state.filters,
-          user: action.payload.user
+          userCreated: action.payload.user
         }
       };
     // case NextActionListingStore.TOGGLE_FAVORITE_FILTER:

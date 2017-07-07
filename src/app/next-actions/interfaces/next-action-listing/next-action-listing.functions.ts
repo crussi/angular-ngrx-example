@@ -27,8 +27,8 @@ function getFilteredNextActions(nextActionListing: INextActionListing) {
 export function getNextActions(nextActionListing: INextActionListing) {
   return Boolean(nextActionListing) ?
     getFilteredNextActions(nextActionListing).sort(
-      (nextActionA, nextActionB) => new Date(nextActionA.dateEntered).getTime() - new Date(nextActionB.dateEntered).getTime() 
-    ).filter(nextAction => nextAction.processed != true)
+      (nextActionA, nextActionB) => new Date(nextActionA.dateCreated).getTime() - new Date(nextActionB.dateCreated).getTime() 
+    ) //.filter(nextAction => nextAction.processed != true)
  
     : [];
 }

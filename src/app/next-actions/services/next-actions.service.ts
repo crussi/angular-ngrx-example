@@ -12,7 +12,7 @@ export class NextActionsService {
   }
 
   public getAll(): Observable<Array<INextAction>> {
-    return this.apiService.get('/594b46021200007309424929');
+    return this.apiService.get('/595eca490f000010000eaaee');
   }
 
 }

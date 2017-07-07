@@ -1,5 +1,8 @@
-<h2>{{nextAction?.description}}</h2>
-<p>{{nextAction?.dateEntered}}</p>
+<h2>{{nextAction?.nextaction}}</h2>
+<p>{{nextAction?.userCreated}}</p>
+<p>{{nextAction?.dateCreated}}</p>
+<p>{{nextAction?.userChanged}}</p>
+<p>{{nextAction?.dateChanged}}</p>
 <app-button-group>
   <app-button (onButtonPressed)="goBack()">
     <span class="fa fa-arrow-circle-left"></span> Go Back

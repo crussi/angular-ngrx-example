@@ -23,3 +23,8 @@ export const listingRoutes: Routes = [
 ];
 
 
+// {
+//   path: 'listItems',
+//     loadChildren: '../list-items/list-items.module#ListItemsModule'
+// }  
+
