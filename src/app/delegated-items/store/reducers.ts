@@ -1,1 +1,1 @@
-export * from './delegated-item-listing/delegated-item-listing.reducer';
+export * from './item-listing/item-listing.reducer';

@@ -1,1 +1,1 @@
-export * from './delegated-items-container';
+export * from './items-container';

@@ -1,1 +1,1 @@
-export * from './delegated-item-listing/delegated-item-listing.store';
+export * from './item-listing/item-listing.store';

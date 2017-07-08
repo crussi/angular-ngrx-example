@@ -1,2 +1,2 @@
-export * from './delegated-item-detail';
-export * from './delegated-item-detail-page';
+export * from './item-detail';
+export * from './item-detail-page';
