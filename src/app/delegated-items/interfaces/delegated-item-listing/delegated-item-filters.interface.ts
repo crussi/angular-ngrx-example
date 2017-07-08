@@ -1,4 +1,4 @@
-export interface IDelegatedItemFilters {
+export interface IItemFilters {
   userCreated: string;
   favorites: boolean;
 }

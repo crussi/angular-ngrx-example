@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
+import {IItemFilters} from '../../../interfaces/delegated-item-listing/delegated-item-filters.interface';
 
-import {IDelegatedItemFilters} from '../../../interfaces/delegated-item-listing/delegated-item-filters.interface';
-import { IUserProfile } from '../../../../shared/barrel';
 @Component({
   selector: 'app-delegated-item-filters',
   templateUrl: './delegated-item-filters.component.html',
@@ -10,13 +9,10 @@ import { IUserProfile } from '../../../../shared/barrel';
 export class DelegatedItemFiltersComponent implements OnChanges  {
 
   @Input()
-  public filters: IDelegatedItemFilters;
+  public filters: IItemFilters;
 
   @Input()
   public users: Array<string>;
-
-  // @Input()
-  // public users: Array<IUserProfile>;
 
   @Output()
   public userFilterChanged = new EventEmitter<string>();
@@ -25,8 +21,7 @@ export class DelegatedItemFiltersComponent implements OnChanges  {
   public favoritesFilterChanged = new EventEmitter<boolean>();
 
   ngOnChanges(changes: SimpleChanges) {
-    //console.log('ngOnChanges start');
-    //console.log('**** changes', changes);
+    //console.log('****ngOnChanges changes', changes);
   }
 
 }

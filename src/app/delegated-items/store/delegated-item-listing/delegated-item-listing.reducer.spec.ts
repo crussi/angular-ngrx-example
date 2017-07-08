@@ -2,7 +2,7 @@ import { createAction } from '../../../store/create-action';
 import { delegatedItemListingReducer } from './delegated-item-listing.reducer';
 import { DelegatedItemListingStore } from './delegated-item-listing.store';
 import {
-  createDefaultDelegatedItemListing,
+  createDefaultItemListing,
   createDelegatedItem,
   IDelegatedItemListing,
 } from '../../interfaces';
@@ -12,13 +12,13 @@ describe('delegatedItemListingReducer(falsy, unknownAction)', () => {
 
   it('returns the default state', () => {
     const delegatedItemListing = delegatedItemListingReducer(null, unknownAction);
-    expect(delegatedItemListing).toEqual(createDefaultDelegatedItemListing());
+    expect(delegatedItemListing).toEqual(createDefaultItemListing());
   });
 });
 
 describe('delegatedItemListingReducer(delegatedItemListing, retrieveAction)', () => {
   const delegatedItemListing: IDelegatedItemListing = {
-    ...createDefaultDelegatedItemListing(),
+    ...createDefaultItemListing(),
     loadingError: 'Error'
   };
   const retrieveAction = createAction(DelegatedItemListingStore.RETRIEVE);
@@ -36,7 +36,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, retrieveAction)', ()
 
 describe('delegatedItemListingReducer(delegatedItemListing, retrieveSuccessAction)', () => {
   const delegatedItemListing = {
-    ...createDefaultDelegatedItemListing(),
+    ...createDefaultItemListing(),
     isLoading: true
   };
   const retrieveSuccessAction = createAction(DelegatedItemListingStore.RETRIEVE_SUCCESS, {
@@ -56,7 +56,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, retrieveSuccessActio
 
 describe('delegatedItemListingReducer(delegatedItemListing, retrieveErrorAction)', () => {
   const delegatedItemListing = {
-    ...createDefaultDelegatedItemListing(),
+    ...createDefaultItemListing(),
     isLoading: true
   };
   const retrieveErrorAction = createAction(DelegatedItemListingStore.RETRIEVE_ERROR, {
@@ -75,7 +75,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, retrieveErrorAction)
 });
 
 describe('delegatedItemListingReducer(delegatedItemListing, searchAction)', () => {
-  const delegatedItemListing = createDefaultDelegatedItemListing();
+  const delegatedItemListing = createDefaultItemListing();
   const searchAction = createAction(DelegatedItemListingStore.SEARCH, {
     query: 'Super'
   });
@@ -87,7 +87,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, searchAction)', () =
 });
 
 describe('delegatedItemListingReducer(delegatedItemListing, filterUserAction)', () => {
-  const delegatedItemListing = createDefaultDelegatedItemListing();
+  const delegatedItemListing = createDefaultItemListing();
   const filterUserAction = createAction(DelegatedItemListingStore.FILTER_USER, {
     user: 'Nintendo Switch'
   });
@@ -99,7 +99,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, filterUserAction)', 
 });
 
 describe('delegatedItemListingReducer(delegatedItemListing, filterFavoritesAction)', () => {
-  const delegatedItemListing = createDefaultDelegatedItemListing();
+  const delegatedItemListing = createDefaultItemListing();
   const filterFavoritesAction = createAction(DelegatedItemListingStore.TOGGLE_FAVORITE_FILTER);
 
   it('favorites filter should be false', () => {
@@ -114,7 +114,7 @@ describe('delegatedItemListingReducer(delegatedItemListing, filterFavoritesActio
 
 describe('delegatedItemListingReducer(delegatedItemListing, toggleFavouriteAction)', () => {
   const delegatedItemListing = {
-    ...createDefaultDelegatedItemListing(),
+    ...createDefaultItemListing(),
     delegatedItems: [
       createDelegatedItem('1', 'Legend of Zelda')
     ]

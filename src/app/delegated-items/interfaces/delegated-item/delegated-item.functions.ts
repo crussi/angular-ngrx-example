@@ -1,16 +1,11 @@
-//import { IDelegatedItem } from '../../../shared/barrel';
 import { IDelegatedItem } from '../../interfaces';
-import { IDelegatedItemFilters } from '../delegated-item-listing';
+import { IItemFilters } from '../delegated-item-listing';
 
 export function createDelegatedItem(
   id: string,
-  //title: string,
   userCreated?: string,
   nextaction?: string,
   description?: string,
-  //youtubeUrl?: string,
-  //imageUrl?: string,
-  //favorite = false,
 ) {
   return { id, userCreated, nextaction, description};
 }
@@ -26,17 +21,12 @@ export function delegatedItemMatchesSearchQuery(delegatedItem: IDelegatedItem, s
     return false;
   }
 
-  // return Boolean(searchQuery) ?
-  //   textMatchesSearchQuery(delegatedItem.delegateditem, searchQuery) ||
-  //   textMatchesSearchQuery(delegatedItem.description, searchQuery) :
-  //   true;
-  return Boolean(searchQuery) ?
+return Boolean(searchQuery) ?
     textMatchesSearchQuery(delegatedItem.nextaction, searchQuery) :
     true;
-
 }
 
-export function delegatedItemMatchesUserFilter(delegatedItem: IDelegatedItem, filters: IDelegatedItemFilters) {
+export function delegatedItemMatchesUserFilter(delegatedItem: IDelegatedItem, filters: IItemFilters) {
   if (!Boolean(delegatedItem)) {
     return false;
   }
@@ -45,13 +35,3 @@ return Boolean(filters) && Boolean(filters.userCreated) ?
     delegatedItem.userCreated === filters.userCreated :
     true;
 }
-
-// export function delegatedItemMatchesFavoritesFilter(delegatedItem: IDelegatedItem, filters: IDelegatedItemFilters) {
-//   if (!Boolean(delegatedItem)) {
-//     return false;
-//   }
-
-//   return Boolean(filters) && filters.favorites === true ?
-//     delegatedItem.favorite :
-//     true;
-// }

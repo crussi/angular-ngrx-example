@@ -3,7 +3,7 @@ import { Action } from '@ngrx/store';
 import { updateChildObject } from '../../../store/reducer-helpers';
 import { DelegatedItemListingStore } from './delegated-item-listing.store';
 import {
-  createDefaultDelegatedItemListing,
+  createDefaultItemListing,
   IDelegatedItemListing,
 } from '../../interfaces';
 
@@ -11,7 +11,7 @@ export function delegatedItemListingReducer(
   state: IDelegatedItemListing,
   action: Action
 ): IDelegatedItemListing {
-  state = state || createDefaultDelegatedItemListing();
+  state = state || createDefaultItemListing();
 
   switch (action.type) {
     case DelegatedItemListingStore.RETRIEVE:

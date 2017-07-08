@@ -1,6 +1,6 @@
-import { IDelegatedItemFilters } from './delegated-item-filters.interface';
+import { IItemFilters } from './delegated-item-filters.interface';
 
-export function createDefaultDelegatedItemFilters(): IDelegatedItemFilters {
+export function createDefaultItemFilters(): IItemFilters {
   return {
     userCreated: null,
     favorites: false

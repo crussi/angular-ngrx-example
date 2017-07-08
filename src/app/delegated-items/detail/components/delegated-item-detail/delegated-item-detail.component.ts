@@ -1,8 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {Location} from '@angular/common';
-//import { IDelegatedItem } from '../../../../shared/barrel';
+import { Component, Input } from '@angular/core';
+import { Location } from '@angular/common';
 import { IDelegatedItem } from '../../../interfaces';
-import {DelegatedItemListingStore} from '../../../store/delegated-item-listing/delegated-item-listing.store';
+import { DelegatedItemListingStore } from '../../../store/delegated-item-listing/delegated-item-listing.store';
 
 @Component({
   selector: 'app-delegated-item-detail',

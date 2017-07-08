@@ -5,10 +5,10 @@ import 'rxjs/add/operator/map';
 import { IAppState } from '../../../interfaces/app-state.interface';
 import { createAction } from '../../../store/create-action';
 import {
-  getDelegatedItems,
-  getDelegatedItem,
-  getNextDelegatedItemId,
-    IDelegatedItemFilters,
+  getItems,
+  getItem,
+  getNextItemId,
+    IItemFilters,
   IDelegatedItemListing,
 } from '../../interfaces';
 import { DelegatedItemProcessed } from '../../models/delegated-item.models';
@@ -32,25 +32,25 @@ export class DelegatedItemListingStore {
     return this.store.select(appState => appState.delegatedItemListing);
   }
 
-  public getDelegatedItemFilters(): Observable<IDelegatedItemFilters> {
+  public getDelegatedItemFilters(): Observable<IItemFilters> {
     return this.getDelegatedItemListing()
       .map(delegatedItemListing => delegatedItemListing.filters);
   }
 
   public getDelegatedItems(): Observable<Array<IDelegatedItem>> {
     return this.getDelegatedItemListing()
-      .map(delegatedItemListing => getDelegatedItems(delegatedItemListing));
+      .map(delegatedItemListing => getItems(delegatedItemListing));
   }
 
   public getDelegatedItem(id: string): Observable<IDelegatedItem> {
     return this.getDelegatedItemListing()
-      .map(delegatedItemListing => getDelegatedItem(delegatedItemListing, id));
+      .map(delegatedItemListing => getItem(delegatedItemListing, id));
   }
 
   //New
   public getNextDelegatedItemId(id: string): Observable<string> {
     return this.getDelegatedItemListing()
-      .map(delegatedItemListing => getNextDelegatedItemId(delegatedItemListing,id));
+      .map(delegatedItemListing => getNextItemId(delegatedItemListing,id));
   }
 
   //New

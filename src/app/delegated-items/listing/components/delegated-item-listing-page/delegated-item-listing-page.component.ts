@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import { IDelegatedItem } from '../../../interfaces';
 import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
 import {DelegatedItemListingStore} from '../../../store/delegated-item-listing/delegated-item-listing.store';
-import {IDelegatedItemFilters} from '../../../interfaces/delegated-item-listing/delegated-item-filters.interface';
+import {IItemFilters} from '../../../interfaces/delegated-item-listing/delegated-item-filters.interface';
 
 @Component({
   selector: 'app-delegated-item-listing-page',

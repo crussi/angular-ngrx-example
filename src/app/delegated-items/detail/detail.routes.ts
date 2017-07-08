@@ -1,6 +1,5 @@
-import {Routes} from '@angular/router';
-
-import {DelegatedItemDetailPageComponent} from './components';
+import { Routes } from '@angular/router';
+import { DelegatedItemDetailPageComponent } from './components';
 
 export const detailRoutes: Routes = [
   {
