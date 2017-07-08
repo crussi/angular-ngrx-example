@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {ButtonComponent, 
   ButtonGroupComponent, 
   ButtonToggleComponent,
   CardComponent,
   CardsComponent,
-  FavoriteToggleComponent
+  FavoriteToggleComponent,
+  ItemsContainerComponent,
+  ItemDetailComponent
 } from './components';
+
+
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     ButtonComponent,
@@ -17,7 +23,9 @@ import {ButtonComponent,
     ButtonToggleComponent,
     CardComponent,
     CardsComponent,
-    FavoriteToggleComponent
+    FavoriteToggleComponent,
+    ItemsContainerComponent,
+    ItemDetailComponent
   ],
   exports: [
     ButtonComponent,
@@ -25,7 +33,9 @@ import {ButtonComponent,
     ButtonToggleComponent,
     CardComponent,
     CardsComponent,
-    FavoriteToggleComponent
+    FavoriteToggleComponent,
+    ItemsContainerComponent,
+    ItemDetailComponent
   ]
 })
 export class SharedModule { }

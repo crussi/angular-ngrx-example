@@ -5,3 +5,5 @@ export * from './button-toggle';
 export * from './card';
 export * from './cards';
 export * from './favorite-toggle';
+export * from './items-container';
+export * from './item-detail';

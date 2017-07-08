@@ -14,7 +14,7 @@ export const rootRoutes: Routes = [
   ...inboxItemsRoutes, ...nextActionsRoutes, ...userProfilesRoutes,
   {
     path: 'delegatedItems', 
-    loadChildren: '../delegated-items/items.module#DelegatedItemsModule'
+    loadChildren: '../delegated/delegated.module#DelegatedItemsModule'
   },
   {
     path: 'listItems',

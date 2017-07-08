@@ -5,7 +5,7 @@ import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { nextActionListingReducer } from '../next-actions/store/reducers';
-import { delegatedItemListingReducer } from '../delegated-items/store/reducers';
+import { delegatedItemListingReducer } from '../delegated/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
 import { trashItemListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';

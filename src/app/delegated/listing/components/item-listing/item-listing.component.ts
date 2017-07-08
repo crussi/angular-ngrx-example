@@ -1,5 +1,4 @@
 import {Component, Input} from '@angular/core';
-//import { IDelegatedItem } from '../../../../shared/barrel';
 import { IDelegatedItem } from '../../../interfaces';
 
 @Component({

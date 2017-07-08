@@ -1,6 +1,6 @@
 import { IInboxItemListing } from '../inbox-items/interfaces';
 import { INextActionListing } from '../next-actions/interfaces';
-import { IDelegatedItemListing } from '../delegated-items/interfaces';
+import { IDelegatedItemListing } from '../delegated/interfaces';
 import { IUserProfileListing } from '../user-profiles/interfaces';
 import {IListItemListing } from '../list-items/interfaces';
 import {ISteps, IStepsState} from '../wizard-begin/interfaces';
