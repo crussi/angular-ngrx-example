@@ -7,8 +7,10 @@
     </fw-user-filter>
   </header>
 
-  <app-delegated-item-listing [items]="listingStore.getItems() | async">
-  </app-delegated-item-listing>
+  <!--<app-delegated-item-listing [items]="listingStore.getItems() | async">
+  </app-delegated-item-listing>-->
+  <fw-item-listing [items]="listingStore.getItems() | async" [routePath]="routePath">
+  </fw-item-listing>
 </app-loading-container>
 
 <!--[users]="(usersStore.getUsers() | async).list"-->

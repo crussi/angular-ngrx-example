@@ -11,4 +11,6 @@ export class DelegatedItemListingComponent {
   @Input()
   public items: Array<IItem>;
 
+  routePath: string = "'/delegatedItems'";
+
 }

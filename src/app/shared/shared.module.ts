@@ -10,7 +10,9 @@ import {ButtonComponent,
   ItemsContainerComponent,
   ItemDetailComponent,
   UserFilterComponent,
-  SearchComponent
+  SearchComponent,
+  ItemListingComponent,
+  ListItemComponent
 } from './components';
 
 
@@ -29,7 +31,9 @@ import {ButtonComponent,
     ItemsContainerComponent,
     ItemDetailComponent,
     UserFilterComponent,
-    SearchComponent
+    SearchComponent,
+    ItemListingComponent,
+    ListItemComponent
   ],
   exports: [
     ButtonComponent,
@@ -41,7 +45,8 @@ import {ButtonComponent,
     ItemsContainerComponent,
     ItemDetailComponent,
     UserFilterComponent,
-    SearchComponent
+    SearchComponent,
+    ItemListingComponent
   ]
 })
 export class SharedModule { }

@@ -14,6 +14,7 @@ import { IItemFilters } from '../../../shared/barrel';
 
 import { ItemProcessed } from '../../models/item.models';
 import { IDelegatedItem } from '../../interfaces';
+import { IItem } from '../../../shared/barrel';
 
 @Injectable()
 export class DelegatedItemListingStore {
@@ -40,7 +41,7 @@ export class DelegatedItemListingStore {
       .map(delegatedItemListing => delegatedItemListing.filters);
   }
 
-  public getItems(): Observable<Array<IDelegatedItem>> {
+  public getItems(): Observable<Array<IItem>> {
     return this.getItemListing()
       .map(delegatedItemListing => getItems(delegatedItemListing));
   }
