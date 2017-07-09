@@ -1,9 +1,11 @@
 import {Component, Input, OnChanges} from '@angular/core';
 
-import {ILoadable} from '../../interfaces/loadable/loadable';
+//import {ILoadable} from '../../interfaces/loadable/loadable';
+import {ILoadable} from '../../../shared/barrel';
+
 
 @Component({
-  selector: 'app-loading-container',
+  selector: 'fw-loading-container',
   templateUrl: 'loading-container.component.html',
   styleUrls: ['loading-container.component.scss']
 })

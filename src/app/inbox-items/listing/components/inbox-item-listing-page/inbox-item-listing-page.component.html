@@ -1,4 +1,4 @@
-<app-loading-container [loadable]="inboxItemListingStore.getInboxItemListing() | async">
+<fw-loading-container [loadable]="inboxItemListingStore.getInboxItemListing() | async">
   <header>
     <app-inbox-item-search (queryChanged)="search($event)"></app-inbox-item-search>
     <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
@@ -11,6 +11,6 @@
 
   <app-inbox-item-listing [inboxItems]="inboxItemListingStore.getInboxItems() | async">
   </app-inbox-item-listing>
-</app-loading-container>
+</fw-loading-container>
 
 <!--[users]="(usersStore.getUsers() | async).list"-->

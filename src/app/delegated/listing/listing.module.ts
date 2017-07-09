@@ -2,14 +2,14 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
-import {LoadingModule} from '../../loading/loading.module';
+//import {LoadingModule} from '../../loading/loading.module';
 import {SharedModule} from '../../shared/shared.module';
 
 import {
   //DelegatedItemFiltersComponent,
-  DelegatedItemListingComponent,
+  //DelegatedItemListingComponent,
   DelegatedItemListingPageComponent,
-  DelegatedItemListItemComponent,
+  //DelegatedItemListItemComponent,
   //DelegatedItemSearchComponent,
 } from './components';
 
@@ -17,14 +17,14 @@ import {
   imports: [
     CommonModule,
     RouterModule,
-    LoadingModule,
+    //LoadingModule,
     SharedModule
   ],
   declarations: [
     //DelegatedItemFiltersComponent,
-    DelegatedItemListingComponent,
+    //DelegatedItemListingComponent,
     DelegatedItemListingPageComponent,
-    DelegatedItemListItemComponent,
+    //DelegatedItemListItemComponent,
     //DelegatedItemSearchComponent,
   ],
   providers: []

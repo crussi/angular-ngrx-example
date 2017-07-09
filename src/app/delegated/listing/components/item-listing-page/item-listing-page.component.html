@@ -1,4 +1,4 @@
-<app-loading-container [loadable]="listingStore.getItemListing() | async">
+<fw-loading-container [loadable]="listingStore.getItemListing() | async">
   <header>
     <fw-search (queryChanged)="search($event)"></fw-search>
     <fw-user-filter [filters]="listingStore.getItemFilters() | async"                            
@@ -7,10 +7,7 @@
     </fw-user-filter>
   </header>
 
-  <!--<app-delegated-item-listing [items]="listingStore.getItems() | async">
-  </app-delegated-item-listing>-->
   <fw-item-listing [items]="listingStore.getItems() | async" [routePath]="routePath">
   </fw-item-listing>
-</app-loading-container>
+</fw-loading-container>
 
-<!--[users]="(usersStore.getUsers() | async).list"-->
