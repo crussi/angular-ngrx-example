@@ -3,7 +3,7 @@ import { DelegatedItemDetailPageComponent } from './components';
 
 export const detailRoutes: Routes = [
   {
-    path: ':delegatedItemId',
+    path: ':itemId',
     component: DelegatedItemDetailPageComponent
   }
 ];

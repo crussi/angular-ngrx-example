@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
 import { IDelegatedItem } from '../../../interfaces';
-import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
+//import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
 
 @Component({
   selector: 'app-delegated-item-detail',
@@ -11,19 +10,10 @@ import { DelegatedItemListingStore } from '../../../store/item-listing/item-list
 export class DelegatedItemDetailComponent {
 
   @Input()
-  public delegatedItem: IDelegatedItem;
+  public item: IDelegatedItem;
 
   constructor(
-    private location: Location,
-    private delegatedItemListingStore: DelegatedItemListingStore
+    //private delegatedItemListingStore: DelegatedItemListingStore
   ) { }
-
-  public toggleFavorite() {
-    this.delegatedItemListingStore.toggleFavorite(this.delegatedItem.id);
-  }
-
-  public goBack() {
-    this.location.back();
-  }
 
 }

@@ -1,0 +1,6 @@
+
+<select #userFilter name="userFilter" (change)="userFilterChanged.emit(userFilter.value)">
+  <option value="">All Users</option>
+  <option *ngFor="let user of users" value="{{user}}">{{user}}</option>
+</select>
+

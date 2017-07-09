@@ -6,11 +6,11 @@ import {LoadingModule} from '../../loading/loading.module';
 import {SharedModule} from '../../shared/shared.module';
 
 import {
-  DelegatedItemFiltersComponent,
+  //DelegatedItemFiltersComponent,
   DelegatedItemListingComponent,
   DelegatedItemListingPageComponent,
   DelegatedItemListItemComponent,
-  DelegatedItemSearchComponent,
+  //DelegatedItemSearchComponent,
 } from './components';
 
 @NgModule({
@@ -21,11 +21,11 @@ import {
     SharedModule
   ],
   declarations: [
-    DelegatedItemFiltersComponent,
+    //DelegatedItemFiltersComponent,
     DelegatedItemListingComponent,
     DelegatedItemListingPageComponent,
     DelegatedItemListItemComponent,
-    DelegatedItemSearchComponent,
+    //DelegatedItemSearchComponent,
   ],
   providers: []
 })

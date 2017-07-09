@@ -2,16 +2,17 @@ import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common';
 //import { IDelegatedItem } from '../../../interfaces';
 //import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
+//import { IItem } from '../../interfaces';
 
 @Component({
-    selector: 'app-item-detail',
+    selector: 'fw-item-detail',
     templateUrl: './item-detail.component.html',
     styleUrls: ['./item-detail.component.scss']
 })
 export class ItemDetailComponent {
 
     // @Input()
-    // public delegatedItem: IDelegatedItem;
+    // public item: IItem;
 
     constructor(
         private location: Location,

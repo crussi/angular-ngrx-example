@@ -1,7 +1,7 @@
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable} from 'rxjs/Observable';
-import { DelegatedItemProcessed, DelegatedItemNext } from '../../../models/item.models';
+import { ItemProcessed, ItemNext } from '../../../models/item.models';
 import { IDelegatedItem } from '../../../interfaces';
 import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
 import { MessageService } from '../../../../shared/services/message.service';
@@ -13,23 +13,22 @@ import { MessageService } from '../../../../shared/services/message.service';
 })
 export class DelegatedItemDetailPageComponent implements OnInit, ErrorHandler {
 
-  public delegatedItem$: Observable<IDelegatedItem>;
+  public item$: Observable<IDelegatedItem>;
   public nextId$: Observable<string>;
-
+  
   constructor(
     private route: ActivatedRoute,
-    private delegatedItemListingStore: DelegatedItemListingStore,
+    private listingStore: DelegatedItemListingStore,
   ) {
   }
 
   public ngOnInit() {
-    this.delegatedItem$ = this.route.params
-      .switchMap((params: any) => this.delegatedItemListingStore.getDelegatedItem(params.delegatedItemId));
+    this.item$ = this.route.params
+      .switchMap((params: any) => this.listingStore.getItem(params.itemId));
   }
 
-
-  public onDelegatedItemProcessed(event: DelegatedItemProcessed) {
-    this.delegatedItemListingStore.setDelegatedItemProcessed(event.id);
+  public onItemProcessed(event: ItemProcessed) {
+    this.listingStore.setItemProcessed(event.id);
   }
 
   handleError(error) {

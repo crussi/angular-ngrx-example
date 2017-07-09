@@ -1,6 +1,6 @@
 import { ILinkdId } from '../../../shared/barrel';
 import { IDelegatedItem } from '../../interfaces';
-import { IItemFilters } from './item-filters.interface';
+import { IItemFilters } from '../../../shared/barrel';
 import { ILoadable } from '../../../loading/interfaces/loadable/loadable';
 
 export interface IDelegatedItemListing extends ILoadable {

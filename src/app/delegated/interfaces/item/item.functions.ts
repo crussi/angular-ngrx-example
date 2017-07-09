@@ -1,5 +1,6 @@
 import { IDelegatedItem } from '../../interfaces';
-import { IItemFilters } from '../item-listing';
+//import { IItemFilters } from '../item-listing';
+import { IItemFilters } from '../../../shared/barrel';
 
 export function createDelegatedItem(
   id: string,

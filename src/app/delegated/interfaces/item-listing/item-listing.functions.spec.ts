@@ -5,7 +5,8 @@ import {
   getItem,
   getItems
 } from './item-listing.functions';
-import { createDefaultItemFilters } from './item-filters.functions';
+//import { createDefaultItemFilters } from './item-filters.functions';
+import { createDefaultItemFilters } from '../../../shared/barrel';
 
 describe('when there is a list of 3 unsorted video games', () => {
   const unsortedDelegatedItemListing: IDelegatedItemListing = {

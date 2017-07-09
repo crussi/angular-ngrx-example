@@ -11,12 +11,12 @@ import {DelegatedItemListingStore} from '../../../store/item-listing/item-listin
 export class DelegatedItemListItemComponent {
 
   @Input()
-  public delegatedItem: IDelegatedItem;
+  public item: IDelegatedItem;
 
   constructor(private delegatedItemListingStore: DelegatedItemListingStore) { }
 
-  public toggleDelegatedItemFavorite() {
-    this.delegatedItemListingStore.toggleFavorite(this.delegatedItem.id);
-  }
+  // public toggleDelegatedItemFavorite() {
+  //   this.delegatedItemListingStore.toggleFavorite(this.delegatedItem.id);
+  // }
 
 }

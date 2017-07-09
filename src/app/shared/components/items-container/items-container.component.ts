@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 //import { DelegatedItemListingStore } from '../../store/item-listing/item-listing.store';
 
 @Component({
-    selector: 'app-items-container',
+    selector: 'fw-items-container',
     templateUrl: './items-container.component.html',
     styleUrls: ['./items-container.component.scss']
 })

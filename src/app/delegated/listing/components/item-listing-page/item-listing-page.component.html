@@ -1,15 +1,13 @@
-<app-loading-container [loadable]="delegatedItemListingStore.getDelegatedItemListing() | async">
+<app-loading-container [loadable]="listingStore.getItemListing() | async">
   <header>
-    <app-delegated-item-search (queryChanged)="search($event)"></app-delegated-item-search>
-    <app-delegated-item-filters [filters]="delegatedItemListingStore.getDelegatedItemFilters() | async"
-                            
-                             [users]="(userProfileListingStore.getUsers() | async)"
-                            (userFilterChanged)="filterUser($event)"
-                            >
-    </app-delegated-item-filters>
+    <fw-search (queryChanged)="search($event)"></fw-search>
+    <fw-user-filter [filters]="listingStore.getItemFilters() | async"                            
+                    [users]="(userProfileListingStore.getUsers() | async)"
+                    (userFilterChanged)="filterUser($event)">
+    </fw-user-filter>
   </header>
 
-  <app-delegated-item-listing [delegatedItems]="delegatedItemListingStore.getDelegatedItems() | async">
+  <app-delegated-item-listing [items]="listingStore.getItems() | async">
   </app-delegated-item-listing>
 </app-loading-container>
 

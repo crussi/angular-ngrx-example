@@ -1,22 +1,9 @@
-<!--<h2>{{delegatedItem?.nextaction}}</h2>
-<p>Created by: {{delegatedItem?.userCreated}}</p>
-<p>Created by: {{delegatedItem?.dateCreated}}</p>
-<p>Changed by: {{delegatedItem?.userChanged}}</p>
-<p>Date changed: {{delegatedItem?.dateChanged}}</p>
-<p>Date due: {{delegatedItem?.dateDue}}</p>
-<p>Delegated to: {{delegatedItem?.usersDelegated}}</p>
-<app-button-group>
-  <app-button (onButtonPressed)="goBack()">
-    <span class="fa fa-arrow-circle-left"></span> Go Back
-  </app-button>
-</app-button-group>-->
-
-<app-item-detail>
-  <h2>{{delegatedItem?.nextaction}}</h2>
-  <p>Created by: {{delegatedItem?.userCreated}}</p>
-  <p>Created by: {{delegatedItem?.dateCreated}}</p>
-  <p>Changed by: {{delegatedItem?.userChanged}}</p>
-  <p>Date changed: {{delegatedItem?.dateChanged}}</p>
-  <p>Date due: {{delegatedItem?.dateDue}}</p>
-  <p>Delegated to: {{delegatedItem?.usersDelegated}}</p>
-</app-item-detail>
+<fw-item-detail>
+  <h2>{{item?.nextaction}}</h2>
+  <p>Created by: {{item?.userCreated}}</p>
+  <p>Created by: {{item?.dateCreated}}</p>
+  <p>Changed by: {{item?.userChanged}}</p>
+  <p>Date changed: {{item?.dateChanged}}</p>
+  <p>Date due: {{item?.dateDue}}</p>
+  <p>Delegated to: {{item?.usersDelegated}}</p>
+</fw-item-detail>

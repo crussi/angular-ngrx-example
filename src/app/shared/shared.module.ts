@@ -8,7 +8,9 @@ import {ButtonComponent,
   CardsComponent,
   FavoriteToggleComponent,
   ItemsContainerComponent,
-  ItemDetailComponent
+  ItemDetailComponent,
+  UserFilterComponent,
+  SearchComponent
 } from './components';
 
 
@@ -25,7 +27,9 @@ import {ButtonComponent,
     CardsComponent,
     FavoriteToggleComponent,
     ItemsContainerComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    UserFilterComponent,
+    SearchComponent
   ],
   exports: [
     ButtonComponent,
@@ -35,7 +39,9 @@ import {ButtonComponent,
     CardsComponent,
     FavoriteToggleComponent,
     ItemsContainerComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    UserFilterComponent,
+    SearchComponent
   ]
 })
 export class SharedModule { }

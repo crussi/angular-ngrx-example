@@ -1,6 +1,7 @@
 import { IDelegatedItemListing } from './item-listing.interface';
 import { IDelegatedItem } from '../../interfaces';
-import { createDefaultItemFilters } from './item-filters.functions';
+//import { createDefaultItemFilters } from './item-filters.functions';
+import { createDefaultItemFilters } from '../../../shared/barrel';
 import {
   delegatedItemMatchesUserFilter,
   delegatedItemMatchesSearchQuery
@@ -33,10 +34,13 @@ export function getItems(delegatedItemListing: IDelegatedItemListing) {
 }
 
 export function getItem(delegatedItemListing: IDelegatedItemListing, id: string) {
+  console.log('function getItem ... delegatedItemListing', delegatedItemListing);
   if (Boolean(delegatedItemListing)) {
+    console.log('function getItem ... start');
       let delegatedItems = delegatedItemListing.delegatedItems;
       let delegatedItem: IDelegatedItem = null;
       for (var i = 0; i < delegatedItems.length; i++) {
+        console.log('function getItem ... for',i);
           if (delegatedItems[i].id == id) {
             delegatedItem = delegatedItems[i];
             delegatedItem.prevId = "0";

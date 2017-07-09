@@ -7,3 +7,6 @@ export * from './cards';
 export * from './favorite-toggle';
 export * from './items-container';
 export * from './item-detail';
+export * from './user-filter';
+export * from './search';
+//export * from './item-detail-page';

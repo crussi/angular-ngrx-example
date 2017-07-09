@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import { IDelegatedItem } from '../../../interfaces';
-
+//import { IDelegatedItem } from '../../../interfaces';
+import { IItem } from '../../../../shared/barrel';
 @Component({
   selector: 'app-delegated-item-listing',
   templateUrl: 'item-listing.component.html',
@@ -9,6 +9,6 @@ import { IDelegatedItem } from '../../../interfaces';
 export class DelegatedItemListingComponent {
 
   @Input()
-  public delegatedItems: Array<IDelegatedItem>;
+  public items: Array<IItem>;
 
 }
