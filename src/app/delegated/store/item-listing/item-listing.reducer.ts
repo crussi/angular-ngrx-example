@@ -4,13 +4,13 @@ import { updateChildObject } from '../../../store/reducer-helpers';
 import { DelegatedItemListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
-  IDelegatedItemListing,
-} from '../../interfaces';
+  IItemListing,
+} from '../../../shared/barrel';
 
 export function delegatedItemListingReducer(
-  state: IDelegatedItemListing,
+  state: IItemListing,
   action: Action
-): IDelegatedItemListing {
+): IItemListing {
   state = state || createDefaultItemListing();
 
   switch (action.type) {
@@ -22,7 +22,7 @@ export function delegatedItemListingReducer(
         loadingError: null
       };
     case DelegatedItemListingStore.RETRIEVE_SUCCESS:
-      const delegatedItems = action.payload.delegatedItems
+      const items = action.payload.delegatedItems
         //.map(item => ({ ...item, favorite: false}));
 
       // //Get ids
@@ -47,7 +47,7 @@ export function delegatedItemListingReducer(
       return {
         ...state,
         isLoading: false,
-        delegatedItems: delegatedItems,
+        items: items,
         // linkedIds: ids
       };
     case DelegatedItemListingStore.RETRIEVE_ERROR:
@@ -91,7 +91,7 @@ export function delegatedItemListingReducer(
       let obj =  {
         ...state,
         delegatedItems: updateChildObject(
-          state.delegatedItems,
+          state.items,
           (item) => item.id === action.payload.id,
           (item) => ({processed: true }),
         )

@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IDelegatedItem } from '../../../interfaces';
-//import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
+import { IItem } from '../../../../shared/barrel';
 
 @Component({
   selector: 'app-delegated-item-detail',
@@ -10,10 +9,8 @@ import { IDelegatedItem } from '../../../interfaces';
 export class DelegatedItemDetailComponent {
 
   @Input()
-  public item: IDelegatedItem;
+  public item: IItem;
 
-  constructor(
-    //private delegatedItemListingStore: DelegatedItemListingStore
-  ) { }
+  constructor() { }
 
 }

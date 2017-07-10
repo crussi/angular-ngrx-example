@@ -1,8 +1,8 @@
 import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable} from 'rxjs/Observable';
-import { ItemProcessed, ItemNext } from '../../../models/item.models';
-import { IDelegatedItem } from '../../../interfaces';
+import { ItemProcessed, ItemNext } from '../../../../shared/barrel';
+import { IItem } from '../../../../shared/barrel';
 import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
 import { MessageService } from '../../../../shared/services/message.service';
 
@@ -13,7 +13,7 @@ import { MessageService } from '../../../../shared/services/message.service';
 })
 export class DelegatedItemDetailPageComponent implements OnInit, ErrorHandler {
 
-  public item$: Observable<IDelegatedItem>;
+  public item$: Observable<IItem>;
   public nextId$: Observable<string>;
   
   constructor(

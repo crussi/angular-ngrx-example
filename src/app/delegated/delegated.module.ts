@@ -7,8 +7,8 @@ import { DelegatedItemsContainerComponent} from './components';
 import { DelegatedItemsService } from './services';
 import { DelegatedItemListingModule} from './listing/listing.module';
 import { DelegatedItemDetailModule} from './detail/detail.module';
-import { DelegatedItemListingEffects } from './store/effects';
-import { DelegatedItemListingStore } from './store/stores'
+import { DelegatedItemListingEffects } from './store';
+import { DelegatedItemListingStore } from './store'
 import { delegatedItemsRoutes } from './delegated.routes';
 
 @NgModule({

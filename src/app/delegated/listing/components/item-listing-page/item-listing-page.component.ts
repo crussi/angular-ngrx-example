@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-//import { IDelegatedItem } from '../../../../shared/barrel';
-import { IDelegatedItem } from '../../../interfaces';
 import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
 import {DelegatedItemListingStore} from '../../../store/item-listing/item-listing.store';
-//import {IItemFilters} from '../../../interfaces/item-listing/item-filters.interface';
 import { IItemFilters } from '../../../../shared/barrel';
 
 @Component({
@@ -28,9 +25,5 @@ export class DelegatedItemListingPageComponent {
   public filterUser(user: string) {
     this.listingStore.filterUser(user);
   }
-
-  // public filterFavorites() {
-  //   this.listingStore.toggleFavoriteFilter();
-  // }
 
 }

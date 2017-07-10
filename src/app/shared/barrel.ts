@@ -1,8 +1,12 @@
 export * from './models/step.enum';
 export * from './models/step.model';
 export * from './models/inbox.model';
+export * from './models/item.model';
 
 export * from './interfaces/item/item.interface';
+export * from './interfaces/item/item.functions';
+export * from './interfaces/item-listing/item-listing.interface';
+export * from './interfaces/item-listing/item-listing.functions';
 export * from './interfaces/inbox-item/inbox-item.interface';
 export * from './interfaces/user-profile/user-profile.interface';
 export * from './interfaces/item-filters/item-filters.interface';

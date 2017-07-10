@@ -5,11 +5,6 @@ import {detailRoutes} from './detail/detail.routes';
 import {DelegatedItemsContainerComponent} from './components';
 
 export const delegatedItemsRoutes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'delegatedItems',
-  //   pathMatch: 'full',
-  // },
   {
     path: '',
     component: DelegatedItemsContainerComponent,
