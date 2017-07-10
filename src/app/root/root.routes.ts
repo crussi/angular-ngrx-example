@@ -19,6 +19,14 @@ export const rootRoutes: Routes = [
   {
     path: 'trash',
     loadChildren: '../trash/trash.module#TrashModule'
+  },
+  {
+    path: 'someday',
+    loadChildren: '../someday/someday.module#SomedayModule'
+  },
+  {
+    path: 'reference',
+    loadChildren: '../reference/reference.module#ReferenceModule'
   }
   // {
   //   path: 'listItems',

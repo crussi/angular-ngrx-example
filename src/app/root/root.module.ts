@@ -17,9 +17,7 @@ import { rootReducer} from '../store/root-reducer';
 import { RootComponent} from './components';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
 import { NextActionListingStore } from '../next-actions/store/stores';
-//import { DelegatedItemListingStore } from '../delegated-items/store/stores';
 import { UserProfileListingStore } from '../user-profiles/store/stores';
-//mport {ListItemListingStore } from '../list-items/store/stores';
 import { StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import { ApiService} from './services';
 import { MessageService } from '../shared/services/message.service';
@@ -35,9 +33,7 @@ import { MessageService } from '../shared/services/message.service';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     InboxItemsModule,
     NextActionsModule,
-    //DelegatedItemsModule,
     UserProfilesModule,
-    //ListItemsModule,
     SharedModule
 
   ],
@@ -48,9 +44,7 @@ import { MessageService } from '../shared/services/message.service';
     ApiService,
     InboxItemListingStore,
     NextActionListingStore,
-    //DelegatedItemListingStore,
     UserProfileListingStore,
-    //ListItemListingStore,
     StepsBeginStore,
     StepsStateStore,
     MessageService

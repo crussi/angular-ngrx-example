@@ -8,7 +8,7 @@ import { TrashListingStore } from '../../store/item-listing/item-listing.store';
 })
 export class TrashContainerComponent {
 
-  title: string = "Waiting for";
+  title: string = "Trash";
 
   constructor(
     private trashListingStore: TrashListingStore,
