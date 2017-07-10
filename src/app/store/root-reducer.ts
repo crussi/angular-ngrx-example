@@ -7,7 +7,8 @@ import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { nextActionListingReducer } from '../next-actions/store/reducers';
 import { delegatedItemListingReducer } from '../delegated/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
-import { trashItemListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
+//import { trashListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
+import { trashListingReducer } from '../trash/store/reducers';
 import {stepsBeginReducer, stepsStateReducer} from '../wizard-begin/store/reducers';
 
 //MAKE SURE YOU ADD THIS FOR EACH REDUCER!!!
@@ -20,9 +21,9 @@ const reducers = {
   nextActionListing: nextActionListingReducer,
   delegatedItemListing: delegatedItemListingReducer,
   userProfileListing: userProfileListingReducer,
-  trashItemListing: trashItemListingReducer,
-  somedayItemListing: somedayItemListingReducer,
-  referenceItemListing: referenceItemListingReducer
+  trashListing: trashListingReducer,
+  //somedayItemListing: somedayItemListingReducer,
+  //referenceItemListing: referenceItemListingReducer
 };
 
 const localStorageState = {

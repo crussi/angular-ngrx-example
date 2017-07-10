@@ -1,7 +1,7 @@
 //import { IUserProfile } from '../user-profile/user-profile.interface';
 import { IUserProfile, ILinkdId } from '../../../shared/barrel';
 import { IUserProfileFilters } from './user-profile-filters.interface';
-import { ILoadable } from '../../../loading/interfaces/loadable/loadable';
+import { ILoadable } from '../../../shared/barrel';
 
 export interface IUserProfileListing extends ILoadable {
   filters: IUserProfileFilters;

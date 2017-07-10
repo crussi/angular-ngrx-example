@@ -1,4 +1,4 @@
-import {ILoadable} from '../../../loading/interfaces/loadable/loadable';
+import { ILoadable } from '../../../shared/barrel';
 import {Step, StepEnum, StepState} from '../../../shared/barrel';
 
 

@@ -2,7 +2,7 @@
 import { ILinkdId } from '../../../shared/barrel';
 import { INextAction } from '../../interfaces';
 import { INextActionFilters } from './next-action-filters.interface';
-import { ILoadable } from '../../../loading/interfaces/loadable/loadable';
+import { ILoadable } from '../../../shared/barrel';
 
 export interface INextActionListing extends ILoadable {
   filters: INextActionFilters;

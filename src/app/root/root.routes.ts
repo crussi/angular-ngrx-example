@@ -17,9 +17,13 @@ export const rootRoutes: Routes = [
     loadChildren: '../delegated/delegated.module#DelegatedItemsModule'
   },
   {
-    path: 'listItems',
-    loadChildren: '../list-items/list-items.module#ListItemsModule'
-  }     
+    path: 'trash',
+    loadChildren: '../trash/trash.module#TrashModule'
+  }
+  // {
+  //   path: 'listItems',
+  //   loadChildren: '../list-items/list-items.module#ListItemsModule'
+  // }     
 
   // ...inboxItemsRoutes, ...listItemsRoutes, ...userProfilesRoutes
 ];

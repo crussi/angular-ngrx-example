@@ -1,9 +1,0 @@
-<fw-loading-container [loadable]="getListItemListing() | async">
-  <header>
-    <app-list-item-search (queryChanged)="search($event)"></app-list-item-search>
-
-  </header>
-
-  <app-list-item-listing [listItems]="getListItems() | async">
-  </app-list-item-listing>
-</fw-loading-container>
