@@ -3,8 +3,7 @@ export interface IItem {
     readonly type: string;
     readonly description?: string;
     readonly nextaction?: string;
-    readonly delegateditem?: string;
-    readonly processed?: boolean;
+    readonly done?: boolean;
     readonly userCreated?: string;
     readonly dateCreated?: Date;
     readonly userChanged?: string;

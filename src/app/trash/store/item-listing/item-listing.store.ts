@@ -7,7 +7,7 @@ import { createAction } from '../../../store/create-action';
 import {
   getItems,
   getItem,
-  getNextItemId,
+  //getNextItemId,
   IItemListing,
 } from '../../../shared/barrel';
 import { IItemFilters } from '../../../shared/barrel';

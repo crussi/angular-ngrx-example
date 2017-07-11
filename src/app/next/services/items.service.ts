@@ -11,7 +11,7 @@ export class NextService {
   }
 
   public getAll(): Observable<Array<IItem>> {
-    return this.apiService.get('/595f075d0f00009c000eab5d');
+    return this.apiService.get('/5964566e2600007b0d3d732c');
   }
 
 }

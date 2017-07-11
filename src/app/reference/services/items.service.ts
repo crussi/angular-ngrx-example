@@ -11,7 +11,7 @@ export class ReferenceService {
   }
 
   public getAll(): Observable<Array<IItem>> {
-    return this.apiService.get('/595d9d32100000a2007c174b');
+    return this.apiService.get('/59645767260000970d3d7331');
   }
 
 }

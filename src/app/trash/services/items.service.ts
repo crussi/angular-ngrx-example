@@ -11,7 +11,7 @@ export class TrashService {
   }
 
   public getAll(): Observable<Array<IItem>> {
-    return this.apiService.get('/595d9833100000a6007c1745');
+    return this.apiService.get('/59645857260000a10d3d7338');
   }
 
 }
