@@ -4,7 +4,8 @@ import {compose} from '@ngrx/core/compose';
 import {storeLogger} from 'ngrx-store-logger';
 import {localStorageSync} from 'ngrx-store-localstorage';
 import { inboxItemListingReducer } from '../inbox-items/store/reducers';
-import { nextActionListingReducer } from '../next-actions/store/reducers';
+//import { nextActionListingReducer } from '../next-actions/store/reducers';
+import { nextListingReducer } from '../next/store/reducers';
 import { delegatedItemListingReducer } from '../delegated/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
 //import { trashListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
@@ -20,7 +21,8 @@ const reducers = {
   stepsState: stepsStateReducer,
   router: routerReducer,
   inboxItemListing: inboxItemListingReducer,
-  nextActionListing: nextActionListingReducer,
+  //nextActionListing: nextActionListingReducer,
+  nextListing: nextListingReducer,
   delegatedItemListing: delegatedItemListingReducer,
   userProfileListing: userProfileListingReducer,
   trashListing: trashListingReducer,

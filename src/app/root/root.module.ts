@@ -7,7 +7,7 @@ import { StoreModule} from '@ngrx/store';
 import { StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { RouterStoreModule} from '@ngrx/router-store';
 import { InboxItemsModule} from '../inbox-items/inbox-items.module';
-import { NextActionsModule } from '../next-actions/next-actions.module';
+//import { NextActionsModule } from '../next-actions/next-actions.module';
 //import { DelegatedItemsModule } from '../delegated-items/delegated-items.module';
 import { UserProfilesModule } from '../user-profiles/user-profiles.module';
 //import { ListItemsModule } from '../list-items/list-items.module';
@@ -16,7 +16,7 @@ import { rootRoutes} from './root.routes';
 import { rootReducer} from '../store/root-reducer';
 import { RootComponent} from './components';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
-import { NextActionListingStore } from '../next-actions/store/stores';
+//import { NextActionListingStore } from '../next-actions/store/stores';
 import { UserProfileListingStore } from '../user-profiles/store/stores';
 import { StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import { ApiService} from './services';
@@ -32,7 +32,7 @@ import { MessageService } from '../shared/services/message.service';
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     InboxItemsModule,
-    NextActionsModule,
+    //NextActionsModule,
     UserProfilesModule,
     SharedModule
 
@@ -43,7 +43,7 @@ import { MessageService } from '../shared/services/message.service';
   providers: [
     ApiService,
     InboxItemListingStore,
-    NextActionListingStore,
+    //NextActionListingStore,
     UserProfileListingStore,
     StepsBeginStore,
     StepsStateStore,

@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {inboxItemsRoutes} from '../inbox-items/inbox-items.routes';
-import { nextActionsRoutes } from '../next-actions/next-actions.routes';
+//import { nextActionsRoutes } from '../next-actions/next-actions.routes';
 //import { delegatedItemsRoutes } from '../delegated-items/delegated-items.routes';
 import { userProfilesRoutes } from '../user-profiles/user-profiles.routes';
 
@@ -11,7 +11,7 @@ export const rootRoutes: Routes = [
     pathMatch: 'full',
   },  
   // ...inboxItemsRoutes, ...nextActionsRoutes, ...delegatedItemsRoutes, ...userProfilesRoutes,
-  ...inboxItemsRoutes, ...nextActionsRoutes, ...userProfilesRoutes,
+  ...inboxItemsRoutes, ...userProfilesRoutes,
   {
     path: 'delegatedItems', 
     loadChildren: '../delegated/delegated.module#DelegatedItemsModule'
@@ -27,6 +27,10 @@ export const rootRoutes: Routes = [
   {
     path: 'reference',
     loadChildren: '../reference/reference.module#ReferenceModule'
+  },
+  {
+    path: 'next',
+    loadChildren: '../next/next.module#NextModule'
   }
   // {
   //   path: 'listItems',

@@ -1,5 +1,5 @@
 import { IInboxItemListing } from '../inbox-items/interfaces';
-import { INextActionListing } from '../next-actions/interfaces';
+//import { INextActionListing } from '../next-actions/interfaces';
 //import { IDelegatedItemListing } from '../shared/barrel';
 import { IItemListing } from '../shared/barrel';
 import { IUserProfileListing } from '../user-profiles/interfaces';
@@ -8,7 +8,7 @@ import {ISteps, IStepsState} from '../wizard-begin/interfaces';
 
 export interface IAppState {
   readonly inboxItemListing: IInboxItemListing;
-  readonly nextActionListing: INextActionListing;
+  readonly nextListing: IItemListing;
   readonly delegatedItemListing: IItemListing;
   readonly userProfileListing: IUserProfileListing;
   //readonly listItemListing: IListItemListing;
