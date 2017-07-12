@@ -17,7 +17,6 @@ import {ButtonComponent,
   SpinnerComponent
 } from './components';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -53,6 +52,8 @@ import {ButtonComponent,
     ItemListingComponent,
     LoadingContainerComponent,
     SpinnerComponent  
+  ],
+  providers: [
   ]
 })
 export class SharedModule { }

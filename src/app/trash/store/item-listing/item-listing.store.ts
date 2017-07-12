@@ -44,10 +44,10 @@ export class TrashListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    console.log("trash store getItem",id);
+    //console.log("trash store getItem",id);
     return this.getItemListing()
       .map(trashListing => { 
-        console.log("trash store getItem trashListing", trashListing);
+        //console.log("trash store getItem trashListing", trashListing);
         return getItem(trashListing, id)});
   }
 
