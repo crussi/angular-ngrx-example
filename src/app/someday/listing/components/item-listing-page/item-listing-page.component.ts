@@ -11,7 +11,6 @@ import { IItemFilters } from '../../../../shared/barrel';
 })
 export class SomedayListingPageComponent {
 
-  routePath: string = "/someday";
   constructor(
     public userProfileListingStore: UserProfileListingStore,
     public listingStore: SomedayListingStore

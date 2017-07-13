@@ -21,8 +21,6 @@ import { UserProfileListingStore } from '../user-profiles/store/stores';
 import { StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import { ApiService} from './services';
 import { MessageService } from '../shared/services/message.service';
-//import { ActivatedRouteRecorder, PreviousRouteRecorder } from './services';
-import { PreviousRouteRecorder } from './services';
 
 @NgModule({
   imports: [
@@ -49,9 +47,7 @@ import { PreviousRouteRecorder } from './services';
     UserProfileListingStore,
     StepsBeginStore,
     StepsStateStore,
-    MessageService,
-    //ActivatedRouteRecorder,
-    PreviousRouteRecorder
+    MessageService
   ],
   bootstrap: [RootComponent]
 })

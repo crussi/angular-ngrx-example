@@ -11,7 +11,6 @@ import { IItemFilters } from '../../../../shared/barrel';
 })
 export class ReferenceListingPageComponent {
 
-  routePath: string = "/reference";
   constructor(
     public userProfileListingStore: UserProfileListingStore,
     public listingStore: ReferenceListingStore

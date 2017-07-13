@@ -1,7 +1,5 @@
 import {Routes} from '@angular/router';
 import {DelegatedItemListingPageComponent} from './components';
-//import { ActivatedRouteRecorder, PreviousRouteRecorder } from '../../root/services';
-import { PreviousRouteRecorder } from '../../root/services';
 
 export const listingRoutes: Routes = [
   // {
@@ -16,8 +14,6 @@ export const listingRoutes: Routes = [
   {
     path: '',
     component: DelegatedItemListingPageComponent,
-    //canActivate: [ActivatedRouteRecorder],
-    canDeactivate: [PreviousRouteRecorder]
   }
 
 ];

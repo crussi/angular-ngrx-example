@@ -15,7 +15,7 @@ export function referenceListingReducer(
 
   switch (action.type) {
     case ReferenceListingStore.RETRIEVE:
-      console.log("reference reducer RETRIEVE");
+      //console.log("reference reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function referenceListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("reference reducer RETRIEVE_SUCCESS");
+      //console.log("reference reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function referenceListingReducer(
     //     )
     //   };
     case ReferenceListingStore.UPDATE_PROCESSED:
-      console.log("reference reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("reference reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         reference: updateChildObject(
@@ -96,7 +96,7 @@ export function referenceListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

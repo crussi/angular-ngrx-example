@@ -15,7 +15,7 @@ export function nextListingReducer(
 
   switch (action.type) {
     case NextListingStore.RETRIEVE:
-      console.log("next reducer RETRIEVE");
+      //console.log("next reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function nextListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("next reducer RETRIEVE_SUCCESS");
+      //console.log("next reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function nextListingReducer(
     //     )
     //   };
     case NextListingStore.UPDATE_PROCESSED:
-      console.log("next reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("next reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         next: updateChildObject(
@@ -96,7 +96,7 @@ export function nextListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

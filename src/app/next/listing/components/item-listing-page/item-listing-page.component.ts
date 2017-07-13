@@ -11,7 +11,6 @@ import { IItemFilters } from '../../../../shared/barrel';
 })
 export class NextListingPageComponent {
 
-  routePath: string = "/next";
   constructor(
     public userProfileListingStore: UserProfileListingStore,
     public listingStore: NextListingStore

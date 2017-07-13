@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { IItem } from '../../../../shared/barrel';
 
 @Component({
@@ -9,7 +10,7 @@ import { IItem } from '../../../../shared/barrel';
 export class SomedayDetailComponent {
 
   @Input()
-  public item: IItem;
+  public item: Observable<IItem>;
 
   constructor() { }
 

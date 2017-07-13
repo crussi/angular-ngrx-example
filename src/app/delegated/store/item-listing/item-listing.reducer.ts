@@ -15,7 +15,7 @@ export function delegatedItemListingReducer(
 
   switch (action.type) {
     case DelegatedItemListingStore.RETRIEVE:
-      console.log("delegateditem reducer RETRIEVE");
+      //console.log("delegateditem reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function delegatedItemListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("delegateditem reducer RETRIEVE_SUCCESS");
+      //console.log("delegateditem reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function delegatedItemListingReducer(
     //     )
     //   };
     case DelegatedItemListingStore.UPDATE_PROCESSED:
-      console.log("delegateditem reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("delegateditem reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         delegatedItems: updateChildObject(
@@ -96,7 +96,7 @@ export function delegatedItemListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

@@ -15,7 +15,7 @@ export function trashListingReducer(
 
   switch (action.type) {
     case TrashListingStore.RETRIEVE:
-      console.log("trash reducer RETRIEVE");
+      //console.log("trash reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function trashListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("trash reducer RETRIEVE_SUCCESS");
+      //console.log("trash reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function trashListingReducer(
     //     )
     //   };
     case TrashListingStore.UPDATE_PROCESSED:
-      console.log("trash reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("trash reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         trash: updateChildObject(
@@ -96,7 +96,7 @@ export function trashListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

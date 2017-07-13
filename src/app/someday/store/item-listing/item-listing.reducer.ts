@@ -15,7 +15,7 @@ export function somedayListingReducer(
 
   switch (action.type) {
     case SomedayListingStore.RETRIEVE:
-      console.log("someday reducer RETRIEVE");
+      //console.log("someday reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function somedayListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("someday reducer RETRIEVE_SUCCESS");
+      //console.log("someday reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function somedayListingReducer(
     //     )
     //   };
     case SomedayListingStore.UPDATE_PROCESSED:
-      console.log("someday reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("someday reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         someday: updateChildObject(
@@ -96,7 +96,7 @@ export function somedayListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

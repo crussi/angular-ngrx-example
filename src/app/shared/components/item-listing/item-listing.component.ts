@@ -12,16 +12,19 @@ export class ItemListingComponent implements OnInit {
     @Input()
     public items: Array<IItem>;
 
-    @Input()
+    // @Input()
+    // public routePath: string;
     public routePath: string;
 
     constructor(private route: ActivatedRoute){        
     }
 
     ngOnInit():void{
-        console.log('fw-item-listing ',localStorage.getItem('previousRoute'));
-        console.log('fw-item-listing routePath', this.routePath);
-        console.log('fw-item-listing activatedroute', this.route);
+        //let prev = localStorage.getItem('previousRoute');
+        //let curr = localStorage.getItem('currentRoute');
+        this.routePath = localStorage.getItem('currentRoute');
+        //console.log('fw-item-listing prev', prev);
+        //console.log('fw-item-listing curr', curr);
     }
 
 }

@@ -13,15 +13,26 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit():void{
+    //TODO: need to handle NavigationError or what happens if navigation is not successful???
     this.router.events.subscribe(event => {
-      if (event.constructor.name === "NavigationEnd") {
+      let e = Object.assign({ "url": "" }, event);
+      if (event.constructor.name === "NavigationStart") {
+        //console.log("MAIN component route event NavigationStart", event);
+        let curr = localStorage.getItem('currentRoute');
+        //console.log('MAIN component route event curr now prev', curr);
+        localStorage.setItem('previousRoute', curr);
+        localStorage.setItem('currentRoute', e.url);
+        //console.log('MAIN component route event curr', e.url);
+
+      }
+      else if (event.constructor.name === "NavigationEnd") {
         // do something...
-        console.log("MAIN component route event NavigationEnd", event);
-        // let curr = localStorage.getItem('currentRoute');
-        // console.log('MAIN component route event curr now prev',curr);
-        // localStorage.setItem('previousRoute', curr);
-        // localStorage.setItem('currentRoute',event.url);
-        // console.log('MAIN component route event curr', event.url);
+        //console.log("MAIN component route event NavigationEnd", event);
+        let curr = localStorage.getItem('currentRoute');
+        //console.log('MAIN component route event curr now prev',curr);
+        localStorage.setItem('previousRoute', curr);
+        localStorage.setItem('currentRoute',e.url);
+        //console.log('MAIN component route event curr', e.url);
       }
 
     });    

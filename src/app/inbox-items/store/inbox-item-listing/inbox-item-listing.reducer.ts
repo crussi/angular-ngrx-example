@@ -15,7 +15,7 @@ export function inboxItemListingReducer(
 
   switch (action.type) {
     case InboxItemListingStore.RETRIEVE:
-      console.log("inbox reducer RETRIEVE");
+      //console.log("inbox reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function inboxItemListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("inbox reducer RETRIEVE_SUCCESS");
+      //console.log("inbox reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function inboxItemListingReducer(
     //     )
     //   };
     case InboxItemListingStore.UPDATE_PROCESSED:
-      console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("inbox reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         inboxItems: updateChildObject(
@@ -96,7 +96,7 @@ export function inboxItemListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

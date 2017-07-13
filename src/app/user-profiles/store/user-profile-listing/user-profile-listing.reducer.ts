@@ -15,7 +15,7 @@ export function userProfileListingReducer(
 
   switch (action.type) {
     case UserProfileListingStore.RETRIEVE:
-      console.log("user profile reducer RETRIEVE");
+      //console.log("user profile reducer RETRIEVE");
       return {
         ...state,
         isLoading: true,
@@ -43,7 +43,7 @@ export function userProfileListingReducer(
       // } 
 
       //   console.log('got it', ids);      
-      console.log("user profile reducer RETRIEVE_SUCCESS", userProfiles);
+      //console.log("user profile reducer RETRIEVE_SUCCESS", userProfiles);
       return {
         ...state,
         isLoading: false,
@@ -87,7 +87,7 @@ export function userProfileListingReducer(
     //     )
     //   };
     case UserProfileListingStore.UPDATE_PROCESSED:
-      console.log("user profile reducer UPDATE_PROCESSED", action.payload.id);
+      //console.log("user profile reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {
         ...state,
         userProfiles: updateChildObject(
@@ -96,7 +96,7 @@ export function userProfileListingReducer(
           (item) => ({processed: true }),
         )
       };       
-      console.log('UPDATE_PROCESSED',obj);
+      //console.log('UPDATE_PROCESSED',obj);
       return obj;
       default:
       return state;

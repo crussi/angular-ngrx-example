@@ -3,6 +3,6 @@
     <app-button (onButtonPressed)="goBack()">
         <span class="fa fa-arrow-circle-left"></span> Go Back
     </app-button>
-    <button [disabled]="!hasPrevId" [routerLink]="['/trash/',prevId]">Previous</button>
-    <button [disabled]="!hasNextId" [routerLink]="['/trash/',nextId]">Next</button>
+    <button [disabled]="!hasPrevId" [routerLink]="[routePath,prevId]">Previous</button>
+    <button [disabled]="!hasNextId" [routerLink]="[routePath,nextId]">Next</button>
 </app-button-group>

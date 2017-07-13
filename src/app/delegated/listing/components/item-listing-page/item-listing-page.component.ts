@@ -11,7 +11,6 @@ import { IItemFilters } from '../../../../shared/barrel';
 })
 export class DelegatedItemListingPageComponent {
 
-  routePath: string = "/delegatedItems";
   constructor(
     public userProfileListingStore: UserProfileListingStore,
     public listingStore: DelegatedItemListingStore

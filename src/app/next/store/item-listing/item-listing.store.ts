@@ -44,10 +44,10 @@ export class NextListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    console.log("next store getItem",id);
+    //console.log("next store getItem",id);
     return this.getItemListing()
       .map(nextListing => { 
-        console.log("next store getItem nextListing", nextListing);
+        //console.log("next store getItem nextListing", nextListing);
         return getItem(nextListing, id)});
   }
 

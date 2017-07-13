@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {TrashListingPageComponent} from './components';
-import { PreviousRouteRecorder } from '../../root/services';
 
 export const listingRoutes: Routes = [
   // {
@@ -15,8 +14,7 @@ export const listingRoutes: Routes = [
   // }
   {
     path: '',
-    component: TrashListingPageComponent,
-    canDeactivate: [PreviousRouteRecorder]
+    component: TrashListingPageComponent
   }  
 ];
 

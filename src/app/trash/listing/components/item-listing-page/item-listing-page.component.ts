@@ -11,7 +11,6 @@ import { IItemFilters } from '../../../../shared/barrel';
 })
 export class TrashListingPageComponent {
 
-  routePath: string = "/trash";
   constructor(
     public userProfileListingStore: UserProfileListingStore,
     public listingStore: TrashListingStore

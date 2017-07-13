@@ -44,10 +44,10 @@ export class ReferenceListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    console.log("reference store getItem",id);
+    //console.log("reference store getItem",id);
     return this.getItemListing()
       .map(referenceListing => { 
-        console.log("reference store getItem referenceListing", referenceListing);
+        //console.log("reference store getItem referenceListing", referenceListing);
         return getItem(referenceListing, id)});
   }
 

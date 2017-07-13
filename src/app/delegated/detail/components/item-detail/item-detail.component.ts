@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { IItem } from '../../../../shared/barrel';
 
 @Component({
@@ -9,7 +10,8 @@ import { IItem } from '../../../../shared/barrel';
 export class DelegatedItemDetailComponent {
 
   @Input()
-  public item: IItem;
+  public item: Observable<IItem>;
+  //public item: IItem;
 
   constructor() { }
 

@@ -44,10 +44,10 @@ export class DelegatedItemListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    console.log("delegated store getItem",id);
+    //console.log("delegated store getItem",id);
     return this.getItemListing()
       .map(delegatedItemListing => { 
-        console.log("delegated store getItem delegatedItemListing", delegatedItemListing);
+        //console.log("delegated store getItem delegatedItemListing", delegatedItemListing);
         return getItem(delegatedItemListing, id)});
   }
 

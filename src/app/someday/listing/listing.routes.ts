@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {SomedayListingPageComponent} from './components';
-import { PreviousRouteRecorder } from '../../root/services';
 
 export const listingRoutes: Routes = [
   // {
@@ -14,8 +13,7 @@ export const listingRoutes: Routes = [
   // }
   {
     path: '',
-    component: SomedayListingPageComponent,
-    canDeactivate: [PreviousRouteRecorder]
+    component: SomedayListingPageComponent
   }  
 ];
 
