@@ -16,6 +16,7 @@ import {ButtonComponent,
   LoadingContainerComponent,
   SpinnerComponent
 } from './components';
+//import { PreviousRouteRecorder } from './services/previous-route-recorder.service';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import {ButtonComponent,
     SpinnerComponent  
   ],
   providers: [
+    //PreviousRouteRecorder
   ]
 })
 export class SharedModule { }

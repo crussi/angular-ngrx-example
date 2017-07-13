@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-
 import {InboxItemListingPageComponent} from './components';
 
 export const listingRoutes: Routes = [
