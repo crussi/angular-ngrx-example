@@ -13,28 +13,29 @@ export class ItemDetailComponent implements OnChanges, OnInit {
     @Input()
     public item: Observable<IItem>;
     //public item: IItem;
-    
+    public _item: IItem
     public routePath: string;
 
     get hasPrevId(): boolean {
         //console.log('hasPrevId');
-        //return this.item && this.item.prevId != "0";
-        return true;
+        return this._item && this._item.prevId != "0";
+        //return this.item.map(x => { return x.prevId !== '0'})
+        //return true;
     }
     get hasNextId(): boolean {
         //console.log('hasNextId');
-        //return this.item && this.item.nextId != "0";
-        return true;
+        return this._item && this._item.nextId != "0";
+        //return true;
     }
     get prevId(): string {
         //console.log('hasPrevId');
-        //return this.item ? this.item.prevId : '0';
-        return '0';
+        return this._item ? this._item.prevId : '0';
+        //return '0';
     }
     get nextId(): string {
         //console.log('nextId', this.item.nextId)
-        //return this.item ? this.item.nextId : '0';
-        return '0';
+        return this._item ? this._item.nextId : '0';
+        //return '0';
     }    
 
     constructor(
@@ -48,7 +49,11 @@ export class ItemDetailComponent implements OnChanges, OnInit {
     
     ngOnChanges(changes: SimpleChanges): void {
         //console.log('ngOnChanges start');
-        console.log('**** shared item-detail changes', changes);        
+        console.log('**** shared item-detail changes', changes);  
+        if (changes.item) {
+            this._item = changes.item.currentValue;
+            console.log('**** shared item-detail curVal', this._item);
+        }     
     }
 
     public goBack() {
