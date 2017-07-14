@@ -25,7 +25,6 @@ import { trashRoutes } from './trash.routes';
 
   ],
   providers: [
-    //UserProfilesService,
     TrashListingStore,
     TrashService
   ]

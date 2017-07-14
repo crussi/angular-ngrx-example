@@ -9,6 +9,9 @@ export * from './interfaces/item-listing/item-listing.interface';
 export * from './interfaces/item-listing/item-listing.functions';
 export * from './interfaces/inbox-item/inbox-item.interface';
 export * from './interfaces/user-profile/user-profile.interface';
+export * from './interfaces/user-profile/user-profile-listing.interface';
+export * from './interfaces/user-profile/user-profile-filters.interface';
+export * from './interfaces/user-profile/user-profile.interface';
 export * from './interfaces/item-filters/item-filters.interface';
 export * from './interfaces/loadable/loadable.interface';
 

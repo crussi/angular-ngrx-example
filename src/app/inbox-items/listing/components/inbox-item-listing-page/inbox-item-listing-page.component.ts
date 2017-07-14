@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { IInboxItem } from '../../../../shared/barrel';
-import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
-import {InboxItemListingStore} from '../../../store/inbox-item-listing/inbox-item-listing.store';
-import {IInboxItemFilters} from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
+import { UserProfileListingStore } from '../../../../user-profile/store/item-listing/item-listing.store';
+import { InboxItemListingStore } from '../../../store/inbox-item-listing/inbox-item-listing.store';
+import { IInboxItemFilters } from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
 
 @Component({
   selector: 'app-inbox-item-listing-page',

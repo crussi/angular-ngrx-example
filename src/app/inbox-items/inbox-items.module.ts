@@ -1,14 +1,14 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
-import {EffectsModule} from '@ngrx/effects';
-import {InboxItemsContainerComponent} from './components';
-import {InboxItemsService } from './services';
-import { UserProfilesService } from '../user-profiles/services/user-profiles.service';
-import {InboxItemListingModule} from './listing/listing.module';
-import {InboxItemDetailModule} from './detail/detail.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { EffectsModule } from '@ngrx/effects';
+import { InboxItemsContainerComponent } from './components';
+import { InboxItemsService } from './services';
+import { UserProfilesService } from '../user-profile/services/items.service';
+import { InboxItemListingModule } from './listing/listing.module';
+import { InboxItemDetailModule } from './detail/detail.module';
 import { InboxItemListingEffects } from '../inbox-items/store/effects';
-import { UserProfileListingEffects } from '../user-profiles/store/effects';
+import { UserProfileListingEffects } from '../user-profile/store/effects';
 
 
 @NgModule({

@@ -7,7 +7,6 @@ import { createAction } from '../../../store/create-action';
 import {
   getItems,
   getItem,
-  //getNextItemId,
   IItemListing,
 } from '../../../shared/barrel';
 import { IItemFilters } from '../../../shared/barrel';
@@ -44,16 +43,12 @@ export class TrashListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    //console.log("trash store getItem",id);
     return this.getItemListing()
       .map(trashListing => { 
-        //console.log("trash store getItem trashListing", trashListing);
         return getItem(trashListing, id)});
   }
 
-  //New
   public setItemProcessed(id: string) {
-    //console.log('store setUpdateProcessed id:',event);
     this.store.dispatch(createAction(TrashListingStore.UPDATE_PROCESSED, {id}));
   }
 

@@ -2,7 +2,7 @@ import { IInboxItemListing } from '../inbox-items/interfaces';
 //import { INextActionListing } from '../next-actions/interfaces';
 //import { IDelegatedItemListing } from '../shared/barrel';
 import { IItemListing } from '../shared/barrel';
-import { IUserProfileListing } from '../user-profiles/interfaces';
+import { IUserProfileListing } from '../shared/interfaces/user-profile';
 //import {IListItemListing } from '../list-items/interfaces';
 import {ISteps, IStepsState} from '../wizard-begin/interfaces';
 
