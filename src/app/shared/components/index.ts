@@ -12,5 +12,3 @@ export * from './search';
 export * from './item-listing';
 export * from './list-item';
 export * from './loading';
-
-//export * from './item-detail-page';

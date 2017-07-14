@@ -7,7 +7,6 @@ import { createAction } from '../../../store/create-action';
 import {
   getItems,
   getItem,
-  //getNextItemId,
   IItemListing,
 } from '../../../shared/barrel';
 import { IItemFilters } from '../../../shared/barrel';
@@ -44,16 +43,12 @@ export class DelegatedItemListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    //console.log("delegated store getItem",id);
     return this.getItemListing()
       .map(delegatedItemListing => { 
-        //console.log("delegated store getItem delegatedItemListing", delegatedItemListing);
         return getItem(delegatedItemListing, id)});
   }
 
-  //New
   public setItemProcessed(id: string) {
-    //console.log('store setUpdateProcessed id:',event);
     this.store.dispatch(createAction(DelegatedItemListingStore.UPDATE_PROCESSED, {id}));
   }
 

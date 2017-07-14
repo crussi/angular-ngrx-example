@@ -11,8 +11,7 @@ export class DelegatedItemDetailComponent {
 
   @Input()
   public item: Observable<IItem>;
-  //public item: IItem;
-
+  
   constructor() { }
 
 }

@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
-import {SomedayListingStore} from '../../../store/item-listing/item-listing.store';
+import { SomedayListingStore } from '../../../store/item-listing/item-listing.store';
 import { IItemFilters } from '../../../../shared/barrel';
 
 @Component({

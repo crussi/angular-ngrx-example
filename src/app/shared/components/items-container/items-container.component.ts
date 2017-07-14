@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-//import { DelegatedItemListingStore } from '../../store/item-listing/item-listing.store';
 
 @Component({
     selector: 'fw-items-container',
@@ -11,10 +10,6 @@ export class ItemsContainerComponent {
     @Input()
     public title: string;
 
-    constructor(
-        //private delegatedItemListingStore: DelegatedItemListingStore,
-    ) {
-        //this.delegatedItemListingStore.retrieve();
-    }
+    constructor() {}
 
 }

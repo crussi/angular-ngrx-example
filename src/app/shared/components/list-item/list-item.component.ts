@@ -1,7 +1,5 @@
 import { Input, Component } from '@angular/core';
-//import { IDelegatedItem } from '../../../../shared/barrel';
 import { IItem } from '../../interfaces';
-//import { DelegatedItemListingStore } from '../../../store/item-listing/item-listing.store';
 
 @Component({
     selector: 'fw-list-item',
@@ -14,9 +12,5 @@ export class ListItemComponent {
     public item: IItem;
 
     constructor() { }
-
-    // public toggleDelegatedItemFavorite() {
-    //   this.delegatedItemListingStore.toggleFavorite(this.delegatedItem.id);
-    // }
 
 }

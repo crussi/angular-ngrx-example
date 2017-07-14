@@ -1,6 +1,5 @@
 
 export class ItemProcessed {
-    //constructor(public id: string, public stepStates: Array<StepState>) { }
     constructor(public id: string) { }
 }
 

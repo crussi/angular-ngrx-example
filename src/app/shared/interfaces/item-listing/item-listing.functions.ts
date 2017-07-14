@@ -1,12 +1,6 @@
 import { IItemListing } from './item-listing.interface';
-//import { IDelegatedItem } from '../../interfaces';
 import { IItem } from '../item';
-//import { createDefaultItemFilters } from './item-filters.functions';
 import { createDefaultItemFilters } from '../item-filters';
-// import {
-//   itemMatchesUserFilter,
-//   itemMatchesSearchQuery
-// } from '../item';
 import {
   itemMatchesUserFilter,
   itemMatchesSearchQuery
@@ -39,32 +33,26 @@ export function getItems(itemListing: IItemListing) {
 }
 
 export function getItem(itemListing: IItemListing, id: string) {
-  //console.log('function getItem ... itemListing', itemListing);
   if (Boolean(itemListing)) {
-    //console.log('function getItem ... start');
       let items = itemListing.items;
       let item: IItem = null;
       for (var i = 0; i < items.length; i++) {
-        //console.log('function getItem ... for',i);
           if (items[i].id == id) {
             item = items[i];
             item.prevId = "0";
             item.nextId = "0";
             for (var j = +i+1; j < items.length; j++) {
-              //console.log('j',j);
               if (items[j].done == false) {
                 item.nextId = items[j].id;
                 break;
               }
             }
             for (var k = +i-1; k >= 0; k--) {              
-              //console.log('k', k);
               if (items[k].done == false) {
                 item.prevId = items[k].id;
                 break;
               }
             }
-            //console.log("getItem " + i,item)
           }
       }
       return item;

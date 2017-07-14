@@ -25,7 +25,6 @@ import { referenceRoutes } from './reference.routes';
 
   ],
   providers: [
-    //UserProfilesService,
     ReferenceListingStore,
     ReferenceService
   ]

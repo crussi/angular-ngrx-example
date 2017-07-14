@@ -7,7 +7,6 @@ import { createAction } from '../../../store/create-action';
 import {
   getItems,
   getItem,
-  //getNextItemId,
   IItemListing,
 } from '../../../shared/barrel';
 import { IItemFilters } from '../../../shared/barrel';
@@ -44,16 +43,12 @@ export class ReferenceListingStore {
   }
 
   public getItem(id: string): Observable<IItem> {
-    //console.log("reference store getItem",id);
     return this.getItemListing()
       .map(referenceListing => { 
-        //console.log("reference store getItem referenceListing", referenceListing);
         return getItem(referenceListing, id)});
   }
 
-  //New
   public setItemProcessed(id: string) {
-    //console.log('store setUpdateProcessed id:',event);
     this.store.dispatch(createAction(ReferenceListingStore.UPDATE_PROCESSED, {id}));
   }
 

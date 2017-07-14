@@ -25,7 +25,6 @@ import { nextRoutes } from './next.routes';
 
   ],
   providers: [
-    //UserProfilesService,
     NextListingStore,
     NextService
   ]

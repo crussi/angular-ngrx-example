@@ -29,17 +29,7 @@ export class Step {
     Settings: StepSettings;
 
     constructor(public component: Type<any>, settings: StepSettings) {
-        //this.Steps = new StepOptions();
         this.Settings = settings;
-        //this.Component = component;
-        //this.Name = data.Name;
-        //this.Declaration = data.Declaration ? data.Declaration : '';
-        //this.Question = data.Question ? data.Question : '';
-        // this.Steps.YesStep = data.YesStep ? data.YesStep : StepEnum.Undefined;
-        // this.Steps.NoStep = data.NoStep ? data.NoStep : StepEnum.Undefined;
-        // this.Steps.PrevStep = data.PrevStep ? data.PrevStep : StepEnum.Undefined;
-        // this.Steps.NextStep = data.NextStep ? data.NextStep : StepEnum.Undefined;
-
     }
 }
 

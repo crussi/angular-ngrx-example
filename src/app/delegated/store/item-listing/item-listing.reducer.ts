@@ -23,32 +23,10 @@ export function delegatedItemListingReducer(
       };
     case DelegatedItemListingStore.RETRIEVE_SUCCESS:
       const items = action.payload.delegatedItems
-        //.map(item => ({ ...item, favorite: false}));
-
-      // //Get ids
-      // var ids = delegatedItems.map(function (i) {
-      //   return [i.id];
-      // });
-      // //Assign prev and next id for each id
-      // for (let n in ids) {
-      //   let m = +n;
-      //   if (m > 0 && m < ids.length-1) {
-      //     ids[m].push(ids[m-1][0],ids[m+1][0]);
-      //   } else if (m == ids.length-1) {
-      //     ids[m].push(ids[m - 1][0], "0");
-      //   }
-      //   else if (m == 0) {
-      //     ids[m].push("0", ids[m + 1][0]);
-      //   }
-      // } 
-
-      //   console.log('got it', ids);      
-      //console.log("delegateditem reducer RETRIEVE_SUCCESS");
       return {
         ...state,
         isLoading: false,
-        items: items,
-        // linkedIds: ids
+        items: items
       };
     case DelegatedItemListingStore.RETRIEVE_ERROR:
       return {
@@ -69,23 +47,6 @@ export function delegatedItemListingReducer(
           userCreated: action.payload.user
         }
       };
-    // case DelegatedItemListingStore.TOGGLE_FAVORITE_FILTER:
-    //   return {
-    //     ...state,
-    //     filters: {
-    //       ...state.filters,
-    //       favorites: !state.filters.favorites
-    //     }
-    //   };
-    // case DelegatedItemListingStore.TOGGLE_FAVORITE:
-    //   return {
-    //     ...state,
-    //     delegatedItems: updateChildObject(
-    //       state.delegatedItems,
-    //       (game) => game.id === action.payload.id,
-    //       (game) => ({favorite: !game.favorite}),
-    //     )
-    //   };
     case DelegatedItemListingStore.UPDATE_PROCESSED:
       //console.log("delegateditem reducer UPDATE_PROCESSED", action.payload.id);
       let obj =  {

@@ -6,9 +6,7 @@ import { IItem } from '../../shared/barrel';
 @Injectable()
 export class ReferenceService {
 
-  constructor(private apiService: ApiService) {
-
-  }
+  constructor(private apiService: ApiService) {}
 
   public getAll(): Observable<Array<IItem>> {
     return this.apiService.get('/59645767260000970d3d7331');

@@ -25,7 +25,6 @@ import { delegatedItemsRoutes } from './delegated.routes';
 
   ],
   providers: [
-    //UserProfilesService,
     DelegatedItemListingStore,
     DelegatedItemsService
   ]

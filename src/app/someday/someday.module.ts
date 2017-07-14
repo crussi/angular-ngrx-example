@@ -25,7 +25,6 @@ import { somedayRoutes } from './someday.routes';
 
   ],
   providers: [
-    //UserProfilesService,
     SomedayListingStore,
     SomedayService
   ]

@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-//import { IItemFilters } from '../../../interfaces/item-listing/item-filters.interface';
 import { IItemFilters } from '../../interfaces';
 
 @Component({
@@ -21,14 +20,9 @@ export class UserFilterComponent implements OnChanges {
     @Output()
     public favoritesFilterChanged = new EventEmitter<boolean>();
 
-    constructor(
-        //private delegatedItemListingStore: UserProfileListingStore,
-    ) {
-        //this.delegatedItemListingStore.retrieve();
-    }    
+    constructor() {}    
 
     ngOnChanges(changes: SimpleChanges) {
-        //console.log('****ngOnChanges changes', changes);
     }
 
 }

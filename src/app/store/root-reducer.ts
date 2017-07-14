@@ -21,7 +21,6 @@ const reducers = {
   stepsState: stepsStateReducer,
   router: routerReducer,
   inboxItemListing: inboxItemListingReducer,
-  //nextActionListing: nextActionListingReducer,
   nextListing: nextListingReducer,
   delegatedItemListing: delegatedItemListingReducer,
   userProfileListing: userProfileListingReducer,
