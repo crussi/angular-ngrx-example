@@ -25,15 +25,15 @@ export class RootComponent implements OnInit {
         //console.log('MAIN component route event curr', e.url);
 
       }
-      else if (event.constructor.name === "NavigationEnd") {
-        // do something...
-        //console.log("MAIN component route event NavigationEnd", event);
-        let curr = localStorage.getItem('currentRoute');
-        //console.log('MAIN component route event curr now prev',curr);
-        localStorage.setItem('previousRoute', curr);
-        localStorage.setItem('currentRoute',e.url);
-        //console.log('MAIN component route event curr', e.url);
-      }
+      // else if (event.constructor.name === "NavigationEnd") {
+      //   // do something...
+      //   //console.log("MAIN component route event NavigationEnd", event);
+      //   let curr = localStorage.getItem('currentRoute');
+      //   //console.log('MAIN component route event curr now prev',curr);
+      //   localStorage.setItem('previousRoute', curr);
+      //   localStorage.setItem('currentRoute',e.url);
+      //   //console.log('MAIN component route event curr', e.url);
+      // }
 
     });    
     // this.router.events.filter((evt: Event) => evt instanceof NavigationEnd)

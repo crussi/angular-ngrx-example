@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Location } from '@angular/common';
 import { IItem } from '../../interfaces';
@@ -15,6 +16,7 @@ export class ItemDetailComponent implements OnChanges, OnInit {
     //public item: IItem;
     public _item: IItem
     public routePath: string;
+    public returnUrl: string;
 
     get hasPrevId(): boolean {
         //console.log('hasPrevId');
@@ -39,12 +41,15 @@ export class ItemDetailComponent implements OnChanges, OnInit {
     }    
 
     constructor(
-        private location: Location
+        private location: Location,
+        private router: Router
     ) { 
     }
 
     ngOnInit(): void {
         this.routePath = localStorage.getItem('previousRoute');
+        this.returnUrl = localStorage.getItem('previousRoute');
+        console.log('returnUrl:',this.returnUrl);
     }
     
     ngOnChanges(changes: SimpleChanges): void {
@@ -57,7 +62,8 @@ export class ItemDetailComponent implements OnChanges, OnInit {
     }
 
     public goBack() {
-        this.location.back();
+        //this.location.back();
+        this.router.navigateByUrl(this.returnUrl);
     }
 
 }
