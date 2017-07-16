@@ -7,7 +7,7 @@ import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 //import { nextActionListingReducer } from '../next-actions/store/reducers';
 import { nextListingReducer } from '../next/store/reducers';
 import { delegatedItemListingReducer } from '../delegated/store/reducers';
-import { userProfileListingReducer } from '../user-profile/store/reducers';
+import { userProfileListingReducer } from '../user-profiles/store/reducers';
 //import { trashListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
 import { trashListingReducer } from '../trash/store/reducers';
 import { somedayListingReducer } from '../someday/store/reducers';

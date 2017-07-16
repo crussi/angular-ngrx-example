@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {inboxItemsRoutes} from '../inbox-items/inbox-items.routes';
-import { userProfilesRoutes } from '../user-profile/userProfile.routes';
+import { userProfilesRoutes } from '../user-profiles/user-profiles.routes';
 
 export const rootRoutes: Routes = [
   {

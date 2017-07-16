@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 
 import {IInboxItemFilters} from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
-import { IUserProfile } from '../../../../shared/barrel';
+import { IUserProfile } from '../../../../user-profiles/interfaces';
 @Component({
   selector: 'app-inbox-item-filters',
   templateUrl: './inbox-item-filters.component.html',

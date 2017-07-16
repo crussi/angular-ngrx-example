@@ -1,0 +1,8 @@
+<fw-loading-container [loadable]="userProfileListingStore.getUserProfileListing() | async">
+  <header>
+    <app-user-profile-search (queryChanged)="search($event)"></app-user-profile-search>
+  </header>
+
+  <app-user-profile-listing [userProfiles]="userProfileListingStore.getUserProfiles() | async">
+  </app-user-profile-listing>
+</fw-loading-container>
