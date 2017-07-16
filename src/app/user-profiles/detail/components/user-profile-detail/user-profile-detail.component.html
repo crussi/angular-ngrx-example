@@ -1,7 +1,4 @@
-<h2>{{userProfile?.name}}</h2>
-<p>{{userProfile?.email}}</p>
-<app-button-group>
-  <app-button (onButtonPressed)="goBack()">
-    <span class="fa fa-arrow-circle-left"></span> Go Back
-  </app-button>
-</app-button-group>
+<fw-item-detail [item]="userProfile">
+  <h2>{{userProfile?.name}}</h2>
+  <p>{{userProfile?.email}}</p>
+</fw-item-detail>

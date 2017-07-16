@@ -11,3 +11,8 @@ export interface IItem {
     prevId?: string;
     nextId?: string;
 }
+
+export interface INavagableItem {
+    prevId?: string;
+    nextId?: string;
+}

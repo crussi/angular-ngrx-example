@@ -2,7 +2,7 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Location } from '@angular/common';
-import { IItem } from '../../interfaces';
+import { IItem, INavagableItem } from '../../interfaces';
 
 @Component({
     selector: 'fw-item-detail',
@@ -13,7 +13,8 @@ export class ItemDetailComponent implements OnChanges, OnInit {
 
     @Input()
     public item: Observable<IItem>;
-    private _item: IItem
+    //private _item: IItem
+    private _item: INavagableItem
     public routePath: string;
 
     get hasPrevId(): boolean {

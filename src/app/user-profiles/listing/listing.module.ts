@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 import {SharedModule} from '../../shared/shared.module';
 
 import {
-  UserProfileFiltersComponent,
+  //UserProfileFiltersComponent,
   UserProfileListingComponent,
   UserProfileListingPageComponent,
   UserProfileListItemComponent,
@@ -21,7 +21,7 @@ import {
     SharedModule
   ],
   declarations: [
-    UserProfileFiltersComponent,
+    //UserProfileFiltersComponent,
     UserProfileListingComponent,
     UserProfileListingPageComponent,
     UserProfileListItemComponent,
