@@ -17,8 +17,8 @@ export class LoadingContainerComponent implements OnChanges {
   public isOkay: boolean;
 
   public ngOnChanges() {
-    this.isLoading = this.loadable.isLoading;
-    this.isError = Boolean(this.loadable.loadingError);
+    this.isLoading = this.loadable ? this.loadable.isLoading : false;
+    this.isError = this.loadable ? Boolean(this.loadable.loadingError) : false;
     this.isOkay = !this.isLoading && !this.isError;
   }
 

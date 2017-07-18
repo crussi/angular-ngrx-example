@@ -28,9 +28,9 @@ export class ContactListingStore {
   constructor(private store: Store<IAppState>) {}
 
   public getContactListing(): Observable<IContactListing> {
-    //console.log('inside store getContactListing');
+    console.log('inside store getContactListing');
     return this.store.select(appState => { 
-      //console.log('store getContactListing appState',appState);
+      console.log('store getContactListing appState',appState);
       return appState.contactListing
     });
   }
