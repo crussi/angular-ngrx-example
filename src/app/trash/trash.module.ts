@@ -8,7 +8,7 @@ import { TrashService } from './services';
 import { TrashListingModule} from './listing/listing.module';
 import { TrashDetailModule} from './detail/detail.module';
 import { TrashListingEffects } from './store';
-import { TrashListingStore } from './store'
+import { TrashListingStore } from './store';
 import { trashRoutes } from './trash.routes';
 
 @NgModule({

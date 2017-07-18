@@ -4,6 +4,7 @@ import { IInboxItemListing } from '../inbox-items/interfaces';
 import { IItemListing } from '../shared/barrel';
 //import { IUserProfileListing } from '../shared/interfaces/user-profile';
 import { IUserProfileListing } from '../user-profiles/interfaces';
+import { IContactListing } from '../contacts/interfaces';
 //import {IListItemListing } from '../list-items/interfaces';
 import {ISteps, IStepsState} from '../wizard-begin/interfaces';
 
@@ -12,6 +13,7 @@ export interface IAppState {
   readonly nextListing: IItemListing;
   readonly delegatedItemListing: IItemListing;
   readonly userProfileListing: IUserProfileListing;
+  readonly contactListing: IContactListing;
   //readonly listItemListing: IListItemListing;
   readonly trashListing: IItemListing;
   readonly somedayListing: IItemListing;

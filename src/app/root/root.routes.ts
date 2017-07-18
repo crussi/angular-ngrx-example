@@ -28,5 +28,9 @@ export const rootRoutes: Routes = [
   {
     path: 'next',
     loadChildren: '../next/next.module#NextModule'
-  }
+  },
+  {
+    path: 'contacts',
+    loadChildren: '../contacts/contacts.module#ContactsModule'
+  }  
 ];
