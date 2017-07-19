@@ -32,5 +32,9 @@ export const rootRoutes: Routes = [
   {
     path: 'contacts',
     loadChildren: '../contacts/contacts.module#ContactsModule'
-  }  
+  },
+  {
+    path: 'projects',
+    loadChildren: '../projects/projects.module#ProjectsModule'
+  }    
 ];
