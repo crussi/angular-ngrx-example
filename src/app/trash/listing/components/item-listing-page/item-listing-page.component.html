@@ -1,3 +1,9 @@
+<template #myTemplate let-item="item">
+    <div class="list-item">
+      <h4>{{item.description}}</h4>
+    </div>
+</template>
+
 <fw-loading-container [loadable]="listingStore.getItemListing() | async">
   <header>
     <fw-search (queryChanged)="search($event)"></fw-search>
@@ -7,7 +13,7 @@
     </fw-user-filter>
   </header>
 
-  <fw-item-listing [items]="listingStore.getItems() | async">
+  <fw-item-listing [items]="listingStore.getItems() | async" [template]="myTemplate">
   </fw-item-listing>
 </fw-loading-container>
 

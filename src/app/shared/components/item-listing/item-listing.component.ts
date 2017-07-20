@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IItem } from '../../interfaces';
 
@@ -11,6 +11,8 @@ export class ItemListingComponent implements OnInit {
 
     @Input()
     public items: Array<IItem>;
+    @Input() 
+    public template: TemplateRef<any>;
     public routePath: string;
 
     constructor(private route: ActivatedRoute){ }
