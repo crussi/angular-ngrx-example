@@ -1,15 +1,15 @@
 
-<template #defaultTemplate let-item="item">
-    <div class="list-item">
+<ng-template #defaultTemplate let-item="item">
+    <fw-list-item>
         <h4>{{item.description}}</h4>
-    </div>
-</template>
+    </fw-list-item>
+</ng-template>
 
 <app-cards *ngIf="items.length > 0">
     <app-card *ngFor="let item of items" [routerLink]="[routePath,item.id]">
         <!--<fw-list-item [item]="item">
         </fw-list-item>-->
-        <template [ngTemplateOutlet]="template || defaultTemplate" [ngOutletContext]="{item: item}"></template>
+        <ng-template [ngTemplateOutlet]="template || defaultTemplate" [ngOutletContext]="{item: item}"></ng-template>
     </app-card>
 </app-cards>
 

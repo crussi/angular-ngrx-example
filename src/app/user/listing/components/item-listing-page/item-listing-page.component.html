@@ -1,4 +1,8 @@
-
+<ng-template #itemTemplate let-item="item">
+  <fw-list-item>
+    <h4>{{item.name}}</h4>
+  </fw-list-item>
+</ng-template>
 
 <fw-loading-container [loadable]="listingStore.getItemListing() | async">
   <header>
@@ -9,7 +13,7 @@
     </fw-user-filter>
   </header>
 
-  <fw-item-listing [items]="listingStore.getItems() | async">
+  <fw-item-listing [items]="listingStore.getItems() | async"  [template]="itemTemplate">
   </fw-item-listing>
 </fw-loading-container>
 

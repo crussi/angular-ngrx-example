@@ -51,6 +51,7 @@ import {ButtonComponent,
     SearchComponent,
     ItemListingComponent,
     LoadingContainerComponent,
+    ListItemComponent,
     SpinnerComponent  
   ],
   providers: [

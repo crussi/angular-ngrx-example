@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { InboxItemsModule } from '../inbox-items/inbox-items.module';
 import { UserProfilesModule } from '../user-profiles/user-profiles.module';
+import { UserModule } from '../user/user.module';
 import { SharedModule } from '../shared/shared.module';
 import { rootRoutes } from './root.routes';
 import { rootReducer } from '../store/root-reducer';
@@ -29,6 +30,7 @@ import { MessageService } from '../shared/services/message.service';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     InboxItemsModule,
     UserProfilesModule,
+    UserModule,
     SharedModule
 
   ],

@@ -8,6 +8,7 @@ import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { nextListingReducer } from '../next/store/reducers';
 import { delegatedItemListingReducer } from '../delegated/store/reducers';
 import { userProfileListingReducer } from '../user-profiles/store/reducers';
+import { userListingReducer } from '../user/store/reducers';
 import { contactListingReducer } from '../contacts/store/reducers';
 import { projectListingReducer } from '../projects/store/reducers';
 //import { trashListingReducer, somedayItemListingReducer, referenceItemListingReducer } from '../list-items/store/reducers';
@@ -26,6 +27,7 @@ const reducers = {
   nextListing: nextListingReducer,
   delegatedItemListing: delegatedItemListingReducer,
   userProfileListing: userProfileListingReducer,
+  userListing: userListingReducer,
   projectListing: projectListingReducer,
   contactListing: contactListingReducer,
   trashListing: trashListingReducer,

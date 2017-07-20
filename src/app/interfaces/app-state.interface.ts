@@ -13,6 +13,7 @@ export interface IAppState {
   readonly nextListing: IItemListing;
   readonly delegatedItemListing: IItemListing;
   readonly userProfileListing: IUserProfileListing;
+  readonly userListing: IItemListing;
   readonly contactListing: IContactListing;
   //readonly listItemListing: IListItemListing;
   readonly projectListing: IItemListing;

@@ -1,0 +1,7 @@
+<fw-item-detail [item]="item">
+  <h2>{{item?.name}}</h2>
+  <div style="display:block; text-align: center"><span>Date entered:</span><span style="margin-left: 20px">{{item?.dateCreated}}</span></div>
+  <div style="display:block; text-align: center"><span>Entered by:</span><span style="margin-left: 20px">{{item?.userCreated}}</span></div>
+  <div style="display:block; text-align: center"><span>Date deleted:</span><span style="margin-left: 20px">{{item?.dateChanged}}</span></div>
+  <div style="display:block; text-align: center"><span>Deleted by:</span><span style="margin-left: 20px">{{item?.userChanged}}</span></div>
+</fw-item-detail>
