@@ -8,7 +8,7 @@ import { NextListingStore } from '../../store/item-listing/item-listing.store';
 })
 export class NextContainerComponent {
 
-  title: string = "Next/maybe";
+  title: string = "Next";
 
   constructor(
     private nextListingStore: NextListingStore,

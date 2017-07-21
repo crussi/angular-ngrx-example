@@ -5,6 +5,7 @@ import { DelegatedItemListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function delegatedItemListingReducer(
@@ -22,7 +23,7 @@ export function delegatedItemListingReducer(
         loadingError: null
       };
     case DelegatedItemListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.delegatedItems
+      const items = sortItemsByDateCreated(action.payload.delegatedItems);
       return {
         ...state,
         isLoading: false,

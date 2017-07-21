@@ -5,6 +5,8 @@ import { NextListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
+
 } from '../../../shared/barrel';
 
 export function nextListingReducer(
@@ -21,7 +23,7 @@ export function nextListingReducer(
         loadingError: null
       };
     case NextListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.next
+      const items = sortItemsByDateCreated(action.payload.next);
       return {
         ...state,
         isLoading: false,

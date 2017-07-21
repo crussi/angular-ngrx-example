@@ -5,6 +5,7 @@ import { UserListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function userListingReducer(
@@ -21,7 +22,7 @@ export function userListingReducer(
         loadingError: null
       };
     case UserListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.user
+      const items = sortItemsByDateCreated(action.payload.user);
       return {
         ...state,
         isLoading: false,

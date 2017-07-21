@@ -5,6 +5,7 @@ import { ReferenceListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function referenceListingReducer(
@@ -21,7 +22,7 @@ export function referenceListingReducer(
         loadingError: null
       };
     case ReferenceListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.reference
+      const items = sortItemsByDateCreated(action.payload.reference);
       return {
         ...state,
         isLoading: false,

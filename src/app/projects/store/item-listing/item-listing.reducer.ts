@@ -5,6 +5,7 @@ import { ProjectListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function projectListingReducer(
@@ -21,7 +22,7 @@ export function projectListingReducer(
         loadingError: null
       };
     case ProjectListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.project
+      const items = sortItemsByDateCreated(action.payload.project);
       return {
         ...state,
         isLoading: false,

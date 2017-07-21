@@ -5,6 +5,7 @@ import { TrashListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function trashListingReducer(
@@ -21,7 +22,7 @@ export function trashListingReducer(
         loadingError: null
       };
     case TrashListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.trash
+      const items = sortItemsByDateCreated(action.payload.trash);
       return {
         ...state,
         isLoading: false,

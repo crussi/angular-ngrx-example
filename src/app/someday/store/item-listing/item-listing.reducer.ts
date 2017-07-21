@@ -5,6 +5,7 @@ import { SomedayListingStore } from './item-listing.store';
 import {
   createDefaultItemListing,
   IItemListing,
+  sortItemsByDateCreated
 } from '../../../shared/barrel';
 
 export function somedayListingReducer(
@@ -21,7 +22,7 @@ export function somedayListingReducer(
         loadingError: null
       };
     case SomedayListingStore.RETRIEVE_SUCCESS:
-      const items = action.payload.someday
+      const items = sortItemsByDateCreated(action.payload.someday);
       return {
         ...state,
         isLoading: false,
