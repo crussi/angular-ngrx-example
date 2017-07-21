@@ -16,7 +16,7 @@ import { MessageService } from '../../../../shared/services/message.service';
 export class InboxItemDetailPageComponent implements OnInit, ErrorHandler {
 
   public inboxItem$: Observable<IInboxItem>;
-  public nextId$: Observable<string>;
+  //public nextId$: Observable<string>;
   message: any;
   subscription: Subscription;
 

@@ -10,6 +10,7 @@ export * from './interfaces/item-listing/item-listing.functions';
 export * from './interfaces/inbox-item/inbox-item.interface';
 export * from './interfaces/item-filters/item-filters.interface';
 export * from './interfaces/loadable/loadable.interface';
+export * from './interfaces/user/user.interface';
 
 export * from './interfaces/item-filters/item-filters.functions';
 export * from './components/button/button.component';

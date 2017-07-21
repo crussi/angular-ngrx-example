@@ -14,7 +14,7 @@ import { MessageService } from '../../../../shared/services/message.service';
 export class SomedayDetailPageComponent implements OnInit, ErrorHandler {
 
   public item$: Observable<IItem>;
-  public nextId$: Observable<string>;
+  //public nextId$: Observable<string>;
   
   constructor(
     private route: ActivatedRoute,

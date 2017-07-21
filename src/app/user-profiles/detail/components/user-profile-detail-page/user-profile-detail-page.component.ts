@@ -15,7 +15,7 @@ import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/step
 export class UserProfileDetailPageComponent implements OnInit, ErrorHandler {
 
   public userProfile$: Observable<IUserProfile>;
-  public nextId$: Observable<string>;
+  //public nextId$: Observable<string>;
 
   constructor(
     private route: ActivatedRoute,

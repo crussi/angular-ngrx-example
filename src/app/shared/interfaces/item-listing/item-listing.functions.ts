@@ -42,13 +42,13 @@ export function getItem(itemListing: IItemListing, id: string) {
             item.prevId = "0";
             item.nextId = "0";
             for (var j = +i+1; j < items.length; j++) {
-              if (items[j].done == false) {
+              if (!items[j].done || items[j].done == false) {
                 item.nextId = items[j].id;
                 break;
               }
             }
             for (var k = +i-1; k >= 0; k--) {              
-              if (items[k].done == false) {
+              if (!items[j].done || items[k].done == false) {
                 item.prevId = items[k].id;
                 break;
               }

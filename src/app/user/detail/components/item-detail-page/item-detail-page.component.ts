@@ -2,7 +2,7 @@ import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable} from 'rxjs/Observable';
 import { ItemProcessed, ItemNext } from '../../../../shared/barrel';
-import { IItem } from '../../../../shared/barrel';
+import { IItem, IUser } from '../../../../shared/barrel';
 import { UserListingStore } from '../../../store/item-listing/item-listing.store';
 import { MessageService } from '../../../../shared/services/message.service';
 
@@ -14,7 +14,7 @@ import { MessageService } from '../../../../shared/services/message.service';
 export class UserDetailPageComponent implements OnInit, ErrorHandler {
 
   public item$: Observable<IItem>;
-  public nextId$: Observable<string>;
+  //public nextId$: Observable<string>;
   
   constructor(
     private route: ActivatedRoute,

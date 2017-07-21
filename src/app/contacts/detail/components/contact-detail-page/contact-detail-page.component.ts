@@ -15,7 +15,7 @@ import { StepsStateStore } from '../../../../wizard-begin/store/steps-state/step
 export class ContactDetailPageComponent implements OnInit, ErrorHandler {
 
   public contact$: Observable<IContact>;
-  public nextId$: Observable<string>;
+  //public nextId$: Observable<string>;
 
   constructor(
     private route: ActivatedRoute,
