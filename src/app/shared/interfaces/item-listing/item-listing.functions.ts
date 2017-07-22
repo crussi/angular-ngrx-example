@@ -23,13 +23,32 @@ export function getFilteredItems(itemListing: IItemListing) {
     .filter(item => itemMatchesUserFilter(item, itemListing.filters))
 }
 
-export function getItems(itemListing: IItemListing) {
+// export function getItems(itemListing: IItemListing) {
+//   return Boolean(itemListing) ?
+//     getFilteredItems(itemListing).sort(
+//       (itemA, itemB) => new Date(itemA.dateCreated).getTime() - new Date(itemB.dateCreated).getTime() 
+//     ).filter(item => item.done != true) //note: item.done == undefined || item.done == false
+//     : [];
+// }
+
+export function getItems(itemListing: IItemListing, sortFn?:(itemA:IItem,itemB:IItem)=>number) {
+  sortFn = sortFn || SortDateCreatedFn;
   return Boolean(itemListing) ?
-    getFilteredItems(itemListing).sort(
-      (itemA, itemB) => new Date(itemA.dateCreated).getTime() - new Date(itemB.dateCreated).getTime() 
-    ).filter(item => item.done != true) //note: item.done == undefined || item.done == false
+    getFilteredItems(itemListing)
+    .sort(sortFn)
+    .filter(item => item.done != true) //note: item.done == undefined || item.done == false
     : [];
 }
+
+export function SortDateCreatedFn(itemA, itemB):number {
+  return new Date(itemA.dateCreated).getTime() - new Date(itemB.dateCreated).getTime();
+}
+export function SortDateChangedFn(itemA, itemB): number {
+  return new Date(itemA.dateChanged).getTime() - new Date(itemB.dateChanged).getTime();
+}
+export function SortNameFn(itemA, itemB):number { return itemA.name.localeCompare(itemB.name) };
+
+export function SortDescriptionFn(itemA, itemB):number { return itemA.description.localeCompare(itemB.description); }
 
 export function sortItemsByDateCreated(items: Array<IItem>) {
   return Boolean(items) ?

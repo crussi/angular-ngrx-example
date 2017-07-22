@@ -39,7 +39,7 @@ export class TrashListingStore {
 
   public getItems(): Observable<Array<IItem>> {
     return this.getItemListing()
-      .map(trashListing => getItems(trashListing));
+      .map(trashListing => getItems(trashListing,null));
   }
 
   public getItem(id: string): Observable<IItem> {

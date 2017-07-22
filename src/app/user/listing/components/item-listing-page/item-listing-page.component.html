@@ -8,7 +8,7 @@
   <header>
     <fw-search (queryChanged)="search($event)"></fw-search>
     <fw-user-filter [filters]="listingStore.getItemFilters() | async"                            
-                    [users]="(listingStore.getUsers() | async)"
+                    [users]="(listingStore.getUserNames() | async)"
                     (userFilterChanged)="filterUser($event)">
     </fw-user-filter>
   </header>

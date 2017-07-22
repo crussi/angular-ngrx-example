@@ -39,7 +39,7 @@ export class DelegatedItemListingStore {
 
   public getItems(): Observable<Array<IItem>> {
     return this.getItemListing()
-      .map(delegatedItemListing => getItems(delegatedItemListing));
+      .map(delegatedItemListing => getItems(delegatedItemListing,null));
   }
 
   public getItem(id: string): Observable<IItem> {

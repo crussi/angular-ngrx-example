@@ -39,7 +39,7 @@ export class ReferenceListingStore {
 
   public getItems(): Observable<Array<IItem>> {
     return this.getItemListing()
-      .map(referenceListing => getItems(referenceListing));
+      .map(referenceListing => getItems(referenceListing,null));
   }
 
   public getItem(id: string): Observable<IItem> {
