@@ -7,7 +7,7 @@ import { inboxItemListingReducer } from '../inbox-items/store/reducers';
 import { nextListingReducer } from '../next/store/reducers';
 import { delegatedItemListingReducer } from '../delegated/store/reducers';
 import { userListingReducer } from '../user/store/reducers';
-import { contactListingReducer } from '../contacts/store/reducers';
+import { contactListingReducer } from '../contact/store/reducers';
 import { projectListingReducer } from '../projects/store/reducers';
 import { trashListingReducer } from '../trash/store/reducers';
 import { somedayListingReducer } from '../someday/store/reducers';

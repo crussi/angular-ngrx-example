@@ -30,8 +30,8 @@ export const rootRoutes: Routes = [
     loadChildren: '../next/next.module#NextModule'
   },
   {
-    path: 'contacts',
-    loadChildren: '../contacts/contacts.module#ContactsModule'
+    path: 'contact',
+    loadChildren: '../contact/contact.module#ContactModule'
   },
   {
     path: 'projects',

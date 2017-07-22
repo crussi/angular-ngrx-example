@@ -1,6 +1,6 @@
 import { IInboxItemListing } from '../inbox-items/interfaces';
 import { IItemListing } from '../shared/barrel';
-import { IContactListing } from '../contacts/interfaces';
+//import { IContactListing } from '../contact/interfaces';
 import {ISteps, IStepsState} from '../wizard-begin/interfaces';
 
 export interface IAppState {
@@ -8,7 +8,7 @@ export interface IAppState {
   readonly nextListing: IItemListing;
   readonly delegatedItemListing: IItemListing;
   readonly userListing: IItemListing;
-  readonly contactListing: IContactListing;
+  readonly contactListing: IItemListing;
   readonly projectListing: IItemListing;
   readonly trashListing: IItemListing;
   readonly somedayListing: IItemListing;

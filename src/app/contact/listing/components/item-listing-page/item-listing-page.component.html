@@ -1,0 +1,19 @@
+<ng-template #itemTemplate let-item="item">
+  <fw-list-item>
+    <h4>{{item.name}}</h4>
+  </fw-list-item>
+</ng-template>
+
+<fw-loading-container [loadable]="listingStore.getItemListing() | async">
+  <header>
+    <fw-search (queryChanged)="search($event)"></fw-search>
+    <fw-user-filter [filters]="listingStore.getItemFilters() | async"                            
+                    [users]="(userListingStore.getUserNames() | async)"
+                    (userFilterChanged)="filterUser($event)">
+    </fw-user-filter>
+  </header>
+
+  <fw-item-listing [items]="listingStore.getItems() | async"  [template]="itemTemplate">
+  </fw-item-listing>
+</fw-loading-container>
+
