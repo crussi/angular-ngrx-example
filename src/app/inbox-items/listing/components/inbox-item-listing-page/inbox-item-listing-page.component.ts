@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IInboxItem } from '../../../../shared/barrel';
-import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
+import { UserListingStore } from '../../../../user/store/item-listing/item-listing.store';
 import { InboxItemListingStore } from '../../../store/inbox-item-listing/inbox-item-listing.store';
 import { IInboxItemFilters } from '../../../interfaces/inbox-item-listing/inbox-item-filters.interface';
 
@@ -13,7 +13,7 @@ import { IInboxItemFilters } from '../../../interfaces/inbox-item-listing/inbox-
 export class InboxItemListingPageComponent {
 
   constructor(
-    public userProfileListingStore: UserProfileListingStore,
+    public userListingStore: UserListingStore,
     public inboxItemListingStore: InboxItemListingStore
   ) {
   }

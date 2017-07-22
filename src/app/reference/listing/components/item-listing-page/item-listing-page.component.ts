@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { UserProfileListingStore } from '../../../../user-profiles/store/user-profile-listing/user-profile-listing.store';
+import { UserListingStore } from '../../../../user/store/item-listing/item-listing.store';
 import { ReferenceListingStore } from '../../../store/item-listing/item-listing.store';
 import { IItemFilters } from '../../../../shared/barrel';
 
@@ -12,7 +12,7 @@ import { IItemFilters } from '../../../../shared/barrel';
 export class ReferenceListingPageComponent {
 
   constructor(
-    public userProfileListingStore: UserProfileListingStore,
+    public userListingStore: UserListingStore,
     public listingStore: ReferenceListingStore
   ) {
   }

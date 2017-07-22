@@ -7,14 +7,13 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { InboxItemsModule } from '../inbox-items/inbox-items.module';
-import { UserProfilesModule } from '../user-profiles/user-profiles.module';
 import { UserModule } from '../user/user.module';
 import { SharedModule } from '../shared/shared.module';
 import { rootRoutes } from './root.routes';
 import { rootReducer } from '../store/root-reducer';
 import { RootComponent } from './components';
 import { InboxItemListingStore } from '../inbox-items/store/stores';
-import { UserProfileListingStore } from '../user-profiles/store/stores';
+import { UserListingStore } from '../user/store/stores';
 import { StepsBeginStore, StepsStateStore} from '../wizard-begin/store/stores';
 import { ApiService} from './services';
 import { MessageService } from '../shared/services/message.service';
@@ -29,7 +28,6 @@ import { MessageService } from '../shared/services/message.service';
     RouterStoreModule.connectRouter(),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     InboxItemsModule,
-    UserProfilesModule,
     UserModule,
     SharedModule
 
@@ -40,7 +38,7 @@ import { MessageService } from '../shared/services/message.service';
   providers: [
     ApiService,
     InboxItemListingStore,
-    UserProfileListingStore,
+    UserListingStore,
     StepsBeginStore,
     StepsStateStore,
     MessageService

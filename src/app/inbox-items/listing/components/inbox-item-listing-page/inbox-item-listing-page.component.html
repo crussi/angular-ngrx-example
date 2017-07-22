@@ -3,7 +3,7 @@
     <app-inbox-item-search (queryChanged)="search($event)"></app-inbox-item-search>
     <app-inbox-item-filters [filters]="inboxItemListingStore.getInboxItemFilters() | async"
                             
-                             [users]="(userProfileListingStore.getUsers() | async)"
+                             [users]="(userListingStore.getUsers() | async)"
                             (userFilterChanged)="filterUser($event)"
                             >
     </app-inbox-item-filters>

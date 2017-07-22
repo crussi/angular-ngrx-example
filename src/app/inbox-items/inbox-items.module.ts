@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { InboxItemsContainerComponent } from './components';
 import { InboxItemsService } from './services';
-import { UserProfilesService } from '../user-profiles/services/user-profiles.service';
+import { UserService } from '../user/services/items.service';
 import { InboxItemListingModule } from './listing/listing.module';
 import { InboxItemDetailModule } from './detail/detail.module';
 import { InboxItemListingEffects } from '../inbox-items/store/effects';
-import { UserProfileListingEffects } from '../user-profiles/store/effects';
+import { UserListingEffects } from '../user/store/effects';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { UserProfileListingEffects } from '../user-profiles/store/effects';
     RouterModule,
     InboxItemListingModule,
     InboxItemDetailModule,
-    EffectsModule.run(UserProfileListingEffects),
+    EffectsModule.run(UserListingEffects),
     EffectsModule.run(InboxItemListingEffects),
   ],
   declarations: [
@@ -25,7 +25,7 @@ import { UserProfileListingEffects } from '../user-profiles/store/effects';
   
   ],
   providers: [
-    UserProfilesService,
+    UserService,
     InboxItemsService
   ]
 })

@@ -9,6 +9,7 @@ import {
   getItem,
   IItemListing,
 } from '../../../shared/barrel';
+import { getUsers } from './item-listing.functions';
 import { IItemFilters } from '../../../shared/barrel';
 
 import { ItemProcessed } from '../../../shared/barrel';
@@ -40,6 +41,11 @@ export class UserListingStore {
   public getItems(): Observable<Array<IItem>> {
     return this.getItemListing()
       .map(userListing => getItems(userListing));
+  }
+
+  public getUsers(): Observable<Array<string>> {
+    return this.getItemListing()
+      .map(userListing => getUsers(userListing));
   }
 
   public getItem(id: string): Observable<IItem> {

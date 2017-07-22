@@ -3,6 +3,7 @@ export interface IItem {
     readonly type: string;
     readonly description?: string;
     readonly nextaction?: string;
+    readonly name?: string;
     readonly done?: boolean;
     readonly userCreated?: string;
     readonly dateCreated?: Date;

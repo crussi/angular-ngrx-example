@@ -17,7 +17,7 @@ export function createDefaultItemListing(): IItemListing {
   };
 }
 
-function getFilteredItems(itemListing: IItemListing) {
+export function getFilteredItems(itemListing: IItemListing) {
   return itemListing.items
     .filter(item => itemMatchesSearchQuery(item, itemListing.searchQuery))
     .filter(item => itemMatchesUserFilter(item, itemListing.filters))
